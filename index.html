@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        h3 {
+            text-align: center;
+            padding-top: 0;
+        }
+
+        h4 {
+            text-align: center;
+            padding-top: 0;
+        }
+
+        svg {
+            font-family: sans-serif;
+            font-size: 0.75em;
+            position: relative;
+        }
+
+        path {
+            stroke: steelblue;
+            stroke-width: 2px;
+            fill: none;
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: black;
+            stroke-width: 1;
+            shape-rendering: crispEdges;
+        }
+
+        @import url('//fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic');
+
+        body {
+            font-family: 'Lato', Arial, Helvetica, sans-serif;
+            font-size: 16px;
+        }
+
+        .source {
+            font-size: 0.625em;
+            color: grey;
+            line-height: 80%;
+        }
+
+        .prepaired {
+            font-size: 0.625em;
+            color: grey;
+            line-height: 80%;
+        }
+
+        .update {
+            font-size: 0.625em;
+            color: grey;
+            line-height: 80%;
+        }
+
+        .notes {
+            font-size: 0.625em;
+            color: grey;
+            line-height: 80%;
+        }
+
+        a {
+            color: dimgray;
+        }
+
+        th {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        #cpi {
+            text-align: right;
+            padding-right: 2px;
+            margin-right: 3px;
+            width: 100%;
+            font-size: .8em;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        td:nth-child(6) {
+            margin-right: 5px;
+        }
+
+        td:nth-child(1) {
+            width: 85px;
+        }
+
+        td:nth-child(12) {
+            width:95px;
+        }
+
+        @media print {
+            .noprint {
+                display: none !important;
+            }
+
+            a:link:after, a:visited:after {
+                display: none;
+                content: "";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div style="align-items:flex-start; width:100%;" class="container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">Consumer Price Index</a></li>
+            <li><a data-toggle="tab" href="#menu1">Chart</a></li>
+            <li><a href="http://data.bls.gov/cgi-bin/surveymost?bls" target="_blank">Download</a></li>
+        </ul>
+        <div class="tab-content" style="background-color:lightgrey; stroke-width:1px; stroke:dimgray; border-radius: 0 0 0.625em 0.625em; padding:4px;">
+            <div id="home" style="margin-right:5px;" class="tab-pane fade in active">
+                <h3>All items, U.S. city average (base period: 1982-1984=100)</h3>
+                <table id="cpi"></table>
+                <br /><span class="source">Source: U.S. Dept. of Labor, Bureau of Labor Statistics.</span>
+                <br /><span class="prepaired">Table prepared by UNM Bureau of Business and Economic Research</span>
+                <br /><span class="update">Last Revised: 01/20/2016, Next update: 03/08/2016</span>
+            </div>
+            <div id="menu1" style="margin-right:5px;" class="tab-pane fade">
+                <span id="ieString"></span>
+                <div id="chart" style="background:white"></div>
+                <br /><span class="source">Source: U.S. Dept. of Labor, Bureau of Labor Statistics.</span>
+                <br /><span class="prepaired">Table prepared by UNM Bureau of Business and Economic Research</span>
+                <br /><span class="update">Last Revised: 01/20/2016, Next update: 03/08/2016</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set the dimensions of the canvas / graph
+        var margin = { top: 10, right: 60, bottom: 30, left: 50 }
+            , width = 910
+            , width = width - margin.left - margin.right
+            , height = 400 - margin.top - margin.bottom;
+
+        // Parse the date / time
+        var parseDate = d3.time.format( "%m/%d/%Y" ).parse;
+        bisectDate = d3.bisector( function ( d ) { return d.date; } ).left;
+
+        // Set the ranges
+        var x = d3.time.scale().range( [0, width] );
+        var y = d3.scale.linear().range( [height, 0] );
+
+        // Define the axes
+        var xAxis = d3.svg.axis().scale( x )
+            .orient( "bottom" )
+            .ticks( d3.time.year, 1 );
+
+        var yAxis = d3.svg.axis().scale( y )
+            .orient( "left" ).ticks( 10 );
+
+        // Adds the svg canvas
+        var svg = d3.select( "#chart" )
+            .append( "svg" )
+                .attr( "width", width + margin.left + margin.right )
+                .attr( "height", height + margin.top + margin.bottom )
+            .append( "g" )
+                .attr( "transform",
+                      "translate(" + margin.left + "," + margin.top + ")" );
+
+        var rSvg = svg.append( "g" );
+
+        var lineSvg = svg.append( "g" );
+
+        var focus = svg.append( "g" )
+            .style( "display", "none" );
+
+        d3.csv( "cpi.csv", function ( error, data ) {
+            data.forEach( function ( d ) {
+                d.dateP = d.period + "/01/" + d.periodyear
+                d.date = parseDate( d.dateP );
+                return d;
+            } );
+
+            valueline = d3.svg.line()
+                .x( function ( d ) { return x( d.date ); } )
+                .y( function ( d ) { return y( d.cpi ); } );
+
+            // Scale the range of the data
+            x.domain( d3.extent( data, function ( d ) { return d.date; } ) );
+            y.domain( [180, 250] );
+            
+
+            //Makes the shaded recession rectangle
+            rSvg.append( 'rect' )
+                .attr( "class", "recessionRect" )
+                .attr( "x", x( parseDate( "12/01/2007" ) ) )
+                .attr( "width", x( parseDate( "06/01/2009" ) ) - x( parseDate( "12/01/2007" ) ) )
+                .attr( "y", y( 250 ) )
+                .attr( "height", y( 180 ) - y( 250 ) )
+                .style( "fill", "lightgrey" )
+                .style( "fill-opacity", 0.7 );
+
+            // draw the lines
+            var lines = lineSvg.selectAll( ".line" ).data( data ).attr( "class", "line" )
+
+            // transition from previous paths to new paths
+            lines.transition().duration( 1500 )
+              .attr( "d", valueline( data ) );
+
+            // exit
+            lines.exit().remove();
+
+            // append the rectangle to capture mouse
+            svg.append( "rect" )
+                .attr( "width", width )
+                .attr( "height", height )
+                .attr( "class", "mouseEventRect" )
+                .style( "fill", "none" )
+                .style( "pointer-events", "all" )
+                .on( "mouseover", function () {
+                    focus.style( "display", null );
+                } )
+                .on( "mouseout", function () {
+                    focus.style( "display", "none" );
+                } )
+                .on( "mousemove", mousemove );
+
+            if ( svg.selectAll( ".y.axis" )[0].length < 1 ) {//checks if an axis exists yet so the below only fires on page load or resize
+                // Add the valueline path for inital page
+                lineSvg.append( "path" )
+                    .attr( "class", "line" )
+                    .attr( "d", valueline( data ) );
+                // Add the X Axis
+                svg.append( "g" )
+                    .attr( "class", "x axis" )
+                    .attr( "transform", "translate(0," + height + ")" )
+                    .call( xAxis );
+
+                // Add the Y Axis
+                svg.append( "g" )
+                    .attr( "class", "y axis" )
+                    .call( yAxis )
+                .append( "text" )
+                    .attr( "class", "label" )
+                    .attr( "transform", "rotate(-90)" )
+                    .attr( "y", 5 )//-30
+                    .attr( "x", -5 )//-350
+                    .attr( "dy", ".71em" )
+                    .style( "text-anchor", "end" )
+                    .text( "Consumer Price Index (100 = 1982-84)" );
+
+                // append the circle at the intersection
+                focus.append( "circle" )
+                    .attr( "class", "y" )
+                    .style( "fill", "none" )
+                    .style( "stroke", "red" )
+                    .attr( "r", 5 );
+
+                // place the value at the intersection
+                focus.append( "text" )
+                    .attr( "class", "y1" )
+                    .style( "stroke", "white" )
+                    .style( "stroke-width", "3.5px" )
+                    .style( "opacity", 0.8 )
+                    .attr( "dx", 8 )
+                    .attr( "dy", "-.3em" );
+                focus.append( "text" )
+                    .attr( "class", "y2" )
+                    .attr( "dx", 8 )
+                    .attr( "dy", "-.3em" );
+            };
+
+            function mousemove() {
+                ms_ie = false,
+                ua = window.navigator.userAgent,
+                old_ie = ua.indexOf( 'MSIE ' ),
+                new_ie = ua.indexOf( 'Trident/' );
+
+                if ( ( old_ie > -1 ) || ( new_ie > -1 ) ) {
+                    ms_ie = true;
+                }
+
+                if ( ms_ie ) {
+                    //IE specific code goes here
+                    var x0 = x.invert( d3.mouse( this )[0] ),
+                        i = bisectDate( data, x0, 1 ),
+                        d0 = data[i - 1],
+                        d1 = data[i],
+                        d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+
+                    document.getElementById( 'ieString' ).innerHTML = ( '(' + d.period + '/' + d.periodyear + ', ' + ( d.cpi ) + ")" );
+
+                    focus.select( "circle.y" )
+                        .attr( "transform",
+                              "translate(" + x( d.date ) + "," + y( d.cpi ) + ")" );
+                } else {
+                    var x0 = x.invert( d3.mouse( this )[0] ),
+                        i = bisectDate( data, x0, 1 ),
+                        d0 = data[i - 1],
+                        d1 = data[i],
+                        d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+
+                    focus.select( "text.y1" )
+                        .html( '(' + d.period + '/' + d.periodyear + ', ' + ( d.cpi ) + ")" )
+                        .attr( "transform", "translate(" + ( x( d.date ) - 55 ) + "," + ( y( d.cpi ) - 8 ) + ")" );
+
+                    focus.select( "text.y2" )
+                        .html( '(' + d.period + '/' + d.periodyear + ', ' + ( d.cpi ) + ")" )
+                        .attr( "transform", "translate(" + ( x( d.date ) - 55 ) + "," + ( y( d.cpi ) - 8 ) + ")" );
+
+                    focus.select( "circle.y" )
+                        .attr( "transform",
+                              "translate(" + x( d.date ) + "," + y( d.cpi ) + ")" );
+                };
+            };
+        } );
+
+        function formatMoney( num ) {
+            return num.toString().replace( /(\d)(?=(\d{3})+(?!\d))/g, "$1," )
+        };
+
+        window.addEventListener( 'resize', function () {
+            "use strict";
+            window.location.reload();
+        } );
+
+        d3.csv( "cpi_tab.csv", function ( data ) {
+            function tabulate( data, columns ) {
+                var table = d3.select( "#cpi" ),
+                    columnNames = ["Month", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015","2016", "% Chg. from year prev."],
+                    thead = table.append( "thead" ),
+                    tbody = table.append( "tbody" );
+
+                // append the header row
+                thead.append( "tr" )
+                    .selectAll( "th" )
+                    .data( columnNames )
+                    .enter()
+                    .append( "th" )
+                    .text( function ( columnNames ) { return columnNames; } );
+
+                // create a row for each object in the data
+                var rows = tbody.selectAll( "tr" )
+                    .data( data )
+                    .enter()
+                    .append( "tr" );
+
+                // create a cell in each row for each column
+                var cells = rows.selectAll( "td" )
+                    .data( function ( row ) {
+                        return columns.map( function ( column ) {
+                            return { column: column, value: row[column] };
+                        } );
+                    } )
+                    .enter()
+                    .append( "td" )
+                    .attr( "style", "font-family: 'Lato'" )
+                    .attr("style", "padding: 2px;")
+                        .html( function ( d ) {
+                            return d.value;
+                        } );
+
+                return table;
+            };
+
+            var peopleTable = tabulate( data, ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c10", "c11", "c12"] )
+
+            function formatMoney( num ) {
+                return num.toString().replace( /(\d)(?=(\d{3})+(?!\d))/g, "$1," )
+            };
+        } );
+    </script>
+</body>
+</html>
