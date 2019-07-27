@@ -1,139 +1,43 @@
-<style>
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
-</style>
-
-body {
-    font-family: 'Roboto Condensed', sans-serif;
-    margin: 0;
-    background: #eee;
-    height: auto;
+table.paleBlueRows {
+  font-family: "Times New Roman", Times, serif;
+  border: 1px solid #FFFFFF;
+  width: 350px;
+  height: 200px;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.paleBlueRows td, table.paleBlueRows th {
+  border: 1px solid #FFFFFF;
+  padding: 3px 2px;
+}
+table.paleBlueRows tbody td {
+  font-size: 13px;
+}
+table.paleBlueRows tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.paleBlueRows thead {
+  background: #0B6FA4;
+  border-bottom: 5px solid #FFFFFF;
+}
+table.paleBlueRows thead th {
+  font-size: 17px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 2px solid #FFFFFF;
+}
+table.paleBlueRows thead th:first-child {
+  border-left: none;
 }
 
-.caption {
-    background-color: white;
+table.paleBlueRows tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333333;
+  background: #D0E4F5;
+  border-top: 3px solid #444444;
 }
-
-h1 {
-    font-weight: 400;
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    margin: 0;
-}
-
-h2 {
-    font-weight: 400;
-    font-size: 1.2rem;
-    text-transform: capitalize;
-    margin: 0;
-}
-
-img {
-    display: block;
-    width: 100%;
-}
-
-main {
-    max-width: 900px;
-    margin:auto;
-    box-shadow: 30px 0px 40px rgba(0, 0, 0, 0.1),
-    -30px 0px 40px rgba(0, 0, 0, 0.1)
-}
-
-#landing {
-    background: #fff;
-}
-
-#landing-text {
-    display: flex;
-    flex: 0 1 40vw;
-    height: 50vh;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding-right: 1rem;
-    padding-left: 1rem;
-}
-
-#landing-text h2 {
-    color: #888;
-}
-
-#landing-image {
-    background: url('../images/NBA_logo.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 50vh;
-    flex: 0 1 60vw;
-    margin: 0;
-}
-.btn {
-    padding: 0.5rem 2rem;
-    border: 1px #ccc solid;
-    display: inline-block;
-    margin: 2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    color: #222;
-    transition: background 1000ms ease;
-}
-
-.btn:hover {
-    background: #A9A9A9;
-}
-
-#header {
-    padding: 1.5rem;
-    text-align: center;
-    background: #333;
-    color: #fff;
-}
-
-#header h2 {
-    border-left: dotted 1px #fff;
-    border-right: dotted 1px #fff;
-    display: inline-block;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-.caption {
-    padding: 0.8rem;
-    text-align: center;
-}
-
-footer {
-    text-align: center;
-    margin:auto;
-    color: #333;
-    background-color: white;
-    max-width: 900px;
-    border: solid 3px black;
-    border-radius: 100px;
-}
-
-footer h3 {
-    font-size: 3rem;
-    margin-bottom: 0;
-}
-
-/*Screen Sizes 500px and up*/
-@media (min-width: 500px) {
-    #landing {
-        display: flex;
-        height: 100%;
-    }
-    #landing-text {
-        height: 100vh;
-    }
-    #landing-image {
-        height: 100vh;
-    }
-}
-
-/*Screen Sizes 700px and up*/
-@media (min-width: 700px) {
-    .btn {
-        padding: 1rem 3rem;
-    }
+table.paleBlueRows tfoot td {
+  font-size: 14px;
 }
