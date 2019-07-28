@@ -1,9 +1,5 @@
 svg {
-  height: 300;
-  width: 100%;
-  overflow: visible;
-  viewBox: 0 0 220 100;
-  position: relative;
+  background-size: 300px 100px;
 }
 table {
   font-family: "Times New Roman", Times, serif;
