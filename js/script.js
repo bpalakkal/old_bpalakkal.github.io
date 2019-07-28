@@ -30,7 +30,18 @@ var tabulate = function (data,columns) {
       .attr("height", height + margin.top + margin.bottom)    
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-     
+
+  
+ 
+    var svgimage = svg.append("svg:image")
+    	.attr("x",right-50)
+    	.attr("y",0-(margin.top/4))
+    	.attr("width", 20)
+	.attr("height", 24)    	      		
+    	.attr("xlink:href", "download.jfif")
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+    
  var svgtext = svg.append("a")    	
     	.attr("xlink:href", "ppg.html")
         .append("text")
