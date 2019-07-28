@@ -4,6 +4,7 @@ h1 {
   font-size: 2rem;
   position: relative;
   float: left;
+  display: inline;
 }
 svg {
   font-family: sans-serif;
