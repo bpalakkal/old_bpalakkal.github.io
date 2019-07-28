@@ -1,3 +1,12 @@
+tooltip {
+      line-height: 1;
+      padding: 6px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
 h1 {
   font-family: "Gill Sans","Gill Sans MT","Calibri","sans-serif"; 
   color: #006bb6;
