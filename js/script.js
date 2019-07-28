@@ -537,9 +537,10 @@ var tabulate8 = function (data,columns) {
 var formatPercent = d3.format(",.2%") 
 d3.csv('data.csv',function (data) {
 	var columns = ['Name','Team','Position','FGPt']
-    	fgpt = tabulate8(data,columns)
+    	data.FGPt = formatPercent(data.FGPt)
+	fgpt = tabulate8(data,columns)
 	fgpt.select("tbody").selectAll("tr")	
 	.sort(function(a,b){
-		return d3.format(".2%").descending(parseFloat(a.FGPt), parseFloat(b.FGPt))})
+		return d3.descending(parseFloat(a.FGPt), parseFloat(b.FGPt))})
 })
 
