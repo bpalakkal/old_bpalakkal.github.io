@@ -531,13 +531,16 @@ var tabulate8 = function (data,columns) {
     .append('td')
       .text(function (d) { return d.value })
 
+  cells.filter(fucntion(d,i){
+	       return i === 3})
+	.html(function(d){
+	  return(parseFloat(d.value)*100 + "%";
+		 })
   return table;
 }
 
-var formatPercent = d3.format(",.2%") 
 d3.csv('data.csv',function (data) {
-	var columns = ['Name','Team','Position','FGPt']
-    	data.FGPt = formatPercent(data.FGPt)
+	var columns = ['Name','Team','Position','FGPt']    	
 	fgpt = tabulate8(data,columns)
 	fgpt.select("tbody").selectAll("tr")	
 	.sort(function(a,b){
