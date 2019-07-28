@@ -1,9 +1,9 @@
 var tabulate = function (data,columns) {
     var svg = d3.select("body").append("svg")
-      .attr("width", 960)
+      .attr("width", 500)
       .attr("height", 500);
     var forobj = svg.append("foreignObject")
-      .attr("width", 480)
+      .attr("width", 400)
       .attr("height", 500)
       .append("xhtml:body")
     var table = forobj.append("table")    
@@ -41,10 +41,10 @@ d3.csv('data.csv',function (data) {
 
 var tabulate = function (data,columns) {
     var svg = d3.select("body").append("svg")
-      .attr("width", 960)
+      .attr("width", 500)
       .attr("height", 500);
     var forobj = svg.append("foreignObject")
-      .attr("width", 480)
+      .attr("width", 400)
       .attr("height", 500)
       .append("xhtml:body")
     var table = forobj.append("table")    
