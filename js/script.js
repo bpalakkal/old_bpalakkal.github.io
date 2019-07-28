@@ -19,6 +19,7 @@ var tabulate = function (data,columns) {
     var tooltip = d3.select("body")
 	.append("div")
 	.style("position", "absolute")
+    	.offset([-8, 0])
 	.style("z-index", "10")
 	.style("visibility", "hidden")
 	.text("Click for detailed view");
