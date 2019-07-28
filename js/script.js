@@ -22,8 +22,7 @@ var tabulate = function (data,columns) {
       .attr("height", height + margin.top + margin.bottom)    
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-    var svgtext = svg.append("a")
-    	.attr("href","ppg.html")
+    var svgtext = svg.append("text")    	
     	.text("Points per Game")
         .attr("x",(width/2))
     	.attr("y",0-(margin.top/4))
@@ -31,7 +30,8 @@ var tabulate = function (data,columns) {
     	.style("font-size","16px")
     	.style("fill","#006bb6")
     	.style("text-decoration","underline")
-    	.style("font-weight","bold")    	    
+    	.style("font-weight","bold") 
+    	.on("click", function() {window.open("http://google.com"); });
     
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
