@@ -6,7 +6,7 @@ var tabulate = function (data,columns) {
       .attr("width", 400)
       .attr("height", 200)
       .append("xhtml:body")
-    var objtitle = forobj.append("caption").text("Points Per Game")
+    var objtitle = forobj.append("text").text("Points Per Game")
     var table = objtitle.append("table")
     var thead = table.append('thead')
     var tbody = table.append('tbody')
