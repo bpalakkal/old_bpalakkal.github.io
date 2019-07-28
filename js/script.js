@@ -31,11 +31,9 @@ var tabulate = function (data,columns) {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
-  
- 
     var svgimage = svg.append("svg:image")
-    	.attr("x",(margin.right-50))
-    	.attr("y",0-(margin.top/4))
+    	.attr("x",290)
+    	.attr("y",(0-margin.top))
     	.attr("width", 20)
 	.attr("height", 24)    	      		
     	.attr("xlink:href", "right.jpeg")
