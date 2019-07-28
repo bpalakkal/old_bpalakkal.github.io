@@ -69,7 +69,7 @@ d3.csv('data.csv',function (data) {
   	ppg = tabulate(data,columns)
 	ppg.select("tbody").selectAll("tr")	
 	.sort(function(a,b){
-		return d3.descending(a.PPG, b.PPG)})
+		return d3.descending(parseFloat(a.PPG), parseFloat(b.PPG))})
 })
 
 
@@ -125,7 +125,10 @@ var tabulate1 = function (data,columns) {
 
 d3.csv('data.csv',function (data) {
 	var columns = ['Name','Team','Position','RPG']
-  tabulate1(data,columns)
+  	rpg = tabulate1(data,columns)
+	rpg.select("tbody").selectAll("tr")	
+	.sort(function(a,b){
+		return d3.descending(parseFloat(a.RPG), parseFloat(b.RPG))})
 })
 
 var tabulate2 = function (data,columns) {
@@ -180,7 +183,10 @@ var tabulate2 = function (data,columns) {
 
 d3.csv('data.csv',function (data) {
 	var columns = ['Name','Team','Position','SPG']
-  tabulate2(data,columns)
+  	spg = tabulate2(data,columns)
+	spg.select("tbody").selectAll("tr")	
+	.sort(function(a,b){
+		return d3.descending(parseFloat(a.SPG), parseFloat(b.SPG))})
 })
 
 
@@ -236,7 +242,10 @@ var tabulate3 = function (data,columns) {
 
 d3.csv('data.csv',function (data) {
 	var columns = ['Name','Team','Position','APG']
-  tabulate3(data,columns)
+  	apg = tabulate3(data,columns)
+	apg.select("tbody").selectAll("tr")	
+	.sort(function(a,b){
+		return d3.descending(parseFloat(a.APG), parseFloat(b.APG))})
 })
 
 
@@ -292,7 +301,10 @@ var tabulate4 = function (data,columns) {
 
 d3.csv('data.csv',function (data) {
 	var columns = ['Name','Team','Position','OffRating']
-  tabulate4(data,columns)
+  	offr = tabulate4(data,columns)
+	offr.select("tbody").selectAll("tr")	
+	.sort(function(a,b){
+		return d3.descending(parseFloat(a.OffRating), parseFloat(b.OffRating))})
 })
 
 
@@ -348,7 +360,10 @@ var tabulate5 = function (data,columns) {
 
 d3.csv('data.csv',function (data) {
 	var columns = ['Name','Team','Position','DefRating']
-  tabulate5(data,columns)
+  	defr = tabulate5(data,columns)
+	defr.select("tbody").selectAll("tr")	
+	.sort(function(a,b){
+		return d3.descending(parseFloat(a.DefRating), parseFloat(b.DefRating))})
 })
 
 var tabulate6 = function (data,columns) {
@@ -403,7 +418,10 @@ var tabulate6 = function (data,columns) {
 
 d3.csv('data.csv',function (data) {
 	var columns = ['Name','Team','Position','MPG']
-  tabulate6(data,columns)
+  	mpg = tabulate6(data,columns)
+	mpg.select("tbody").selectAll("tr")	
+	.sort(function(a,b){
+		return d3.descending(parseFloat(a.MPG), parseFloat(b.MPG))})
 })
 
 
@@ -459,7 +477,10 @@ var tabulate7 = function (data,columns) {
 
 d3.csv('data.csv',function (data) {
 	var columns = ['Name','Team','Position','FTPt']
-  tabulate7(data,columns)
+    	ftpt = tabulate7(data,columns)
+	ftpt.select("tbody").selectAll("tr")	
+	.sort(function(a,b){
+		return d3.descending(parseFloat(a.FTPt), parseFloat(b.FTPt))})
 })
 
 
@@ -515,6 +536,9 @@ var tabulate8 = function (data,columns) {
 
 d3.csv('data.csv',function (data) {
 	var columns = ['Name','Team','Position','FGPt']
-  tabulate8(data,columns)
+    	fgpt = tabulate8(data,columns)
+	fgpt.select("tbody").selectAll("tr")	
+	.sort(function(a,b){
+		return d3.descending(parseFloat(a.FGPt), parseFloat(b.FGPt))})
 })
 
