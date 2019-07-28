@@ -531,10 +531,10 @@ var tabulate8 = function (data,columns) {
     .append('td')
       .text(function (d) { return d.value })
 
-  cells.filter(fucntion(d,i){
+     cells.filter(function(d,i){
 	       return i === 3})
 	.html(function(d){
-	  return(parseFloat(d.value)*100 + "%";
+	  return(parseFloat(d.value)*100 + "%");
 		 })
   return table;
 }
