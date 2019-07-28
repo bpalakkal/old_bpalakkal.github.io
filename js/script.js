@@ -2,7 +2,7 @@ var tabulate = function (data,columns) {
     var svg = d3.select("body").append("svg")
       .attr("width", 500)
       .attr("height", 300)
-      .attr("text","Points Per Game")      
+      .attr("label","Points Per Game")      
     var forobj = svg.append("foreignObject")
       .attr("width", 400)
       .attr("height", 200)
