@@ -1,4 +1,11 @@
- svg {
+h1 {
+  font-family: "Gill Sans","Gill Sans MT","Calibri","sans-serif"; 
+  color: #006bb6;
+  font-size: 2rem;
+  position: relative;
+  float: left;
+}
+svg {
   font-family: sans-serif;
   font-size: 0.75em;
   position: relative;
