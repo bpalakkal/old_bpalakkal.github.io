@@ -1,6 +1,6 @@
 var tabulate = function (data,columns) {
     var margin = {top: 20, right: 10, bottom: 20, left: 10}
-    var width = 500 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
+    var width = 400 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
     var svg = d3.select("body").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)    
@@ -16,8 +16,8 @@ var tabulate = function (data,columns) {
     	.text("Points per Game")    
     
     var forobj = svg.append("foreignObject")
-      .attr("width", 300)
-      .attr("height", 200)
+      .attr("width", 380)
+      .attr("height", 260)
       .append("xhtml:body")
     var table = forobj.append("table")
     var thead = table.append('thead')
@@ -52,9 +52,10 @@ d3.csv('data.csv',function (data) {
   tabulate(data,columns)
 })
 
-var tabulate = function (data,columns) {
+
+var tabulate1 = function (data,columns) {
     var margin = {top: 20, right: 10, bottom: 20, left: 10}
-    var width = 500 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
+    var width = 400 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
     var svg = d3.select("body").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)    
@@ -70,8 +71,8 @@ var tabulate = function (data,columns) {
     	.text("Rebounds per Game")    
     
     var forobj = svg.append("foreignObject")
-      .attr("width", 300)
-      .attr("height", 200)
+      .attr("width", 380)
+      .attr("height", 260)
       .append("xhtml:body")
     var table = forobj.append("table")
     var thead = table.append('thead')
@@ -103,13 +104,12 @@ var tabulate = function (data,columns) {
 
 d3.csv('data.csv',function (data) {
 	var columns = ['Name','Team','Position','RPG']
-  tabulate(data,columns)
+  tabulate1(data,columns)
 })
 
-
-var tabulate = function (data,columns) {
+var tabulate2 = function (data,columns) {
     var margin = {top: 20, right: 10, bottom: 20, left: 10}
-    var width = 500 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
+    var width = 400 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
     var svg = d3.select("body").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)    
@@ -125,8 +125,8 @@ var tabulate = function (data,columns) {
     	.text("Steals per Game")    
     
     var forobj = svg.append("foreignObject")
-      .attr("width", 300)
-      .attr("height", 200)
+      .attr("width", 380)
+      .attr("height", 260)
       .append("xhtml:body")
     var table = forobj.append("table")
     var thead = table.append('thead')
@@ -158,13 +158,13 @@ var tabulate = function (data,columns) {
 
 d3.csv('data.csv',function (data) {
 	var columns = ['Name','Team','Position','SPG']
-  tabulate(data,columns)
+  tabulate2(data,columns)
 })
 
 
-var tabulate = function (data,columns) {
+var tabulate3 = function (data,columns) {
     var margin = {top: 20, right: 10, bottom: 20, left: 10}
-    var width = 500 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
+    var width = 400 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
     var svg = d3.select("body").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)    
@@ -180,8 +180,8 @@ var tabulate = function (data,columns) {
     	.text("Assists per Game")    
     
     var forobj = svg.append("foreignObject")
-      .attr("width", 300)
-      .attr("height", 200)
+      .attr("width", 380)
+      .attr("height", 260)
       .append("xhtml:body")
     var table = forobj.append("table")
     var thead = table.append('thead')
@@ -213,13 +213,13 @@ var tabulate = function (data,columns) {
 
 d3.csv('data.csv',function (data) {
 	var columns = ['Name','Team','Position','APG']
-  tabulate(data,columns)
+  tabulate3(data,columns)
 })
 
 
-var tabulate = function (data,columns) {
+var tabulate4 = function (data,columns) {
     var margin = {top: 20, right: 10, bottom: 20, left: 10}
-    var width = 500 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
+    var width = 400 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
     var svg = d3.select("body").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)    
@@ -235,8 +235,8 @@ var tabulate = function (data,columns) {
     	.text("Offensive Rating")    
     
     var forobj = svg.append("foreignObject")
-      .attr("width", 300)
-      .attr("height", 200)
+      .attr("width", 380)
+      .attr("height", 260)
       .append("xhtml:body")
     var table = forobj.append("table")
     var thead = table.append('thead')
@@ -268,13 +268,13 @@ var tabulate = function (data,columns) {
 
 d3.csv('data.csv',function (data) {
 	var columns = ['Name','Team','Position','OffRating']
-  tabulate(data,columns)
+  tabulate4(data,columns)
 })
 
 
-var tabulate = function (data,columns) {
+var tabulate5 = function (data,columns) {
     var margin = {top: 20, right: 10, bottom: 20, left: 10}
-    var width = 500 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
+    var width = 400 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
     var svg = d3.select("body").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)    
@@ -290,8 +290,8 @@ var tabulate = function (data,columns) {
     	.text("Defensive Rating")    
     
     var forobj = svg.append("foreignObject")
-      .attr("width", 300)
-      .attr("height", 200)
+      .attr("width", 380)
+      .attr("height", 260)
       .append("xhtml:body")
     var table = forobj.append("table")
     var thead = table.append('thead')
@@ -323,12 +323,12 @@ var tabulate = function (data,columns) {
 
 d3.csv('data.csv',function (data) {
 	var columns = ['Name','Team','Position','DefRating']
-  tabulate(data,columns)
+  tabulate5(data,columns)
 })
 
-var tabulate = function (data,columns) {
+var tabulate6 = function (data,columns) {
     var margin = {top: 20, right: 10, bottom: 20, left: 10}
-    var width = 500 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
+    var width = 400 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
     var svg = d3.select("body").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)    
@@ -344,8 +344,8 @@ var tabulate = function (data,columns) {
     	.text("Minutes per Game")    
     
     var forobj = svg.append("foreignObject")
-      .attr("width", 300)
-      .attr("height", 200)
+      .attr("width", 380)
+      .attr("height", 260)
       .append("xhtml:body")
     var table = forobj.append("table")
     var thead = table.append('thead')
@@ -377,13 +377,13 @@ var tabulate = function (data,columns) {
 
 d3.csv('data.csv',function (data) {
 	var columns = ['Name','Team','Position','MPG']
-  tabulate(data,columns)
+  tabulate6(data,columns)
 })
 
 
-var tabulate = function (data,columns) {
+var tabulate7 = function (data,columns) {
     var margin = {top: 20, right: 10, bottom: 20, left: 10}
-    var width = 500 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
+    var width = 400 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
     var svg = d3.select("body").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)    
@@ -399,8 +399,8 @@ var tabulate = function (data,columns) {
     	.text("Free Throw %")    
     
     var forobj = svg.append("foreignObject")
-      .attr("width", 300)
-      .attr("height", 200)
+      .attr("width", 380)
+      .attr("height", 260)
       .append("xhtml:body")
     var table = forobj.append("table")
     var thead = table.append('thead')
@@ -432,13 +432,13 @@ var tabulate = function (data,columns) {
 
 d3.csv('data.csv',function (data) {
 	var columns = ['Name','Team','Position','FTPt']
-  tabulate(data,columns)
+  tabulate7(data,columns)
 })
 
 
-var tabulate = function (data,columns) {
+var tabulate8 = function (data,columns) {
     var margin = {top: 20, right: 10, bottom: 20, left: 10}
-    var width = 500 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
+    var width = 400 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
     var svg = d3.select("body").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)    
@@ -454,8 +454,8 @@ var tabulate = function (data,columns) {
     	.text("Field Goal %")    
     
     var forobj = svg.append("foreignObject")
-      .attr("width", 300)
-      .attr("height", 200)
+      .attr("width", 380)
+      .attr("height", 260)
       .append("xhtml:body")
     var table = forobj.append("table")
     var thead = table.append('thead')
@@ -487,6 +487,6 @@ var tabulate = function (data,columns) {
 
 d3.csv('data.csv',function (data) {
 	var columns = ['Name','Team','Position','FGPt']
-  tabulate(data,columns)
+  tabulate8(data,columns)
 })
 
