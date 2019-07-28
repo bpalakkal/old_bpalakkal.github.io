@@ -69,7 +69,7 @@ d3.csv('data.csv',function (data) {
   	ppg = tabulate(data,columns)
 	ppg.select("tbody").selectAll("tr")	
 	.sort(function(a,b){
-		return d3.descending(parseFloat(a.PPG), parseFloat(b.PPG))}).slice(0, 5)
+		return d3.descending(parseFloat(a.PPG), parseFloat(b.PPG))})
 })
 
 
