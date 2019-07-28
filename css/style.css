@@ -1,3 +1,10 @@
+svg {
+  height: 300;
+  width: 100%;
+  overflow: visible;
+  viewBox: 0 0 220 100;
+  position: relative;
+}
 table {
   font-family: "Times New Roman", Times, serif;
   border: 1px solid #FFFFFF;
