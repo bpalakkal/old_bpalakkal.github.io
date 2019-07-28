@@ -1,7 +1,7 @@
 var tabulate = function (data,columns) {
     var bodysel = d3.select("body")
-    var svgsel = bodysel.append("svg").attr("width",1000).attr("height",1000).attr("overflow","visible")     
-    var table = svgsel.append("table").attr("width",500).attr("height",500)
+    var svgsel = bodysel.append("svg").attr("viewBox","0 0 100 100")     
+    var table = svgsel.append("table")
     var thead = table.append('thead')
     var tbody = table.append('tbody')
 	thead.append('tr')
