@@ -1,3 +1,8 @@
+ svg {
+  font-family: sans-serif;
+  font-size: 0.75em;
+  position: relative;
+}
 table {
   font-family: "Times New Roman", Times, serif;
   border: 1px solid #FFFFFF;
