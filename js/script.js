@@ -24,7 +24,7 @@ var tabulate = function (data,columns) {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
     var svgtext = svg.append("a")
     	.attr("href","ppg.html")
-    	.html("Points per Game")
+    	.text("Points per Game")
         .attr("x",(width/2))
     	.attr("y",0-(margin.top/4))
     	.style("text-anchor","middle")
