@@ -1,4 +1,4 @@
-table.nbadata {
+table {
 font-family: "Times New Roman", Times, serif;
   border: 1px solid #FFFFFF;
   width: 350px;
@@ -6,38 +6,38 @@ font-family: "Times New Roman", Times, serif;
   text-align: center;
   border-collapse: collapse;
 }
-table.paleBlueRows td, table.paleBlueRows th {
+table td, table th {
   border: 1px solid #FFFFFF;
   padding: 3px 2px;
 }
-table.paleBlueRows tbody td {
+table tbody td {
   font-size: 13px;
 }
-table.paleBlueRows tr:nth-child(even) {
+table tr:nth-child(even) {
   background: #D0E4F5;
 }
-table.paleBlueRows thead {
+table thead {
   background: #0B6FA4;
   border-bottom: 5px solid #FFFFFF;
 }
-table.paleBlueRows thead th {
+table thead th {
   font-size: 17px;
   font-weight: bold;
   color: #FFFFFF;
   text-align: center;
   border-left: 2px solid #FFFFFF;
 }
-table.paleBlueRows thead th:first-child {
+table thead th:first-child {
   border-left: none;
 }
 
-table.paleBlueRows tfoot {
+table tfoot {
   font-size: 14px;
   font-weight: bold;
   color: #333333;
   background: #D0E4F5;
   border-top: 3px solid #444444;
 }
-table.paleBlueRows tfoot td {
+table tfoot td {
   font-size: 14px;
 }
