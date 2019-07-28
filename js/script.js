@@ -1,5 +1,5 @@
 var tabulate = function (data,columns) {
-  var table = d3.select('svg1').append('table')
+  var table = d3.select('#svg1').append('table')
 	var thead = table.append('thead')
 	var tbody = table.append('tbody')
 
@@ -34,7 +34,7 @@ d3.csv('data.csv',function (data) {
 })
 
 var tabulate = function (data,columns) {
-  var table = d3.select('svg2').append('table')
+  var table = d3.select('#svg2').append('table')
 	var thead = table.append('thead')
 	var tbody = table.append('tbody')
 
