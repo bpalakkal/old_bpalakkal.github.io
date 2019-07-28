@@ -29,6 +29,6 @@ var tabulate = function (data,columns) {
 }
 
 d3.csv('data.csv',function (data) {
-	var columns = ['variable','aror','asd','maxdd']
+	var columns = ['#','Player Name','Team','PPG']
   tabulate(data,columns)
 })
