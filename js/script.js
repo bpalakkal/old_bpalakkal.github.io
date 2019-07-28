@@ -16,6 +16,13 @@ var svgtext = svg.append("text")
     	.text("NBA 2018/19 Regular Season Leaders")    
 
 var tabulate = function (data,columns) {
+    var tooltip = d3.select("body")
+	.append("div")
+	.style("position", "absolute")
+	.style("z-index", "10")
+	.style("visibility", "hidden")
+	.text("Click for detailed view");
+	
     var margin = {top: 20, right: 10, bottom: 20, left: 10}
     var width = 400 - margin.left - margin.right, height = 200 - margin.top - margin.bottom	
     var svg = d3.select("body").append("svg")
@@ -23,18 +30,9 @@ var tabulate = function (data,columns) {
       .attr("height", height + margin.top + margin.bottom)    
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-    
-    var tooltip = svg.append("div")
-    .style("position", "absolute")
-    .style("z-index", "10")
-    .style("visibility", "hidden")
-    .style("background", "#000")
-    .style("font-size","8px")
-    .style("fill","#006bb6")
-    .text("Click for detailed view");
-	
+ 
     var svgtext = svg.append("a")    	
-    	.attr("xlink:href", "http://en.wikipedia.org/wiki/")
+    	.attr("xlink:href", "ppg.html")
         .append("text")
     	.attr("x",(width/2))
     	.attr("y",0-(margin.top/4))
@@ -44,9 +42,9 @@ var tabulate = function (data,columns) {
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
     	.text("Points Per Game")
-    	.on("mouseover", function(d){tooltip.text(d); return tooltip.style("visibility", "visible")})
-    	.on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px")})
-      	.on("mouseout", function(){return tooltip.style("visibility", "hidden")})
+	.on("mouseover", function(){return tooltip.style("visibility", "visible");})
+	.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
 	
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
