@@ -36,7 +36,7 @@ var tabulate = function (data,columns) {
     	.attr("y",(0-margin.top))
     	.attr("width", 20)
 	.attr("height", 24)    	      		
-    	.attr("xlink:href", "right.jpeg")
+    	.attr("xlink:href", "right.jpg")
 	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
 	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
     
