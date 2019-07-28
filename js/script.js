@@ -23,7 +23,7 @@ var tabulate = function (data,columns) {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
     var svgtext = svg.append("a")    	
-    	..attr("xlink:href", "http://en.wikipedia.org/wiki/"+"Points Per Game")
+    	.attr("xlink:href", "http://en.wikipedia.org/wiki/"+"Points Per Game")
         .attr("x",(width/2))
     	.attr("y",0-(margin.top/4))
     	.style("text-anchor","middle")
