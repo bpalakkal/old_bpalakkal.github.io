@@ -16,10 +16,11 @@ var svgtext = svg.append("text")
     	.text("NBA 2018/19 Regular Season Leaders")    
 
 var tooltip = d3.select("body")
-	.append("div")	 
+	.append("div")
+	.style("position", "absolute")
 	.style("z-index", "10")
 	.style("visibility", "hidden")
-	.text("Click for detailed view");
+	.text("click for more details");
 
 var tabulate = function (data,columns) {	
     var margin = {top: 20, right: 10, bottom: 20, left: 10}
@@ -41,8 +42,8 @@ var tabulate = function (data,columns) {
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
     	.text("Points Per Game")
-	.on("mouseover", function(){return tooltip.style("visibility", "visible")})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden")});
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
 	
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
@@ -105,8 +106,8 @@ var tabulate1 = function (data,columns) {
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
     	.text("Rebounds Per Game")
-	.on("mouseover", function(){return tooltip.style("visibility", "visible")})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden")});
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
 	
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
@@ -168,8 +169,8 @@ var tabulate2 = function (data,columns) {
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
     	.text("Steals Per Game")
-	.on("mouseover", function(){return tooltip.style("visibility", "visible")})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden")});
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
     
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
@@ -231,9 +232,8 @@ var tabulate3 = function (data,columns) {
     	.style("fill","#006bb6")
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
-    	.text("Assists Per Game")
-	.on("mouseover", function(){return tooltip.style("visibility", "visible")})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden")});   
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");}); 
     
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
@@ -296,8 +296,8 @@ var tabulate4 = function (data,columns) {
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
     	.text("Offsensive Rating")
-	.on("mouseover", function(){return tooltip.style("visibility", "visible")})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden")});
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
     
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
@@ -360,8 +360,8 @@ var tabulate5 = function (data,columns) {
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
     	.text("Defensive Rating")
-	.on("mouseover", function(){return tooltip.style("visibility", "visible")})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden")});
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
 	
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
@@ -423,8 +423,8 @@ var tabulate6 = function (data,columns) {
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
     	.text("Minutes Per Game")
-	.on("mouseover", function(){return tooltip.style("visibility", "visible")})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden")});
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
     
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
@@ -487,8 +487,8 @@ var tabulate7 = function (data,columns) {
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
     	.text("Free Throw %")
-	.on("mouseover", function(){return tooltip.style("visibility", "visible")})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden")});  
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");}); 
     
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
@@ -557,8 +557,8 @@ var tabulate8 = function (data,columns) {
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
     	.text("Field Goal %")
-	.on("mouseover", function(){return tooltip.style("visibility", "visible")})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden")});
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
     
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
