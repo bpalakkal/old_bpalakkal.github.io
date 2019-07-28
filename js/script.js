@@ -34,7 +34,7 @@ var tabulate = function (data,columns) {
   
  
     var svgimage = svg.append("svg:image")
-    	.attr("x",right-50)
+    	.attr("x",(margin.right-50))
     	.attr("y",0-(margin.top/4))
     	.attr("width", 20)
 	.attr("height", 24)    	      		
