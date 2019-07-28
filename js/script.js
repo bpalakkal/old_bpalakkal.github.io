@@ -24,12 +24,13 @@ var tabulate = function (data,columns) {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
     
-    var tooltip = svg.select("body")
-    .append("div")
+    var tooltip = svg.append("div")
     .style("position", "absolute")
     .style("z-index", "10")
     .style("visibility", "hidden")
     .style("background", "#000")
+    .style("font-size","8px")
+    .style("fill","#006bb6")
     .text("Click for detailed view");
 	
     var svgtext = svg.append("a")    	
