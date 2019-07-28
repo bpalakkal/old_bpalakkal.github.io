@@ -101,9 +101,17 @@ var tabulate1 = function (data,columns) {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
     
-  var svgtext = svg.append("a")    	
-    	.attr("xlink:href", "rpg.html")
-        .append("text")
+  var svgimage = svg.append("svg:image")
+    	.attr("x",290)
+    	.attr("y",(0-margin.top))
+    	.attr("width", 20)
+	.attr("height", 24)    	      		
+    	.attr("xlink:href", "right.jpg")
+    	.on("click", function(d, i) {window.location.href = "rpg.html";})
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");})
+    
+ var svgtext = svg.append("text")    	
     	.attr("x",(width/2))
     	.attr("y",0-(margin.top/4))
     	.style("text-anchor","middle")
@@ -112,8 +120,6 @@ var tabulate1 = function (data,columns) {
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
     	.text("Rebounds Per Game")
-	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
 	
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
@@ -164,9 +170,17 @@ var tabulate2 = function (data,columns) {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
-    var svgtext = svg.append("a")    	
-    	.attr("xlink:href", "spg.html")
-        .append("text")
+    var svgimage = svg.append("svg:image")
+    	.attr("x",290)
+    	.attr("y",(0-margin.top))
+    	.attr("width", 20)
+	.attr("height", 24)    	      		
+    	.attr("xlink:href", "right.jpg")
+    	.on("click", function(d, i) {window.location.href = "spg.html";})
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");})
+    
+ var svgtext = svg.append("text")    	
     	.attr("x",(width/2))
     	.attr("y",0-(margin.top/4))
     	.style("text-anchor","middle")
@@ -175,8 +189,6 @@ var tabulate2 = function (data,columns) {
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
     	.text("Steals Per Game")
-	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
     
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
@@ -228,9 +240,17 @@ var tabulate3 = function (data,columns) {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
  
-    var svgtext = svg.append("a")    	
-    	.attr("xlink:href", "apg.html")
-        .append("text")
+    var svgimage = svg.append("svg:image")
+    	.attr("x",290)
+    	.attr("y",(0-margin.top))
+    	.attr("width", 20)
+	.attr("height", 24)    	      		
+    	.attr("xlink:href", "right.jpg")
+    	.on("click", function(d, i) {window.location.href = "apg.html";})
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");})
+    
+ var svgtext = svg.append("text")    	
     	.attr("x",(width/2))
     	.attr("y",0-(margin.top/4))
     	.style("text-anchor","middle")
@@ -239,8 +259,6 @@ var tabulate3 = function (data,columns) {
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
     	.text("Assists Per Game")
-	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden");}); 
     
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
@@ -292,9 +310,17 @@ var tabulate4 = function (data,columns) {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
  
-    var svgtext = svg.append("a")    	
-    	.attr("xlink:href", "ortg.html")
-        .append("text")
+   var svgimage = svg.append("svg:image")
+    	.attr("x",290)
+    	.attr("y",(0-margin.top))
+    	.attr("width", 20)
+	.attr("height", 24)    	      		
+    	.attr("xlink:href", "right.jpg")
+    	.on("click", function(d, i) {window.location.href = "ortg.html";})
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");})
+    
+ var svgtext = svg.append("text")    	
     	.attr("x",(width/2))
     	.attr("y",0-(margin.top/4))
     	.style("text-anchor","middle")
@@ -302,9 +328,7 @@ var tabulate4 = function (data,columns) {
     	.style("fill","#006bb6")
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
-    	.text("Offsensive Rating")
-	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+    	.text("Offensive Rating")
     
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
@@ -356,9 +380,17 @@ var tabulate5 = function (data,columns) {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
   
-    var svgtext = svg.append("a")    	
-    	.attr("xlink:href", "drtg.html")
-        .append("text")
+       var svgimage = svg.append("svg:image")
+    	.attr("x",290)
+    	.attr("y",(0-margin.top))
+    	.attr("width", 20)
+	.attr("height", 24)    	      		
+    	.attr("xlink:href", "right.jpg")
+    	.on("click", function(d, i) {window.location.href = "drtg.html";})
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");})
+    
+ var svgtext = svg.append("text")    	
     	.attr("x",(width/2))
     	.attr("y",0-(margin.top/4))
     	.style("text-anchor","middle")
@@ -367,8 +399,7 @@ var tabulate5 = function (data,columns) {
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
     	.text("Defensive Rating")
-	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+    
 	
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
@@ -419,9 +450,17 @@ var tabulate6 = function (data,columns) {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
    
-    var svgtext = svg.append("a")    	
-    	.attr("xlink:href", "mpg.html")
-        .append("text")
+      var svgimage = svg.append("svg:image")
+    	.attr("x",290)
+    	.attr("y",(0-margin.top))
+    	.attr("width", 20)
+	.attr("height", 24)    	      		
+    	.attr("xlink:href", "right.jpg")
+    	.on("click", function(d, i) {window.location.href = "mpg.html";})
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");})
+    
+ var svgtext = svg.append("text")    	
     	.attr("x",(width/2))
     	.attr("y",0-(margin.top/4))
     	.style("text-anchor","middle")
@@ -429,9 +468,8 @@ var tabulate6 = function (data,columns) {
     	.style("fill","#006bb6")
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
-    	.text("Minutes Per Game")
-	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+    	.text("Minutes per game")
+    
     
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
@@ -483,9 +521,17 @@ var tabulate7 = function (data,columns) {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
    
-    var svgtext = svg.append("a")    	
-    	.attr("xlink:href", "ftpct.html")
-        .append("text")
+      var svgimage = svg.append("svg:image")
+    	.attr("x",290)
+    	.attr("y",(0-margin.top))
+    	.attr("width", 20)
+	.attr("height", 24)    	      		
+    	.attr("xlink:href", "right.jpg")
+    	.on("click", function(d, i) {window.location.href = "ftpct.html";})
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");})
+    
+ var svgtext = svg.append("text")    	
     	.attr("x",(width/2))
     	.attr("y",0-(margin.top/4))
     	.style("text-anchor","middle")
@@ -494,8 +540,7 @@ var tabulate7 = function (data,columns) {
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
     	.text("Free Throw %")
-	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden");}); 
+    
     
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
@@ -553,9 +598,17 @@ var tabulate8 = function (data,columns) {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
    
-    var svgtext = svg.append("a")    	
-    	.attr("xlink:href", "fgpct.html")
-        .append("text")
+   var svgimage = svg.append("svg:image")
+    	.attr("x",290)
+    	.attr("y",(0-margin.top))
+    	.attr("width", 20)
+	.attr("height", 24)    	      		
+    	.attr("xlink:href", "right.jpg")
+    	.on("click", function(d, i) {window.location.href = "fgpct.html";})
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");})
+    
+ var svgtext = svg.append("text")    	
     	.attr("x",(width/2))
     	.attr("y",0-(margin.top/4))
     	.style("text-anchor","middle")
@@ -564,8 +617,7 @@ var tabulate8 = function (data,columns) {
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
     	.text("Field Goal %")
-	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+    
     
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
