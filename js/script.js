@@ -5,6 +5,7 @@ var svg = d3.select("body").append("svg")
       .attr("height", height + margin.top + margin.bottom)    
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
 var svgtext = svg.append("text")
         .attr("x",(width/2))
     	.attr("y",(margin.top*2))
@@ -12,7 +13,7 @@ var svgtext = svg.append("text")
     	.style("font-size","24px")
     	.style("fill","#006bb6")    	
     	.style("font-weight","bold")
-    	.text("Season Leaders")    
+    	.text("NBA 2018/19 Regular Season Leaders")    
 
 var tabulate = function (data,columns) {
     var margin = {top: 20, right: 10, bottom: 20, left: 10}
@@ -22,13 +23,15 @@ var tabulate = function (data,columns) {
       .attr("height", height + margin.top + margin.bottom)    
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-    var tooltip = d3.select("body")
+    
+    var tooltip = svg.select("body")
     .append("div")
     .style("position", "absolute")
     .style("z-index", "10")
     .style("visibility", "hidden")
     .style("background", "#000")
     .text("Click for detailed view");
+	
     var svgtext = svg.append("a")    	
     	.attr("xlink:href", "http://en.wikipedia.org/wiki/")
         .append("text")
