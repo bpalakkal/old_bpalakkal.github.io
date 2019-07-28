@@ -530,11 +530,12 @@ var tabulate8 = function (data,columns) {
       .enter()
     .append('td')
       .text(function (d) { return d.value })
-
+     percent = d3.format(".2%")
      cells.filter(function(d,i){
 	       return i === 3})
 	.html(function(d){
-	  return(d3.format(".2f%",parseFloat(d.value)));
+	  return(percent(parseFloat(d.value)));
+	     d3.format(",.1%")
 		 })
   return table;
 }
