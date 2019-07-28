@@ -534,7 +534,7 @@ var tabulate8 = function (data,columns) {
      cells.filter(function(d,i){
 	       return i === 3})
 	.html(function(d){
-	  return(parseFloat(d.value)*100 + "%");
+	  return(d3.format(".2f%",parseFloat(d.value));
 		 })
   return table;
 }
