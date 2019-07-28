@@ -68,8 +68,8 @@ d3.csv('data.csv',function (data) {
 	var columns = ['Name','Team','Position','PPG']
   	ppg = tabulate(data,columns)
 	ppg.select("tbody").selectAll("tr")	
-	.sort function(a,b){
-		return d3.descending(a.PPG, b.PPG)}
+	.sort(function(a,b){
+		return d3.descending(a.PPG, b.PPG)})
 })
 
 
