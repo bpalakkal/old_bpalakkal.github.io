@@ -23,16 +23,17 @@ var tabulate = function (data,columns) {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
     var svgtext = svg.append("a")    	
-    	.attr("xlink:href", "http://en.wikipedia.org/wiki/"+"Points Per Game")
-        .attr("x",(width/2))
+    	.attr("xlink:href", "http://en.wikipedia.org/wiki/")
+        .append("text")
+    	.attr("x",(width/2))
     	.attr("y",0-(margin.top/4))
     	.style("text-anchor","middle")
     	.style("font-size","16px")
     	.style("fill","#006bb6")
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
-    	
-    
+    	.text("Points Per Game")
+    	    
     var forobj = svg.append("foreignObject")
       .attr("width", 380)
       .attr("height", 160)
