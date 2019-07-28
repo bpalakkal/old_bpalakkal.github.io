@@ -232,6 +232,7 @@ var tabulate3 = function (data,columns) {
     	.style("fill","#006bb6")
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
+    	.text("Assists Per Game")
 	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
 	.on("mouseout", function(){return tooltip.style("visibility", "hidden");}); 
     
