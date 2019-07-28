@@ -11,7 +11,7 @@ table td, table th {
   padding: 3px 2px;
 }
 table tbody td {
-  font-size: 13px;
+  font-size: 10px;
 }
 table tr:nth-child(even) {
   background: #D0E4F5;
@@ -21,7 +21,7 @@ table thead {
   border-bottom: 5px solid #FFFFFF;
 }
 table thead th {
-  font-size: 17px;
+  font-size: 12px;
   font-weight: bold;
   color: #FFFFFF;
   text-align: center;
@@ -32,12 +32,12 @@ table thead th:first-child {
 }
 
 table tfoot {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   color: #333333;
   background: #D0E4F5;
   border-top: 3px solid #444444;
 }
 table tfoot td {
-  font-size: 14px;
+  font-size: 12px;
 }
