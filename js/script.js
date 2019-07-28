@@ -31,7 +31,9 @@ var tabulate = function (data,columns) {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
      
-    var svgtext = svg.append("text")
+ var svgtext = svg.append("a")    	
+    	.attr("xlink:href", "ppg.html")
+        .append("text")
     	.attr("x",(width/2))
     	.attr("y",0-(margin.top/4))
     	.style("text-anchor","middle")
@@ -40,6 +42,8 @@ var tabulate = function (data,columns) {
     	.style("text-decoration","underline")
     	.style("font-weight","bold") 
     	.text("Points Per Game")
+	.on("mouseover", function(){return tooltip.style("visibility", "visible").style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
 
 	
     var forobj = svg.append("foreignObject")
