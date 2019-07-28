@@ -1,57 +1,43 @@
-      h1 {
-        font: 16px sans-serif;
-        font-weight: bold;
-        text-decoration: underline;
-      }
-      
-      div {
-        height: 17px;
-      }
-      div.container {
-        float: left;
-        width: 50%;
-      }
-      div.negative {
-        float: right;
-        background-color: brown;
-      }
-      div.positive {
-        background-color: steelblue;
-      }
-      
-      table {
-        font: 14px sans-serif;
-        vertical-align: middle;
-        text-align: left;
-        border-collapse: collapse;
-      }
-      
-      td,th {
-        padding-top: 2px;
-        padding-bottom: 2px;
-      }
-      
-      tr.even {
-        background-color: whitesmoke; 
-      }
-      
-      td.chart {
-        background-color: white; 
-      }
-      
-      
-      th {
-        padding-left: 10px;
-      }
-      
-      th.total {
-        text-align: right;
-      }
-      
-      td.data {
-        padding-left: 10px;
+table {
+  font-family: "Times New Roman", Times, serif;
+  border: 1px solid #FFFFFF;
+  width: 350px;
+  height: 200px;
+  text-align: center;
+  border-collapse: collapse;
+}
+table td, table th {
+  border: 1px solid #FFFFFF;
+  padding: 3px 2px;
+}
+table tbody td {
+  font-size: 13px;
+}
+table tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table thead {
+  background: #0B6FA4;
+  border-bottom: 5px solid #FFFFFF;
+}
+table thead th {
+  font-size: 17px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 2px solid #FFFFFF;
+}
+table thead th:first-child {
+  border-left: none;
+}
 
-      }
-      td.value {
-        text-align: right;
-      }
+table tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333333;
+  background: #D0E4F5;
+  border-top: 3px solid #444444;
+}
+table tfoot td {
+  font-size: 14px;
+}
