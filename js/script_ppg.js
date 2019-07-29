@@ -109,21 +109,12 @@ svg.append("g")
     .text("PPG");
 
 
-d3.csv("data.csv").then(function(data) {
-  data.forEach(function(d) {
-    d.PPG = +d.PPG;
-    d["MPG"] = +d["MPG"]
-    d["Name"] = d["Name"]  ;
-  });
-});
-
-d3.csv("data.csv", function(d) { // d is a common d3 variable for the data
-    return {
-      val1: +d.MPG, // for the most part, you can build an object using dot notation and column header value
-      val2: +d.PPG, // you can convert types through a variety of ways. The '+' converts a string to a number
-      val3: d.Team, // you can also use the bracket notation if the header values are funky
-      val4: d.Name
-    };
+d3.csv("data.csv", function(d) {
+  return {
+    MPG : +d.MPG,
+    PPG : +d.PPG,
+    Name : d.Name    
+  };
 }, function(error, data) {
    // update scales
    xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
