@@ -82,6 +82,7 @@ var fdata = d3.csv("data.csv", function(consdata) {
             } 
 
         })
+})
 
 // Calling the method below  
  showScatterPlot(fdata);  
