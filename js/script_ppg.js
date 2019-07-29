@@ -80,11 +80,8 @@ filtereddata = d3.csv('data.csv',function (data) {
   return d["Team"] === "GOL" 
 })
 
-showScatterPlot(filtereddata)
-
 function showScatterPlot(data)   
  {  
-     // Spacing Around   
      var margins =  
      {  
          "left": 40,  
@@ -96,23 +93,17 @@ function showScatterPlot(data)
      var width = 500;  
      var height = 500;  
    
-     // This will be our colour scale. An Ordinal scale.  
      var colors = d3.scale.category10();  
    
-     // Adding the SVG component to the scatter-load div  
      var svg = d3.select("#scatter-load").append("svg").attr("width", width).attr("height", height).append("g")  
      .attr("transform", "translate(" + margins.left + "," + margins.top + ")");  
    
-     // Setting the scale that we're using for the X axis.   
-     // Domain define the min and max variables to show. In this case, it's the min and max Votes of items.  
-     // this is made a compact piece of code due to d3.extent which gives back the max and min of the Vote variable within the dataset  
-     var x = d3.scale.linear()  
+      var x = d3.scale.linear()  
      .domain(d3.extent(data, function (d)   
      {  
          return parseFloat(d.MPG);  
      }))  
    
-     // Range maps the domain to values from 0 to the width minus the left and right margins (used to space out the visualization)  
      .range([0, width - margins.left - margins.right]);  
    
      // Scalling for the y axis but maps from the rating variable to the height to 0.   
@@ -183,4 +174,6 @@ function showScatterPlot(data)
          // this shouldn't be a surprising statement.  
          return d.Name;  
      });  
- } 
+ }
+	
+showScatterPlot(filtereddata);
