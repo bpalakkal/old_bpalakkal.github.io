@@ -71,7 +71,6 @@ d3.csv('data.csv',function (data) {
 		return d3.descending(parseFloat(a.PPG), parseFloat(b.PPG))})
 })
 
-
 var margin = {top: 20, right: 20, bottom: 30, left: 400},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
@@ -109,3 +108,90 @@ svg.append("g")
     .style("text-anchor", "end")
     .text("PPG");
 
+d3.csv("data.csv", function(d) { // d is a common d3 variable for the data
+    return {
+      val1: d.MPG, // for the most part, you can build an object using dot notation and column header value
+      val2: +d.PPG, // you can convert types through a variety of ways. The '+' converts a string to a number
+      val3: +d["Team"] // you can also use the bracket notation if the header values are funky
+    };
+});
+
+var xValue = function(d) { return d.firstValue;},
+   xScale = d3.scale.linear().range([0, width]),
+   xMap = function(d) { return xScale(xValue(d));},
+   xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+// setup y
+var yValue = function(d) { return d.secondValue;},
+   yScale = d3.scale.linear().range([height, 0]),
+   yMap = function(d) { return yScale(yValue(d));},
+   yAxis = d3.svg.axis().scale(yScale).orient("left");
+
+d3.csv("data.csv", function(d) { // d is a common d3 variable for the data
+    return {
+      val1: d.MPG, // for the most part, you can build an object using dot notation and column header value
+      val2: +d.sPPG, // you can convert types through a variety of ways. The '+' converts a string to a number
+      val3: +d["Team"] // you can also use the bracket notation if the header values are funky
+    };
+}, function(error, data) {
+   // update scales
+   xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
+   yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
+   // update x-axis
+   svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+   .append("text")
+      .attr("class", "label")
+      .attr("x", width)
+      .attr("y", -6)
+      .style("text-anchor", "end")
+      .text("MPG");
+   // update y-axis
+   svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+   .append("text")
+      .attr("class", "label")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("PPG");
+});
+svg.selectAll(".dot")
+      .data(data)
+   .enter().append("circle")
+      .attr("class", "dot")
+      .attr("r", function(d) { return d["Team"] == "GOL" ? "GOL" : d["Team"]})
+      .attr("cx", xMap)
+      .attr("cy", yMap)
+      .style("fill", function(d) { return color(cValue(d));})
+
+var cValue = function(d) { return d["Team"];},
+   color = d3.scale.category20();
+var tooltip = d3.select("body").append("div")
+   .attr("class", "tooltip")
+   .style("opacity", 0);
+
+svg.selectAll(".dot")
+      .data(data)
+   .enter().append("circle")
+      .attr("class", "dot")
+      .attr("r", function(d) { return d["Team"] == "GOL" ? "GOL" : d["Team"]})
+      .attr("cx", xMap)
+      .attr("cy", yMap)
+      .style("fill", function(d) { return color(cValue(d));})
+      .on("mouseover", function(d) {
+         tooltip.transition()
+            .duration(200)
+            .style("opacity", .9);
+         tooltip.html("Message with " + d.MPG)
+            .style("left", (d3.event.pageX + 5) + "px")
+            .style("top", (d3.event.pageY - 28) + "px");
+      })
+      .on("mouseout", function(d) {
+         tooltip.transition()
+            .duration(500)
+            .style("opacity", 0);
+      });
