@@ -108,29 +108,12 @@ svg.append("g")
     .style("text-anchor", "end")
     .text("PPG");
 
-d3.csv("data.csv", function(d) { // d is a common d3 variable for the data
+d3.csv("./data.csv", function(d) { // d is a common d3 variable for the data
     return {
       val1: d.MPG, // for the most part, you can build an object using dot notation and column header value
       val2: +d.PPG, // you can convert types through a variety of ways. The '+' converts a string to a number
-      val3: +d["Team"] // you can also use the bracket notation if the header values are funky
-    };
-});
-
-var xValue = function(d) { return d.firstValue;},
-   xScale = d3.scale.linear().range([0, width]),
-   xMap = function(d) { return xScale(xValue(d));},
-   xAxis = d3.svg.axis().scale(xScale).orient("bottom");
-// setup y
-var yValue = function(d) { return d.secondValue;},
-   yScale = d3.scale.linear().range([height, 0]),
-   yMap = function(d) { return yScale(yValue(d));},
-   yAxis = d3.svg.axis().scale(yScale).orient("left");
-
-d3.csv("data.csv", function(d) { // d is a common d3 variable for the data
-    return {
-      val1: d.MPG, // for the most part, you can build an object using dot notation and column header value
-      val2: +d.sPPG, // you can convert types through a variety of ways. The '+' converts a string to a number
-      val3: +d["Team"] // you can also use the bracket notation if the header values are funky
+      val3: +d["Team"], // you can also use the bracket notation if the header values are funky
+      val4: +d["Name"]
     };
 }, function(error, data) {
    // update scales
@@ -158,27 +141,12 @@ d3.csv("data.csv", function(d) { // d is a common d3 variable for the data
       .attr("dy", ".71em")
       .style("text-anchor", "end")
       .text("PPG");
-});
-svg.selectAll(".dot")
-      .data(data)
-   .enter().append("circle")
-      .attr("class", "dot")
-      .attr("r", function(d) { return d["Team"] == "GOL" ? "GOL" : d["Team"]})
-      .attr("cx", xMap)
-      .attr("cy", yMap)
-      .style("fill", function(d) { return color(cValue(d));})
-
-var cValue = function(d) { return d["Team"];},
-   color = d3.scale.category20();
-var tooltip = d3.select("body").append("div")
-   .attr("class", "tooltip")
-   .style("opacity", 0);
 
 svg.selectAll(".dot")
       .data(data)
    .enter().append("circle")
       .attr("class", "dot")
-      .attr("r", function(d) { return d["Team"] == "GOL" ? "GOL" : d["Team"]})
+      .attr("r", function(d) { return d["Name"] == 0 ? 0 : d["Name"]})
       .attr("cx", xMap)
       .attr("cy", yMap)
       .style("fill", function(d) { return color(cValue(d));})
@@ -194,4 +162,20 @@ svg.selectAll(".dot")
          tooltip.transition()
             .duration(500)
             .style("opacity", 0);
-      });
+      });	
+});
+// setup x
+var xValue = function(d) { return d.MPG;},
+   xScale = d3.scale.linear().range([0, width]),
+   xMap = function(d) { return xScale(xValue(d));},
+   xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+// setup y
+var yValue = function(d) { return d.PPG;},
+   yScale = d3.scale.linear().range([height, 0]),
+   yMap = function(d) { return yScale(yValue(d));},
+   yAxis = d3.svg.axis().scale(yScale).orient("left");
+var cValue = function(d) { return d["Name"];},
+   color = d3.scale.category20();
+var tooltip = d3.select("body").append("div")
+   .attr("class", "tooltip")
+   .style("opacity", 0);
