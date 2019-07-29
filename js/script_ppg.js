@@ -92,20 +92,20 @@ function showScatterPlot(data)
      // Spacing Around   
      var margins =  
      {  
-         "left": 40,  
-         "right": 30,  
-         "top": 30,  
-         "bottom": 30  
+         "left": 10,  
+         "right": 10,  
+         "top": 20,  
+         "bottom": 20  
      };  
    
-     var width = 500;  
-     var height = 500;  
+     var width = 400;  
+     var height = 400;  
    
      // This will be our colour scale. An Ordinal scale.  
      var colors = d3.scale.category10();  
    
      // Adding the SVG component to the scatter-load div  
-     var svg = d3.select("#scatter-load").append("svg").attr("width", width).attr("height", height).append("g")  
+     var svg = d3.select("body").append("svg").attr("width", width).attr("height", height).append("g")  
      .attr("transform", "translate(" + margins.left + "," + margins.top + ")");  
    
      // Setting the scale that we're using for the X axis.   
