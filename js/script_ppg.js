@@ -110,8 +110,8 @@ svg.append("g")
 
 d3.csv("data.csv", function(d) { // d is a common d3 variable for the data
     return {
-      val1: d.MPG, // for the most part, you can build an object using dot notation and column header value
-      val2: +d.PPG, // you can convert types through a variety of ways. The '+' converts a string to a number
+      val1: parseFloat(d.MPG), // for the most part, you can build an object using dot notation and column header value
+      val2: +parseFloat(d.PPG), // you can convert types through a variety of ways. The '+' converts a string to a number
       val3: +d["Team"], // you can also use the bracket notation if the header values are funky
       val4: +d["Name"]
     };
@@ -165,12 +165,12 @@ svg.selectAll(".dot")
       });	
 });
 // setup x
-var xValue = function(d) { return parseFloat(d.MPG);},
+var xValue = function(d) { return d.MPG;},
    xScale = d3.scale.linear().range([0, width]),
    xMap = function(d) { return xScale(xValue(d));},
    xAxis = d3.svg.axis().scale(xScale).orient("bottom");
 // setup y
-var yValue = function(d) { return parseFloat(d.PPG);},
+var yValue = function(d) { return d.PPG;},
    yScale = d3.scale.linear().range([height, 0]),
    yMap = function(d) { return yScale(yValue(d));},
    yAxis = d3.svg.axis().scale(yScale).orient("left");
