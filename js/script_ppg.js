@@ -79,11 +79,8 @@ filtereddata = d3.csv('data.csv',function (data) {
 	.filter(function(d) {
   return d["Team"] === "GOL" 
 })
-
-// Calling the method below  
- showScatterPlot(Languages);  
-   
- function showScatterPlot(data)   
+	
+function showScatterPlot(data)   
  {  
      // Spacing Around   
      var margins =  
@@ -110,7 +107,7 @@ filtereddata = d3.csv('data.csv',function (data) {
      var x = d3.scale.linear()  
      .domain(d3.extent(data, function (d)   
      {  
-         return d.Vote;  
+         return d.MPG;  
      }))  
    
      // Range maps the domain to values from 0 to the width minus the left and right margins (used to space out the visualization)  
@@ -120,7 +117,7 @@ filtereddata = d3.csv('data.csv',function (data) {
      var y = d3.scale.linear()  
      .domain(d3.extent(data, function (d)  
      {  
-         return d.rating;  
+         return d.PPG;  
      }))  
    
      // Note that height goes first due to the weird SVG coordinate system  
@@ -136,7 +133,7 @@ filtereddata = d3.csv('data.csv',function (data) {
      .attr("text-anchor", "end")  
      .attr("x", width / 2)  
      .attr("y", height - 35)  
-     .text("Votes");  
+     .text("MPG");  
    
    
      // Actual definition of our x and y axes. The orientation refers to where the labels appear - for the x axis, below or above the line, and for the y axis, left or right of the line. Tick padding refers to how much space between the tick and the label. There are other parameters too - see https://github.com/mbostock/d3/wiki/SVG-Axes for more information  
@@ -160,7 +157,7 @@ filtereddata = d3.csv('data.csv',function (data) {
      // this is how we set the position of the items. Translate is an incredibly useful function for rotating and positioning items   
      .attr('transform', function (d)   
      {  
-         return "translate(" + x(d.Vote) + "," + y(d.rating) + ")";  
+         return "translate(" + x(d.MPG) + "," + y(d.PPG) + ")";  
      });  
    
      // Adding our first graphics element! A circle!   
@@ -172,7 +169,7 @@ filtereddata = d3.csv('data.csv',function (data) {
          // remember the ordinal scales?   
          // We use the colors scale to get a colour for our votes. Now each node will be coloured  
          // by votes to the languages.   
-         return colors(d.manufacturer);  
+         return colors(d.Team);  
      });  
    
      // Adding some text, so we can see what each item is.  
@@ -182,8 +179,6 @@ filtereddata = d3.csv('data.csv',function (data) {
      .text(function (d)  
      {  
          // this shouldn't be a surprising statement.  
-         return d.name;  
-     });  
- }
-	
-showScatterPlot(filtereddata);
+         return d.Name;  
+     }); 
+showScatterPlot(filtereddata)
