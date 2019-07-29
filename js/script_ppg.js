@@ -108,7 +108,7 @@ svg.append("g")
     .style("text-anchor", "end")
     .text("PPG");
 
-d3.csv("./data.csv", function(d) { // d is a common d3 variable for the data
+d3.csv("data.csv", function(d) { // d is a common d3 variable for the data
     return {
       val1: d.MPG, // for the most part, you can build an object using dot notation and column header value
       val2: +d.PPG, // you can convert types through a variety of ways. The '+' converts a string to a number
@@ -165,12 +165,12 @@ svg.selectAll(".dot")
       });	
 });
 // setup x
-var xValue = function(d) { return d.MPG;},
+var xValue = function(d) { return parseFloat(d.MPG);},
    xScale = d3.scale.linear().range([0, width]),
    xMap = function(d) { return xScale(xValue(d));},
    xAxis = d3.svg.axis().scale(xScale).orient("bottom");
 // setup y
-var yValue = function(d) { return d.PPG;},
+var yValue = function(d) { return parseFloat(d.PPG);},
    yScale = d3.scale.linear().range([height, 0]),
    yMap = function(d) { return yScale(yValue(d));},
    yAxis = d3.svg.axis().scale(yScale).orient("left");
