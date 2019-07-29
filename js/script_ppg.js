@@ -71,97 +71,76 @@ d3.csv('data.csv',function (data) {
 		return d3.descending(parseFloat(a.PPG), parseFloat(b.PPG))})
 })
 
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
-d3.csv('data.csv', function (data) {
-  // Variables
-  var body = d3.select('body')
-	var margin = { top: 50, right: 50, bottom: 50, left: 50 }
-	var h = 500 - margin.top - margin.bottom
-	var w = 500 - margin.left - margin.right
-	var formatPercent = d3.format('.2%')
-	// Scales
-  var colorScale = d3.scale.category20()
-  var xScale = d3.scale.linear()
-    .domain([
-    	d3.min([0,d3.min(data,function (d) { return d.asd })]),
-    	d3.max([0,d3.max(data,function (d) { return d.asd })])
-    	])
-    .range([0,w])
-  var yScale = d3.scale.linear()
-    .domain([
-    	d3.min([0,d3.min(data,function (d) { return d.aror })]),
-    	d3.max([0,d3.max(data,function (d) { return d.aror })])
-    	])
-    .range([h,0])
-	// SVG
-	var svg = body.append('svg')
-	    .attr('height',h + margin.top + margin.bottom)
-	    .attr('width',w + margin.left + margin.right)
-	  .append('g')
-	    .attr('transform','translate(' + margin.left + ',' + margin.top + ')')
-	// X-axis
-	var xAxis = d3.svg.axis()
-	  .scale(xScale)
-	  .tickFormat(formatPercent)
-	  .ticks(5)
-	  .orient('bottom')
-  // Y-axis
-	var yAxis = d3.svg.axis()
-	  .scale(yScale)
-	  .tickFormat(formatPercent)
-	  .ticks(5)
-	  .orient('left')
-  // Circles
-  var circles = svg.selectAll('circle')
-      .data(data)
-      .enter()
-    .append('circle')
-      .attr('cx',function (d) { return xScale(d.asd) })
-      .attr('cy',function (d) { return yScale(d.aror) })
-      .attr('r','10')
-      .attr('stroke','black')
-      .attr('stroke-width',1)
-      .attr('fill',function (d,i) { return colorScale(i) })
-      .on('mouseover', function () {
-        d3.select(this)
-          .transition()
-          .duration(500)
-          .attr('r',20)
-          .attr('stroke-width',3)
-      })
-      .on('mouseout', function () {
-        d3.select(this)
-          .transition()
-          .duration(500)
-          .attr('r',10)
-          .attr('stroke-width',1)
-      })
-    .append('title') // Tooltip
-      .text(function (d) { return d.variable +
-                           '\Player: ' + d.Player +
-                           '\PPG: ' +d.PPG })
-  // X-axis
-  svg.append('g')
-      .attr('class','axis')
-      .attr('transform', 'translate(0,' + h + ')')
-      .call(xAxis)
-    .append('text') // X-axis Label
-      .attr('class','label')
-      .attr('y',-10)
-      .attr('x',w)
-      .attr('dy','.71em')
-      .style('text-anchor','end')
-      .text('Player')
-  // Y-axis
-  svg.append('g')
-      .attr('class', 'axis')
-      .call(yAxis)
-    .append('text') // y-axis Label
-      .attr('class','label')
-      .attr('transform','rotate(-90)')
-      .attr('x',0)
-      .attr('y',5)
-      .attr('dy','.71em')
-      .style('text-anchor','end')
-      .text('Points Per Game')
+// Set the dimensions of the canvas / graph
+var margin = {top: 30, right: 20, bottom: 30, left: 50},
+    width = 600 - margin.left - margin.right,
+    height = 270 - margin.top - margin.bottom;
+
+// Set the ranges
+var x = d3.time.scale().range([0, width]);
+var y = d3.scale.linear().range([height, 0]);
+
+// Define the axes
+var xAxis = d3.svg.axis().scale(x)
+    .orient("bottom").ticks(10);
+
+var yAxis = d3.svg.axis().scale(y)
+    .orient("left").ticks(10);
+
+// Define the line
+var valueline = d3.svg.line()
+    .x(function(d) { return x(d.Name); })
+    .y(function(d) { return y(d.PPG); });
+    
+// Adds the svg canvas
+var svg = d3.select("body")
+    .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+        .attr("transform", 
+              "translate(" + margin.left + "," + margin.top + ")");
+
+// Get the data
+
+filterdata = d3.csv('data.csv',function (data) {
+	var columns = ['Name','Team','Position','PPG']
+  	ppg = tabulate(data,columns)
+	ppg.select("tbody").selectAll("tr")	
+	.filter(function(d) {
+  return d["Team"] === "GOL" 
+})
+	
+    // Scale the range of the data
+    x.domain(d3.extent(data, function(d) { return filterdata.Name; }));
+    y.domain([0, d3.max(data, function(d) { return filterdata.PPG; })]);
+
+    // Add the valueline path.
+    svg.append("path")
+        .attr("class", "line")
+        .attr("d", valueline(data));
+
+    // Add the scatterplot
+    svg.selectAll("dot")
+        .data(data)
+      .enter().append("circle")
+        .attr("r", 3.5)
+        .attr("cx", function(d) { return x(d.Name); })
+        .attr("cy", function(d) { return y(d.PPG); });
+
+    // Add the X Axis
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+    // Add the Y Axis
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis);
+
 })
