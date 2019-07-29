@@ -89,7 +89,7 @@ d3.json('data.json',function (data) {
         d.Team = d.Team;
 	d.Position = d.Position;
 	d.PPG = +d.PPG })
-  	ppg = tabulate(data,columns)
+  	ppg = tabulate(data,["Name","Team","Position","PPG"])
 	ppg.select("tbody").selectAll("tr")	
 	.sort(function(a,b){
 		return d3.descending(parseFloat(a.PPG), parseFloat(b.PPG))})
