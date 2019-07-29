@@ -83,8 +83,12 @@ var tabulate = function (data,columns) {
   return table;
 }
 
-d3.csv('data.csv',function (data) {
-	var columns = ['Name','Team','Position','PPG']
+d3.json('data.json',function (data) {
+	data.forEach(function(d) {
+        d.Name = d.Name;
+        d.Team = d.Team;
+	d.Position = d.Position;
+	d.PPG = +d.PPG 
   	ppg = tabulate(data,columns)
 	ppg.select("tbody").selectAll("tr")	
 	.sort(function(a,b){
