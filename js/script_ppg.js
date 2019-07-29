@@ -63,13 +63,13 @@ var tabulate = function (data,columns) {
   return table;
 }
 
-d3.csv('data.csv',function (data) {
-	var columns = ['Name','Team','Position','PPG']
-  	ppg = tabulate(data,columns)
-	ppg.select("tbody").selectAll("tr")	
-	.sort(function(a,b){
-		return d3.descending(parseFloat(a.PPG), parseFloat(b.PPG))})
-})
+d3.csv("data.csv", function(d) {
+  return {
+    MPG : +d.MPG,
+    PPG : +d.PPG,
+    Name : d.Name    
+  };
+});
 
 var margin = {top: 20, right: 20, bottom: 30, left: 400},
     width = 960 - margin.left - margin.right,
