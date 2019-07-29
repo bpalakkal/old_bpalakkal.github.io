@@ -88,7 +88,8 @@ d3.json('data.json',function (data) {
         d.Name = d.Name;
         d.Team = d.Team;
 	d.Position = d.Position;
-	d.PPG = +d.PPG 
+	d.PPG = +d.PPG })
+}
   	ppg = tabulate(data,columns)
 	ppg.select("tbody").selectAll("tr")	
 	.sort(function(a,b){
