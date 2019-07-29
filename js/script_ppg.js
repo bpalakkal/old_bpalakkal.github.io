@@ -165,12 +165,12 @@ svg.selectAll(".dot")
       });	
 });
 // setup x
-var xValue = function(d) { return d.MPG;},
+var xValue = function(d) { return parseFloat(d.MPG);},
    xScale = d3.scale.linear().range([0, width]),
    xMap = function(d) { return xScale(xValue(d));},
    xAxis = d3.svg.axis().scale(xScale).orient("bottom");
 // setup y
-var yValue = function(d) { return d.PPG;},
+var yValue = function(d) { return parseFloat(d.PPG);},
    yScale = d3.scale.linear().range([height, 0]),
    yMap = function(d) { return yScale(yValue(d));},
    yAxis = d3.svg.axis().scale(yScale).orient("left");
