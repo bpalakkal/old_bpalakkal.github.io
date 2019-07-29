@@ -108,6 +108,15 @@ svg.append("g")
     .style("text-anchor", "end")
     .text("PPG");
 
+
+d3.csv("data.csv").then(function(data) {
+  data.forEach(function(d) {
+    d.PPG = +d.PPG;
+    d["MPG"] = +d["MPG"]
+    d["Name"] = d["Name"]  ;
+  });
+});
+
 d3.csv("data.csv", function(d) { // d is a common d3 variable for the data
     return {
       val1: +d.MPG, // for the most part, you can build an object using dot notation and column header value
