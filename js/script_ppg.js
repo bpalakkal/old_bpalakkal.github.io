@@ -76,7 +76,7 @@ fdata = d3.csv('data.csv',function (data) {
   	ppg = tabulate(data,columns)
 	ppg.select("tbody").selectAll("tr")	
 	.filter(function(d){
-		return d["Team"]==="GOL})
+		return d["Team"]==="GOL"})
 })
 
 // Calling the method below  
