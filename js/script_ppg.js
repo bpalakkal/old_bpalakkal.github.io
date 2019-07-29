@@ -71,13 +71,17 @@ d3.csv('data.csv',function (data) {
 		return d3.descending(parseFloat(a.PPG), parseFloat(b.PPG))})
 })
 
-fdata = d3.csv('data.csv',function (data) {
-	var columns = ['Name','Team','MPG','PPG']
-  	ppg = tabulate(data,columns)
-	ppg.select("tbody").selectAll("tr")	
-	.filter(function(d){
-		return d["Team"]==="GOL"})
-})
+var Team="GOL";
+var Player="Stephen Curry";
+var fdata = d3.csv("data.csv", function(consdata) {
+    var filtercitydata = consdata.filter(function(d, i) 
+    { 
+	    if (d["Team"] == Team) 
+            { 
+                return d; 
+            } 
+
+        })
 
 // Calling the method below  
  showScatterPlot(fdata);  
