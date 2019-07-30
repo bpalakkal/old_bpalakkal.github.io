@@ -75,59 +75,87 @@ d3.json('data.json',function (data) {
 		return d3.descending(parseFloat(a.PPG), parseFloat(b.PPG))})
 });
 
-var margin = {top: 20, right: 10, bottom: 20, left:10};
-var width = 960 - margin.left - margin.right;
-var height = 500 - margin.top - margin.bottom;
+var data = [
+        {"x": -123, "y": 63, "r": 37, "c": "#50C2E3", "name": "A"},
+        {"x": 71, "y": 0, "r": 15, "c": "#50C2E3", "name": "B"},
+        {"x": 3845, "y": 77, "r": 15, "c": "#50C2E3", "name": "C"},
+        {"x": 3176, "y": 90, "r": 15, "c": "#50C2E3", "name": "D"},
+        {"x": -17, "y": 56, "r": 15, "c": "#50C2E3", "name": "D"},
+        {"x": 1357, "y": 58, "r": 15, "c": "#50C2E3", "name": "E"},
+        {"x": 7684, "y": 75, "r": 15, "c": "#50C2E3", "name": "F"}
+    ];
 
-var x = d3.scale.linear().range([0, width]);
-var y = d3.scale.linear().range([height, 0]);
+    var width = 500;
+    var height = 500;
 
-var minX = d.orderBy('MPG').first().MPG;
-var maxX = d.orderBy('MPG').last().MPG;
+    var margin = {
+        top: 40,
+        right: 40,
+        bottom: 40,
+        left: 40
+    };
 
-x.domain([minX - 500, maxX + 500]);
-y.domain([0, 100]);
+    var x = d3.scale.linear().range([0, width]);
+    var y = d3.scale.linear().range([height, 0]);
 
-var xAxis = d3.svg.axis()
-        .scale(x)
-        .orient("bottom");
+    var minX = _(data).orderBy('x').first().x;
+    var maxX = _(data).orderBy('x').last().x;
 
-var yAxis = d3.svg.axis()
-        .scale(y)
-        .orient("left");
+    x.domain([minX - 500, maxX + 500]);
+    y.domain([0, 100]);
 
-var svg = d3
-        .select("#d3")
-        .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom");
 
-svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(" + 0 + "," + height / 2 + ")")
-        .call(xAxis);
+    var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left");
 
-svg.append("g")
-        .attr("class", "y axis")
-        .attr("transform", "translate(" + width / 2 + "," + 0 + ")")
-        .call(yAxis)
-        .append("PPG");
+    var svg = d3
+            .select("#d3")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-svg.selectAll(".dot")
-        .data(data)
-        .enter().append("circle")
-        .attr("class", "dot")
-        .attr("PPG", function (d) {
-            return d.PPG;
-        })
-        .attr("cx", function (d) {
-            return x(d.MPG);
-        })
-        .attr("cy", function (d) {
-            return y(d.PPG);
-        })
-        .style("fill", function (d) {
-            return d.Name;
-        });
+    svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(" + 0 + "," + height / 2 + ")")
+            .call(xAxis);
+
+    svg.append("g")
+            .attr("class", "y axis")
+            .attr("transform", "translate(" + width / 2 + "," + 0 + ")")
+            .call(yAxis)
+            .append("text");
+              
+
+  var gdots =  svg.selectAll("g.dot")
+            .data(data)
+            .enter().append('g');
+            
+            gdots.append("circle")
+            .attr("class", "dot")
+            .attr("r", function (d) {
+                return d.r;
+            })
+            .attr("cx", function (d) {
+                return x(d.x);
+            })
+            .attr("cy", function (d) {
+                return y(d.y);
+            })
+            .style("fill", function (d) {
+                return d.c;
+            });
+            gdots.append("text").text(function(d){
+            	return d.name;
+            })
+            .attr("x", function (d) {
+                return x(d.x);
+            })
+            .attr("y", function (d) {
+                return y(d.y);
+            });
