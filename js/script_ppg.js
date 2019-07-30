@@ -69,7 +69,7 @@ d3.json('data.json',function (data) {
         d.Name = d.Name;
         d.Team = d.Team;
 	d.Position = d.Position;
-	d.PPG = +d.APG })
+	d.PPG = +d.PPG })
   	ppg = tabulate(data,["Name","Team","Position","PPG"])
 	ppg.select("tbody").selectAll("tr")	
 	.sort(function(a,b){
