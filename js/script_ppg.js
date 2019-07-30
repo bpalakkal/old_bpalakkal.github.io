@@ -63,7 +63,6 @@ var tabulate = function (data,columns) {
   return table;
 }
 
-
 d3.json('data.json',function (data) {
 	data.forEach(function(d) {
         d.Name = d.Name;
@@ -76,121 +75,59 @@ d3.json('data.json',function (data) {
 		return d3.descending(parseFloat(a.PPG), parseFloat(b.PPG))})
 });
 
-d3.json('data.json',function (data) {
-	data.forEach(function(d) {
-        d.Name = d.Name;
-        d.Team = d.Team;
-	d.Position = d.Position;
-	d.PPG = +d.PPG;
-	d.MPG = +d.MPG})
-});
-
 var margin = {top: 20, right: 10, bottom: 20, left:10};
 var width = 960 - margin.left - margin.right;
 var height = 500 - margin.top - margin.bottom;
-var svg = d3.select('body')
-	.append('svg')
-	.attr('width', width + margin.left + margin.right)
-	.attr('height', height + margin.top + margin.bottom)
-	.append('g')
-	.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
+var x = d3.scale.linear().range([0, width]);
+var y = d3.scale.linear().range([height, 0]);
 
-var xScale = d3.scale.linear,
-		.range([0, width]);
+var minX = _(data).orderBy('MPG').first().MPG;
+var maxX = _(data).orderBy('MPG').last().MPG;
 
-var yScale = d3.scale.linear()
-		.range([height, 0]);
+x.domain([minX - 500, maxX + 500]);
+y.domain([0, 100]);
 
-var radius = d3.scaleSqrt()
-		.range([2,5]);
+var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("bottom");
 
-var xAxis = d3.axisBottom()
-		.scale(xScale);
+var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left");
 
-var yAxis = d3.axisLeft()
-		.scale(yScale);
+var svg = d3
+        .select("#d3")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var color = d3.scaleOrdinal(d3.schemeCategory20);
+svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(" + 0 + "," + height / 2 + ")")
+        .call(xAxis);
 
-xScale.domain(d3.extent(data, function(d){
-			return d.MPG;
-		})).nice();
+svg.append("g")
+        .attr("class", "y axis")
+        .attr("transform", "translate(" + width / 2 + "," + 0 + ")")
+        .call(yAxis)
+        .append("PPG");
 
-yScale.domain(d3.extent(data, function(d){
-			return d.PPG;
-		})).nice();
-
-radius.domain(d3.extent(data, function(d){
-			return d.PPG;
-		})).nice();
-
-svg.append('g')
-	.attr('transform', 'translate(0,' + height + ')')
-	.attr('class', 'x axis')
-	.call(xAxis);
-
-svg.append('g')
-	.attr('transform', 'translate(0,0)')
-	.attr('class', 'y axis')
-	.call(yAxis);
-
-var bubble = svg.selectAll('.bubble')
-	.data(data)
-	.enter().append('circle')
-	.attr('class', 'bubble')
-	.attr('cx', function(d){return xScale(d.MPG);})
-	.attr('cy', function(d){ return yScale(d.PPG); })
-	.attr('r', function(d){ return radius(d.PPG); })
-	.style('fill', function(d){ return color(d.Name); });
-
-	bubble.append('title')
-		.attr('x', function(d){ return radius(d.PetalLength); })
-		.text(function(d){
-		return d.Name;
-			});
-
-	svg.append('text')
-			.attr('x', 10)
-			.attr('y', 10)
-			.attr('class', 'label')
-			.text('Points Per Game');
-
-	var legend = svg.selectAll('legend')
-			.data(color.domain())
-			.enter().append('g')
-			.attr('class', 'legend')
-			.attr('transform', function(d,i){ return 'translate(0,' + i * 20 + ')'; });
-
-		// give x value equal to the legend elements. 
-		// no need to define a function for fill, this is automatically fill by color.
-		legend.append('rect')
-			.attr('x', width)
-			.attr('width', 18)
-			.attr('height', 18)
-			.style('fill', color);
-
-
-		svg.append('text')
-			.attr('x', width)
-			.attr('y', height - 10)
-			.attr('text-anchor', 'end')
-			.attr('class', 'label')
-			.text('Minutes Per Game');
-
-		
-legend.append('text')
-			.attr('x', width - 6)
-			.attr('y', 9)
-			.attr('dy', '.35em')
-			.style('text-anchor', 'end')
-			.text(function(d){ return d; });
-		
-legend.on('click', function(type){
-			d3.selectAll('.bubble')
-				.style('opacity', 0.15)
-				.filter(function(d){
-					return d.Name == type;
-				})
-				.style('opacity', 1);
-		})
+svg.selectAll(".dot")
+        .data(data)
+        .enter().append("circle")
+        .attr("class", "dot")
+        .attr("PPG", function (d) {
+            return d.PPG;
+        })
+        .attr("cx", function (d) {
+            return x(d.MPG);
+        })
+        .attr("cy", function (d) {
+            return y(d.PPG);
+        })
+        .style("fill", function (d) {
+            return d.Name;
+        });
