@@ -96,10 +96,10 @@ var svg = d3.select('body')
 	.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
 
-var xScale = d3.scaleLinear()
+var xScale = d3.scale.linear,
 		.range([0, width]);
 
-var yScale = d3.scaleLinear()
+var yScale = d3.scale.linear()
 		.range([height, 0]);
 
 var radius = d3.scaleSqrt()
