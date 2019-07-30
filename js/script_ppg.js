@@ -18,8 +18,8 @@ var yAxis = d3.svg.axis().scale(y)
 
 // Define the line
 var valueline = d3.svg.line()
-    .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.close); });
+    .x(function(d) { return x(d.MPG); })
+    .y(function(d) { return y(d.PPG); });
     
 // Adds the svg canvas
 var svg = d3.select("body")
@@ -51,8 +51,8 @@ d3.csv("data.csv", function(error, data) {
         .data(data)
       .enter().append("circle")
         .attr("r", 3.5)
-        .attr("cx", function(d) { return x(d.date); })
-        .attr("cy", function(d) { return y(d.close); });
+        .attr("cx", function(d) { return x(d.MPG); })
+        .attr("cy", function(d) { return y(d.PPG); });
 
     // Add the X Axis
     svg.append("g")
