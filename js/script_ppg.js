@@ -91,16 +91,13 @@ var margin = {top: 5, right: 5, bottom: 20, left: 20},
 	  var y = d3.scale.linear()
 	      .range([height,0]);
 
-	  var xAxis = d3.axisBottom()
-	      .scale(x);
+var xAxis = d3.svg.axis().scale(xRange).tickFormat(function(d) { return d.x;});
+var yAxis = d3.svg.axis().scale(yRange).orient("left");	  
 
-	  var yAxis = d3.axisLeft()
-	      .scale(y);
+d3.csv("data.csv", types, function(error, data){
 
-	  d3.csv("data.csv", types, function(error, data){
-
-	    y.domain(d3.extent(data, function(d){ return d.PPG}));
-	    x.domain(d3.extent(data, function(d){ return d.MPG}));
+y.domain(d3.extent(data, function(d){ return d.PPG}));
+x.domain(d3.extent(data, function(d){ return d.MPG}));
 
 	    // see below for an explanation of the calcLinear function
 	    var lg = calcLinear(data, "x", "y", d3.min(data, function(d){ return d.x}), d3.min(data, function(d){ return d.x}));
