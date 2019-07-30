@@ -1,84 +1,68 @@
-var data = [
-        {"x": -123, "y": 63, "r": 37, "c": "#50C2E3", "name": "A"},
-        {"x": 71, "y": 0, "r": 15, "c": "#50C2E3", "name": "B"},
-        {"x": 3845, "y": 77, "r": 15, "c": "#50C2E3", "name": "C"},
-        {"x": 3176, "y": 90, "r": 15, "c": "#50C2E3", "name": "D"},
-        {"x": -17, "y": 56, "r": 15, "c": "#50C2E3", "name": "D"},
-        {"x": 1357, "y": 58, "r": 15, "c": "#50C2E3", "name": "E"},
-        {"x": 7684, "y": 75, "r": 15, "c": "#50C2E3", "name": "F"}
-    ];
+var margin = {top: 30, right: 20, bottom: 30, left: 50},
+    width = 600 - margin.left - margin.right,
+    height = 270 - margin.top - margin.bottom;
 
-    var width = 500;
-    var height = 500;
+// Parse the date / time
+var parseDate = d3.time.format("%d-%b-%y").parse;
 
-    var margin = {
-        top: 40,
-        right: 40,
-        bottom: 40,
-        left: 40
-    };
+// Set the ranges
+var x = d3.time.scale().range([0, width]);
+var y = d3.scale.linear().range([height, 0]);
 
-    var x = d3.scale.linear().range([0, width]);
-    var y = d3.scale.linear().range([height, 0]);
+// Define the axes
+var xAxis = d3.svg.axis().scale(x)
+    .orient("bottom").ticks(5);
 
-    var minX = _(data).first().x;
-    var maxX = _(data).last().x;
+var yAxis = d3.svg.axis().scale(y)
+    .orient("left").ticks(5);
 
-    x.domain([minX - 500, maxX + 500]);
-    y.domain([0, 100]);
+// Define the line
+var valueline = d3.svg.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.close); });
+    
+// Adds the svg canvas
+var svg = d3.select("body")
+    .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+        .attr("transform", 
+              "translate(" + margin.left + "," + margin.top + ")");
 
-    var xAxis = d3.svg.axis()
-            .scale(x)
-            .orient("bottom");
+// Get the data
+d3.csv("data.csv", function(error, data) {
+    data.forEach(function(d) {
+        d.PPG = +d.PPG;
+        d.MPG = +d.MPG;
+    });
 
-    var yAxis = d3.svg.axis()
-            .scale(y)
-            .orient("left");
+    // Scale the range of the data
+    x.domain(d3.extent(data, function(d) { return d.MPG; }));
+    y.domain([0, d3.max(data, function(d) { return d.PPG; })]);
 
-    var svg = d3
-            .select("#d3")
-            .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    // Add the valueline path.
+    svg.append("path")
+        .attr("class", "line")
+        .attr("d", valueline(data));
 
+    // Add the scatterplot
+    svg.selectAll("dot")
+        .data(data)
+      .enter().append("circle")
+        .attr("r", 3.5)
+        .attr("cx", function(d) { return x(d.date); })
+        .attr("cy", function(d) { return y(d.close); });
+
+    // Add the X Axis
     svg.append("g")
-            .attr("class", "x axis")
-            .attr("transform", "translate(" + 0 + "," + height / 2 + ")")
-            .call(xAxis);
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
 
+    // Add the Y Axis
     svg.append("g")
-            .attr("class", "y axis")
-            .attr("transform", "translate(" + width / 2 + "," + 0 + ")")
-            .call(yAxis)
-            .append("text");
-              
+        .attr("class", "y axis")
+        .call(yAxis);
 
-  var gdots =  svg.selectAll("g.dot")
-            .data(data)
-            .enter().append('g');
-            
-            gdots.append("circle")
-            .attr("class", "dot")
-            .attr("r", function (d) {
-                return d.r;
-            })
-            .attr("cx", function (d) {
-                return x(d.x);
-            })
-            .attr("cy", function (d) {
-                return y(d.y);
-            })
-            .style("fill", function (d) {
-                return d.c;
-            });
-            gdots.append("text").text(function(d){
-            	return d.name;
-            })
-            .attr("x", function (d) {
-                return x(d.x);
-            })
-            .attr("y", function (d) {
-                return y(d.y);
-            });
+});
