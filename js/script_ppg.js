@@ -34,10 +34,13 @@ var tooltip = d3.select("body").append("div")
 d3.json('data.json',function (data) {
 	data.forEach(function(d) {
         d.Name = d.Name;
-        d.PPG = +d.PPG;	
-	d.MPG = +d.MPG })
-  	.filter(function(a){return a.Team === "GOL"})
+        d.Team = d.Team;
+	d.Position = d.Position;
+	d.PPG = +d.PPG })	
+	.sort(function(a,b){
+		return d3.descending(parseFloat(a.PPG), parseFloat(b.PPG))})
 })
+
 
  // don't want dots overlapping axis, so add in buffer to data domain
   xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
