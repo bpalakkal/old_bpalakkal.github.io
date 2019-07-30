@@ -1,3 +1,27 @@
+.node {
+  cursor: pointer;}
+
+.dot {
+  opacity: .7;
+  cursor: pointer;}
+
+.axis line {
+  fill: none;
+  stroke: rgb(31, 119, 180);
+  shape-rendering: crispEdges;}
+
+.axis path {
+            fill: none;
+            stroke: rgb(31, 119, 180);
+            shape-rendering: crispEdges;}
+
+text {
+  stroke: none;
+  fill: #666666;
+  font-size: .6em;
+  font-family: "Helvetica Neue"
+}
+
 .tooltip {
   position: absolute;
   width: 200px;
@@ -7,20 +31,6 @@
 
 body {
   font: 11px sans-serif;
-}
-
-.axis path
-{
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.axis line 
-{
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
 }
 
 h1 {
