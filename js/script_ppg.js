@@ -30,17 +30,15 @@ var tooltip = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
-
-d3.json('data.json',function (data) {
-	data.forEach(function(d) {
-        d.Name = d.Name;
-        d.Team = d.Team;
-	d.Position = d.Position;
-	d.PPG = +d.PPG })	
-	.sort(function(a,b){
-		return d3.descending(parseFloat(a.PPG), parseFloat(b.PPG))})
-})
-
+// load data
+d3.csv("data.csv", function(error, data) {
+  // change string (from CSV) into number format
+  data.forEach(function(d) {
+    d.PPG = +d.PPG;
+    d.MPG = +d.MPG;
+    d.Name = d.Name;	  
+//    console.log(d);
+  });
 
  // don't want dots overlapping axis, so add in buffer to data domain
   xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
