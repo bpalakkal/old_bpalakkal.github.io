@@ -82,8 +82,8 @@ var height = 500 - margin.top - margin.bottom;
 var x = d3.scale.linear().range([0, width]);
 var y = d3.scale.linear().range([height, 0]);
 
-var minX = _(data).orderBy('MPG').first().MPG;
-var maxX = _(data).orderBy('MPG').last().MPG;
+var minX = _(d).orderBy('MPG').first().MPG;
+var maxX = _(d).orderBy('MPG').last().MPG;
 
 x.domain([minX - 500, maxX + 500]);
 y.domain([0, 100]);
