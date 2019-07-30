@@ -37,8 +37,8 @@ d3.json('data.json',function (data) {
         d.MPG = +d.MPG;	
 	d.PPG = +d.PPG }) 
 	.filter(function (a) { return a.Team === 'GOL'; });
-})
 });
+
 
 
   // don't want dots overlapping axis, so add in buffer to data domain
