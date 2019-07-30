@@ -194,6 +194,3 @@ legend.on('click', function(type){
 				})
 				.style('opacity', 1);
 		})
-
-
-	})
