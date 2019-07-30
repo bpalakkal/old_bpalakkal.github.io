@@ -85,10 +85,10 @@ var margin = {top: 5, right: 5, bottom: 20, left: 20},
 	    .append("g")
 	      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-	  var x = d3.scaleLinear()
+	  var x = d3.scale.linear()
 	      .range([0,width]);
 
-	  var y = d3.scaleLinear()
+	  var y = d3.scale.linear()
 	      .range([height,0]);
 
 	  var xAxis = d3.axisBottom()
