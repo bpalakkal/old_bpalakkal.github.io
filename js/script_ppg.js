@@ -30,10 +30,6 @@ var tooltip = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
-var colors = d3.scale.linear()
-    .domain([5, 20])
-    .range(['#000000','#ffffff'])
-
 // load data
 d3.csv("data.csv", function(error, data) {
 
@@ -81,8 +77,7 @@ d3.csv("data.csv", function(error, data) {
       .attr("r", 3.5)
       .attr("cx", xMap)
       .attr("cy", yMap)
-      .style("fill", function(d,i) {
-        return colors(d.Name)}) 
+      .style("fill",function(d) { return color(cValue(d));}) 
 	
       .on("mouseover", function(d) {
           tooltip.transition()
