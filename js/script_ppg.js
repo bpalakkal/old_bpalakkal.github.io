@@ -1,147 +1,84 @@
-var margin = {top: 5, right: 5, bottom: 20, left: 20},
-	    width = 450 - margin.left - margin.right,
-	    height = 450 - margin.top - margin.bottom;
+var data = [
+        {"x": -123, "y": 63, "r": 37, "c": "#50C2E3", "name": "A"},
+        {"x": 71, "y": 0, "r": 15, "c": "#50C2E3", "name": "B"},
+        {"x": 3845, "y": 77, "r": 15, "c": "#50C2E3", "name": "C"},
+        {"x": 3176, "y": 90, "r": 15, "c": "#50C2E3", "name": "D"},
+        {"x": -17, "y": 56, "r": 15, "c": "#50C2E3", "name": "D"},
+        {"x": 1357, "y": 58, "r": 15, "c": "#50C2E3", "name": "E"},
+        {"x": 7684, "y": 75, "r": 15, "c": "#50C2E3", "name": "F"}
+    ];
 
-	  var svg = d3.select(".chart").append("svg")
-	      .attr("width", width + margin.left + margin.right)
-	      .attr("height", height + margin.top + margin.bottom)
-	    .append("g")
-	      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    var width = 500;
+    var height = 500;
 
-	  var x = d3.scaleLinear()
-	      .range([0,width]);
+    var margin = {
+        top: 40,
+        right: 40,
+        bottom: 40,
+        left: 40
+    };
 
-	  var y = d3.scaleLinear()
-	      .range([height,0]);
+    var x = d3.scale.linear().range([0, width]);
+    var y = d3.scale.linear().range([height, 0]);
 
-	  var xAxis = d3.axisBottom()
-	      .scale(x);
+    var minX = data.orderBy('x').first().x;
+    var maxX = data.orderBy('x').last().x;
 
-	  var yAxis = d3.axisLeft()
-	      .scale(y);
+    x.domain([minX - 500, maxX + 500]);
+    y.domain([0, 100]);
 
-	  d3.csv("data.csv", types, function(error, data){
+    var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom");
 
-	    y.domain(d3.extent(data, function(d){ return d.PPG}));
-	    x.domain(d3.extent(data, function(d){ return d.MPG}));
+    var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left");
 
-	    // see below for an explanation of the calcLinear function
-	    var lg = calcLinear(data, "x", "y", d3.min(data, function(d){ return d.x}), d3.min(data, function(d){ return d.x}));
+    var svg = d3
+            .select("#d3")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-	    svg.append("line")
-	        .attr("class", "regression")
-	        .attr("x1", x(lg.ptA.x))
-	        .attr("y1", y(lg.ptA.y))
-	        .attr("x2", x(lg.ptB.x))
-	        .attr("y2", y(lg.ptB.y));
+    svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(" + 0 + "," + height / 2 + ")")
+            .call(xAxis);
 
-	    svg.append("g")
-	        .attr("class", "x axis")
-	        .attr("transform", "translate(0," + height + ")")
-	        .call(xAxis)
+    svg.append("g")
+            .attr("class", "y axis")
+            .attr("transform", "translate(" + width / 2 + "," + 0 + ")")
+            .call(yAxis)
+            .append("text");
+              
 
-	    svg.append("g")
-	        .attr("class", "y axis")
-	        .call(yAxis);
-
-	    svg.selectAll(".point")
-	        .data(data)
-	      .enter().append("circle")
-	        .attr("class", "point")
-	        .attr("r", 3)
-	        .attr("cy", function(d){ return y(d.y); })
-	        .attr("cx", function(d){ return x(d.x); });
-
-	  });
-
-	  function types(d){
-	    d.x = +d.x;
-	    d.y = +d.y;
-
-	    return d;
-	  }
-
-    // Calculate a linear regression from the data
-
-		// Takes 5 parameters:
-    // (1) Your data
-    // (2) The column of data plotted on your x-axis
-    // (3) The column of data plotted on your y-axis
-    // (4) The minimum value of your x-axis
-    // (5) The minimum value of your y-axis
-
-    // Returns an object with two points, where each point is an object with an x and y coordinate
-
-    function calcLinear(data, x, y, minX, minY){
-      /////////
-      //SLOPE//
-      /////////
-
-      // Let n = the number of data points
-      var n = data.length;
-
-      // Get just the points
-      var pts = [];
-      data.forEach(function(d,i){
-        var obj = {};
-        obj.x = d[x];
-        obj.y = d[y];
-        obj.mult = obj.x*obj.y;
-        pts.push(obj);
-      });
-
-      // Let a equal n times the summation of all x-values multiplied by their corresponding y-values
-      // Let b equal the sum of all x-values times the sum of all y-values
-      // Let c equal n times the sum of all squared x-values
-      // Let d equal the squared sum of all x-values
-      var sum = 0;
-      var xSum = 0;
-      var ySum = 0;
-      var sumSq = 0;
-      pts.forEach(function(pt){
-        sum = sum + pt.mult;
-        xSum = xSum + pt.x;
-        ySum = ySum + pt.y;
-        sumSq = sumSq + (pt.x * pt.x);
-      });
-      var a = sum * n;
-      var b = xSum * ySum;
-      var c = sumSq * n;
-      var d = xSum * xSum;
-
-      // Plug the values that you calculated for a, b, c, and d into the following equation to calculate the slope
-      // slope = m = (a - b) / (c - d)
-      var m = (a - b) / (c - d);
-
-      /////////////
-      //INTERCEPT//
-      /////////////
-
-      // Let e equal the sum of all y-values
-      var e = ySum;
-
-      // Let f equal the slope times the sum of all x-values
-      var f = m * xSum;
-
-      // Plug the values you have calculated for e and f into the following equation for the y-intercept
-      // y-intercept = b = (e - f) / n
-      var b = (e - f) / n;
-
-			// Print the equation below the chart
-//			document.getElementsByClassName("equation")[0].innerHTML = "y = " + m + "x + " + b;
-//			document.getElementsByClassName("equation")[1].innerHTML = "x = ( y - " + b + " ) / " + m;
-
-      // return an object of two points
-      // each point is an object with an x and y coordinate
-      return {
-        ptA : {
-          x: minX,
-          y: m * minX + b
-        },
-        ptB : {
-          y: minY,
-          x: (minY - b) / m
-        }
-      }
-
-    }
+  var gdots =  svg.selectAll("g.dot")
+            .data(data)
+            .enter().append('g');
+            
+            gdots.append("circle")
+            .attr("class", "dot")
+            .attr("r", function (d) {
+                return d.r;
+            })
+            .attr("cx", function (d) {
+                return x(d.x);
+            })
+            .attr("cy", function (d) {
+                return y(d.y);
+            })
+            .style("fill", function (d) {
+                return d.c;
+            });
+            gdots.append("text").text(function(d){
+            	return d.name;
+            })
+            .attr("x", function (d) {
+                return x(d.x);
+            })
+            .attr("y", function (d) {
+                return y(d.y);
+            });
