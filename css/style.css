@@ -1,25 +1,10 @@
-.node {
-  cursor: pointer;}
-
-.dot {
-  opacity: .7;
-  cursor: pointer;}
-
-.axis line {
-  fill: none;
-  stroke: rgb(31, 119, 180);
-  shape-rendering: crispEdges;}
-
-.axis path {
-            fill: none;
-            stroke: rgb(31, 119, 180);
-            shape-rendering: crispEdges;}
-
-text {
-  stroke: none;
-  fill: #666666;
-  font-size: .6em;
-  font-family: "Helvetica Neue"
+.bubbles {
+  stroke-width: 1px;
+  stroke: black;
+  opacity: .8
+}
+.bubbles:hover {
+  stroke: black;
 }
 
 .tooltip {
