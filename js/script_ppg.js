@@ -77,7 +77,7 @@ d3.csv("data.csv", function(error, data) {
       .attr("r", 3.5)
       .attr("cx", xMap)
       .attr("cy", yMap)
-      .style("fill", function(d) { return color(cValue(d.Name));}) 
+      .style("fill", d.Name) 
       .on("mouseover", function(d) {
           tooltip.transition()
                .duration(200)
