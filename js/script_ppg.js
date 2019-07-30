@@ -21,8 +21,8 @@ var data = [
     var x = d3.scale.linear().range([0, width]);
     var y = d3.scale.linear().range([height, 0]);
 
-    var minX = data.orderBy('x').first().x;
-    var maxX = data.orderBy('x').last().x;
+    var minX = _(data).orderBy('x').first().x;
+    var maxX = _(data).orderBy('x').last().x;
 
     x.domain([minX - 500, maxX + 500]);
     y.domain([0, 100]);
