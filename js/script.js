@@ -384,7 +384,7 @@ d3.json('data.json',function (data) {
         d.Name = d.Name;
         d.Team = d.Team;
 	d.Position = d.Position;
-	d.PPG = +d.APG })
+	d.PPG = +d.OffRating })
   	ppg = tabulate4(data,["Name","Team","Position","OffRating"])
 	ppg.select("tbody").selectAll("tr")	
 	.sort(function(a,b){
@@ -460,7 +460,7 @@ d3.json('data.json',function (data) {
         d.Name = d.Name;
         d.Team = d.Team;
 	d.Position = d.Position;
-	d.PPG = +d.APG })
+	d.PPG = +d.DefRating })
   	ppg = tabulate5(data,["Name","Team","Position","DefRating"])
 	ppg.select("tbody").selectAll("tr")	
 	.sort(function(a,b){
@@ -535,7 +535,7 @@ d3.json('data.json',function (data) {
         d.Name = d.Name;
         d.Team = d.Team;
 	d.Position = d.Position;
-	d.PPG = +d.APG })
+	d.PPG = +d.MPG })
   	ppg = tabulate6(data,["Name","Team","Position","MPG"])
 	ppg.select("tbody").selectAll("tr")	
 	.sort(function(a,b){
@@ -617,7 +617,7 @@ d3.json('data.json',function (data) {
         d.Name = d.Name;
         d.Team = d.Team;
 	d.Position = d.Position;
-	d.PPG = +d.APG })
+	d.PPG = +d.FTPt })
   	ppg = tabulate7(data,["Name","Team","Position","FTPt"])
 	ppg.select("tbody").selectAll("tr")	
 	.sort(function(a,b){
@@ -698,7 +698,7 @@ d3.json('data.json',function (data) {
         d.Name = d.Name;
         d.Team = d.Team;
 	d.Position = d.Position;
-	d.PPG = +d.APG })
+	d.PPG = +d.FGPt })
   	ppg = tabulate8(data,["Name","Team","Position","FGPt"])
 	ppg.select("tbody").selectAll("tr")	
 	.sort(function(a,b){
