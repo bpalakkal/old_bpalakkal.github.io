@@ -30,6 +30,10 @@ var tooltip = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
+var colors = d3.scale.linear()
+    .domain([5, 20])
+    .range(['#000000','#ffffff'])
+
 // load data
 d3.csv("data.csv", function(error, data) {
 
