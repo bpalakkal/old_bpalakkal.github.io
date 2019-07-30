@@ -36,8 +36,17 @@ d3.csv("data.csv", function(error, data) {
   data.forEach(function(d) {
     d.PPG = +d.PPG;
     d.MPG = +d.MPG;
-    d.Name = d.Name;	  
+    d.Name = d.Name;
+    d.Team = d.Team
 //    console.log(d);
+  })
+ .filter(function(d) 
+{ 
+
+        if(d["Team"] == "GOL")
+        { 
+            return d;
+        } 
   });
 
  // don't want dots overlapping axis, so add in buffer to data domain
