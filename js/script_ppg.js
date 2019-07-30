@@ -30,16 +30,16 @@ var tooltip = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
-// load data
-d3.csv("data.csv", function(error, data) {
 
-  // change string (from CSV) into number format
-  data.forEach(function(d) {
-    d.MPG = +d.MPG;
-    d.PPG = +d.PPG;
-    d.Name = d.Name;
-//    console.log(d);
-  });
+d3.json('data.json',function (data) {
+	data.forEach(function(d) {
+        d.Name = d.Name;
+        d.MPG = +d.MPG;	
+	d.PPG = +d.PPG }) 
+	.filter(function (a) { return a.Team === 'GOL'; });
+})
+});
+
 
   // don't want dots overlapping axis, so add in buffer to data domain
   xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
