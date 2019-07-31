@@ -39,15 +39,16 @@
         .tickPadding(5)
         .tickSize(-innerWidth);
 
-      const row = d => {
-        const PPG = +d.PPG;
+      const row = d => {        
         return {
           Name: d.Name,
-          PPG: +d.PPG
-        };
+          PPG: +d.PPG,
+          Team: d.Team
+        }.filter(function(d){if d["Team"]==="GOL") {return d};
       };
 
-      d3.csv('data.csv', row, data => {
+
+d3.csv('data.csv', row, data => {
         yScale
           .domain(data.map(yValue).reverse())
           .range([innerHeight, 0]);
