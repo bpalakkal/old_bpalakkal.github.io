@@ -10,6 +10,20 @@
       const innerWidth = width - margin.left - margin.right;
       const innerHeight = height - margin.top - margin.bottom;
 
+      var filterdata = d3.csv("data.csv", 
+       function(error, data){
+       var alldata = data.map(function(d) {
+            d.PPG = +d.PPG;
+            d.MPG = +d.MPG;
+            d.Name = d.Name;
+            d.Team = d.Team
+            return(d);
+            }).filter(function(d) 
+      {if(d["Team"] == "GOL")
+            {return d;}
+      })
+})
+       
       const g = svg.append('g')
           .attr('transform', `translate(${margin.left},${margin.top})`);
       const xAxisG = g.append('g')
