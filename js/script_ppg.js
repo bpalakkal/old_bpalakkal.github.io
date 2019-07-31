@@ -34,12 +34,12 @@ var tooltip = d3.select("body").append("div")
 d3.csv("data.csv", 
        function(error, data){
   // change string (from CSV) into number format
-    var alldata = data.forEach(function(d) {
+    var alldata = data.map(function(d) {
     d.PPG = +d.PPG;
     d.MPG = +d.MPG;
     d.Name = d.Name;
     d.Team = d.Team
-//    console.log(d);
+    return(d);
   })
   alldata.filter(function(d) 
   { if(d["Team"] == "GOL")
