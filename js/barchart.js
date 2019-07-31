@@ -10,19 +10,7 @@
       const innerWidth = width - margin.left - margin.right;
       const innerHeight = height - margin.top - margin.bottom;
 
-      constr d = row = d3.csv("data.csv", 
-       function(error, data){
-       var alldata = data.map(function(d) {
-            d.PPG = +d.PPG;
-            d.MPG = +d.MPG;
-            d.Name = d.Name;
-            d.Team = d.Team
-            return(d);
-            }).filter(function(d) 
-      {if(d["Team"] == "GOL")
-            {return d;}
-      })
-})
+      
        
       const g = svg.append('g')
           .attr('transform', `translate(${margin.left},${margin.top})`);
@@ -52,7 +40,31 @@
         .scale(yScale)
         .tickPadding(5)
         .tickSize(-innerWidth);           
-                 
+
+      const row = d => {      
+          return {
+          Name: d.Name,
+          PPG: +d.PPG
+        }.filter(function(d) 
+                  {if(d["Team"] == "GOL") {return d;}
+                  }
+                );
+      }; 
+
+const row = d => d3.csv("data.csv", 
+       function(error, data){
+       var alldata = data.map(function(d) {
+            d.PPG = +d.PPG;
+            d.MPG = +d.MPG;
+            d.Name = d.Name;
+            d.Team = d.Team
+            return(d);
+            }).filter(function(d) 
+      {if(d["Team"] == "GOL")
+            {return d;}
+      })
+})
+
 d3.csv('data.csv', row, data => {
         yScale
           .domain(data.map(yValue).reverse())
