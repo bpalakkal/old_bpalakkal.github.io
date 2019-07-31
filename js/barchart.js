@@ -42,7 +42,7 @@
       const row = d => {
         const PPG = +d.PPG;
         return {
-          Player: d.Name,
+          Player: d.Names,
           PPG: +d.PPG
         };
       };
