@@ -44,7 +44,8 @@
       const row = d => {      
           return {
           Name: d.Name,
-          PPG: +d.PPG
+          PPG: +d.PPG,
+          Team: d.Team            
         }.filter(function(d) 
                   {if(d["Team"] == "GOL") {return d;}
                   }
