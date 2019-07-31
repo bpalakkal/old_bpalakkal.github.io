@@ -10,7 +10,7 @@
       const innerWidth = width - margin.left - margin.right;
       const innerHeight = height - margin.top - margin.bottom;
 
-      var filterdata = d3.csv("data.csv", 
+      var d = d3.csv("data.csv", 
        function(error, data){
        var alldata = data.map(function(d) {
             d.PPG = +d.PPG;
@@ -53,7 +53,7 @@
         .tickPadding(5)
         .tickSize(-innerWidth);
 
- const row = d => {
+ const row  => {
         return {
           Name: d.Name,
           PPG: +d.PPG
