@@ -44,7 +44,7 @@
           Name: d.Name,
           PPG: +d.PPG,
           Team: d.Team
-        }.filter(function(d){if d["Team"]==="GOL") {return d};
+        }.filter(function(d){if d["Team"]==="GOL") {return d}}
       };
 
 
