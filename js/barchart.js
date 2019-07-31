@@ -4,7 +4,7 @@
       const yLabel = 'Player Names';
       const margin = { left: 150, right: 30, top: 5, bottom: 75 };
 
-      const svg = d3.select('body);
+      const svg = d3.select('svg');
       const width = svg.attr('width');
       const height = svg.attr('height');
       const innerWidth = width - margin.left - margin.right;
