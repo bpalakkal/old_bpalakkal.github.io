@@ -1,6 +1,6 @@
       const xValue = d => d.PPG;
       const xLabel = 'Points Per Game';
-      const yValue = d => d.Names;
+      const yValue = d => d.Name;
       const yLabel = 'Player Names';
       const margin = { left: 150, right: 30, top: 5, bottom: 75 };
 
@@ -42,7 +42,7 @@
       const row = d => {
         const PPG = +d.PPG;
         return {
-          Player: d.Names,
+          Name: d.Name,
           PPG: +d.PPG
         };
       };
