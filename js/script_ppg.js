@@ -34,7 +34,7 @@ var tooltip = d3.select("body").append("div")
 d3.csv("data.csv", 
        function(error, data){
   // change string (from CSV) into number format
-    data.map(function(d) {
+    var alldata = data.map(function(d) {
     d.PPG = +d.PPG;
     d.MPG = +d.MPG;
     d.Name = d.Name;
@@ -45,8 +45,8 @@ d3.csv("data.csv",
         {return d;}
   })
   // don't want dots overlapping axis, so add in buffer to data domain
-  xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
-  yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
+  xScale.domain([d3.min(alldata, xValue)-1, d3.max(alldata, xValue)+1]);
+  yScale.domain([d3.min(alldata, yValue)-1, d3.max(alldata, yValue)+1]);
 
   // x-axis
   svg.append("g")
@@ -74,7 +74,7 @@ d3.csv("data.csv",
 
   // draw dots
   svg.selectAll(".dot")
-      .data(data)
+      .data(alldata)
     .enter().append("circle")
       .attr("class", "dot")
       .attr("r", 3.5)
@@ -99,7 +99,7 @@ d3.csv("data.csv",
 
   // draw legend
   var legend = svg.selectAll(".legend")
-      .data(color.domain())
+      .alldata(color.domain())
     .enter().append("g")
       .attr("class", "legend")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
