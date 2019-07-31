@@ -39,34 +39,13 @@
         .tickPadding(5)
         .tickSize(-innerWidth);
 
-      const row = d => {        
+ const row = d => {
+        const netUsersWithCommas = d['Internet Users 31 Mar 2017'];
         return {
-       var alldata = data.map(function(d) {
-       d.PPG = +d.PPG;
-       d.MPG = +d.MPG;
-       d.Name = d.Name;
-       d.Team = d.Team
-       return(d);
-      }).filter(function(d) 
-      {if(d["Team"] == "GOL")
-        {return d;}                           
+          country: d['Country or Region'],
+          netUsers: +netUsersWithCommas.replace(/,/g, '')
         };
-      };
-
-d3.csv("data.csv", 
-       function(error, data){
-  // change string (from CSV) into number format
-    var alldata = data.map(function(d) {
-    d.PPG = +d.PPG;
-    d.MPG = +d.MPG;
-    d.Name = d.Name;
-    d.Team = d.Team
-    return(d);
-  }).filter(function(d) 
-  { if(d["Team"] == "GOL")
-        {return d;}
-  })
-                 
+      };               
                  
 d3.csv('data.csv', row, data => {
         yScale
