@@ -31,25 +31,21 @@ var tooltip = d3.select("body").append("div")
     .style("opacity", 0);
 
 // load data
-d3.csv("data.csv", function(error, data) {
+d3.csv("data.csv", 
+       function(error, data){
   // change string (from CSV) into number format
-  data.forEach(function(d) {
+    var alldata = data.forEach(function(d) {
     d.PPG = +d.PPG;
     d.MPG = +d.MPG;
     d.Name = d.Name;
     d.Team = d.Team
 //    console.log(d);
   })
- .filter(function(d) 
-{ 
-
-        if(d["Team"] == "GOL")
-        { 
-            return d;
-        } 
-  });
-
- // don't want dots overlapping axis, so add in buffer to data domain
+  alldata.filter(function(d) 
+  { if(d["Team"] == "GOL")
+        {return d;}
+  })
+  // don't want dots overlapping axis, so add in buffer to data domain
   xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
   yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
 
