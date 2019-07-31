@@ -10,7 +10,7 @@
       const innerWidth = width - margin.left - margin.right;
       const innerHeight = height - margin.top - margin.bottom;
 
-      var d = d3.csv("data.csv", 
+      constr d = row = d3.csv("data.csv", 
        function(error, data){
        var alldata = data.map(function(d) {
             d.PPG = +d.PPG;
@@ -51,14 +51,7 @@
       const yAxis = d3.axisLeft()
         .scale(yScale)
         .tickPadding(5)
-        .tickSize(-innerWidth);
-
- const row  => {
-        return {
-          Name: d.Name,
-          PPG: +d.PPG
-        };
-      };               
+        .tickSize(-innerWidth);           
                  
 d3.csv('data.csv', row, data => {
         yScale
