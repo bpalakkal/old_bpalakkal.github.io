@@ -57,7 +57,7 @@
             (
                   function(d) 
                   {
-                        if(d["Team"] == "GOL")
+                        if(d["Team"] === "GOL")
                         {
                               return d;
                         }
