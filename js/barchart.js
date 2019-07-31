@@ -41,13 +41,33 @@
 
       const row = d => {        
         return {
-          Name: d.Name,
-          PPG: +d.PPG,
-          Team: d.Team
-        }.filter(function(d){if d["Team"]==="GOL") {return d}}
+       var alldata = data.map(function(d) {
+       d.PPG = +d.PPG;
+       d.MPG = +d.MPG;
+       d.Name = d.Name;
+       d.Team = d.Team
+       return(d);
+      }).filter(function(d) 
+      {if(d["Team"] == "GOL")
+        {return d;}                           
+        };
       };
 
-
+d3.csv("data.csv", 
+       function(error, data){
+  // change string (from CSV) into number format
+    var alldata = data.map(function(d) {
+    d.PPG = +d.PPG;
+    d.MPG = +d.MPG;
+    d.Name = d.Name;
+    d.Team = d.Team
+    return(d);
+  }).filter(function(d) 
+  { if(d["Team"] == "GOL")
+        {return d;}
+  })
+                 
+                 
 d3.csv('data.csv', row, data => {
         yScale
           .domain(data.map(yValue).reverse())
