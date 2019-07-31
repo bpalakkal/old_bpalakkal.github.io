@@ -40,10 +40,9 @@
         .tickSize(-innerWidth);
 
  const row = d => {
-        const netUsersWithCommas = d['Internet Users 31 Mar 2017'];
         return {
-          country: d['Country or Region'],
-          netUsers: +netUsersWithCommas.replace(/,/g, '')
+          Name: d.Name,
+          PPG: +d.PPG
         };
       };               
                  
