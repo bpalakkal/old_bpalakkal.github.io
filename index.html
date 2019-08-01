@@ -71,11 +71,11 @@ tr:hover td { background-color: #edf8b1; }
 	
 <script src="https://d3js.org/d3.v3.js"></script>
 <select id = "opts">
-<option value="ds1">Points Per Game</option>
-<option value="ds2">Rebounds Per Game</option> 
-<option value="ds3">Steals Per Game</option>
-<option value="ds3">Assists Per Game</option>	
-<option value="ds3">Minutes Per Game</option>
+<option value="ppg">Points Per Game</option>
+<option value="rpg">Rebounds Per Game</option> 
+<option value="spg">Steals Per Game</option>
+<option value="apg">Assists Per Game</option>	
+<option value="mpg">Minutes Per Game</option>
 </select> 
 <script>
 
@@ -690,9 +690,9 @@ d3.json("data.json", function(data) { // loading data from server
 d3.select('#opts')
   .on('change', function() {
     var newValue = eval(d3.select(this).property('value'));
-    if (newValue === "Points Per Game") {
+    if (newValue === "ppg") {
 	populateTablePPG(newValue)};
-    if (newValue === "Rebounds Per Game") {
+    if (newValue === "rpg") {
 	populateTableRPG(newValue)};
 	
 });
