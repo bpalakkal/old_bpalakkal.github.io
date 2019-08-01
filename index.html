@@ -690,7 +690,7 @@ d3.json("data.json", function(data) { // loading data from server
 d3.select('#opts')
   .on('change', function() {
     var selectBox = document.getElementById("opts");
-    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    var newValue = selectBox.options[selectBox.selectedIndex].value;
     if (newValue === "ppg") {
 	populateTablePPG(newValue)};
     if (newValue === "rpg") {
