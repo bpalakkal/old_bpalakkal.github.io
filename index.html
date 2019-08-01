@@ -692,8 +692,10 @@ d3.select('#opts')
     var selectBox = document.getElementById("opts");
     var newValue = selectBox.options[selectBox.selectedIndex].value;
     if (newValue === "ppg") {
+	container.remove()
 	populateTablePPG(newValue)};
     if (newValue === "rpg") {
+	container.remove()
 	populateTableRPG(newValue)};
 	
 });
