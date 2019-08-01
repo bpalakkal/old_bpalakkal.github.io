@@ -78,6 +78,8 @@ tr:hover td { background-color: #edf8b1; }
 <option value="ds3">Minutes Per Game</option>
 </select> 
 <script>
+
+function populateTable(val) {
 var column_names = ["Player Name","Team","Position","Games Played"];
 var clicks = {name: 0, team: 0, position: 0,games_played: 0};
 
@@ -231,7 +233,16 @@ d3.json("data.json", function(data) { // loading data from server
         // exit
         rows.exit().remove();
       })
-    
+}
+
+d3.select('#opts')
+  .on('change', function() {
+    var newValue = eval(d3.select(this).property('value'));
+    populateTable(newValue);
+});
+
+popuateTable("Points Per Game")
+	
   /**  sort functionality **/
   headers
     .on("click", function(d) {
