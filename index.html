@@ -1,5 +1,8 @@
-!DOCTYPE html>
+<html>
+<head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>NBA 2018/19 Season Leaders</title>
 <style>
 body {
   background-color: #d1e5f0;
@@ -63,10 +66,10 @@ td { background-color: #92c5de; }
 tr:hover td { background-color: #edf8b1; }
 
 </style>
+	
 <body>
 <script src="http://d3js.org/d3.v3.js"></script>
 <script>
-
 var column_names = ["Player Name","Team","Position","Games Played"];
 var clicks = {name: 0, team: 0, position: 0,games_played: 0};
 
@@ -340,3 +343,4 @@ d3.json("data.json", function(data) { // loading data from server
 });
 d3.select(self.frameElement).style("height", "780px").style("width", "1150px");	
 </script>
+</body>
