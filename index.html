@@ -84,6 +84,14 @@ d3.select("#FilterableTable").append("h1")
   .attr("id", "title")
   .text("NBA 2018/19 Regular Season Leaders")
 
+<select id = "opts">
+<option value="ds1">Points Per Game</option>
+<option value="ds2">Rebounds Per Game</option> 
+<option value="ds3">Steals Per Game</option>
+<option value="ds3">Assists Per Game</option>	
+<option value="ds3">Minutes Per Game</option>
+</select>     
+	
 d3.select("#FilterableTable").append("div")
   .attr("class", "SearchBar")
   .append("p")
