@@ -2,7 +2,7 @@
       const xLabel = 'Points Per Game';
       const yValue = d => d.Name;
       const yLabel = 'Player Names';
-      const margin = { left: 150, right: 30, top: 5, bottom: 75 };
+      const margin = { left: 200, right: 30, top: 5, bottom: 75 };
 
       const svg = d3.select('svg');
       const width = svg.attr('width');
