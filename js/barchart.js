@@ -41,29 +41,11 @@
         .tickPadding(5)
         .tickSize(-innerWidth);           
 
-      const row = function(error, data)
-      {     
-            var alldata = data.map(
-                  function(d) 
-                  {
-                        d.PPG = +d.PPG;
-                        d.MPG = +d.MPG;
-                        d.Name = d.Name;
-                        d.Team = d.Team
-                        return(d)
-                  }
-                                    )
-            .filter
-            (
-                  function(d) 
-                  {
-                        if(d["Team"] === "GOL")
-                        {
-                              return d;
-                        }
-                  }
-            )
-      }
+const row = d => {
+        return {
+          PPG: +d.PPG,
+          Name: d.Name };
+      };   
 
       d3.csv('data.csv', row, data => {
         yScale
