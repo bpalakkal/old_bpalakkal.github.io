@@ -690,9 +690,9 @@ d3.json("data.json", function(data) { // loading data from server
 d3.select('#opts')
   .on('change', function() {
     var newValue = eval(d3.select(this).property('value'));
-    if (newValue === "Points Per Game) {
+    if (newValue === "Points Per Game") {
 	populateTablePPG(newValue)};
-    if (newValue === "Rebounds Per Game) {
+    if (newValue === "Rebounds Per Game") {
 	populateTableRPG(newValue)};
 	
 });
