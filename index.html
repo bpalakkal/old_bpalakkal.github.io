@@ -233,15 +233,6 @@ d3.json("data.json", function(data) { // loading data from server
         // exit
         rows.exit().remove();
       })
-}
-
-d3.select('#opts')
-  .on('change', function() {
-    var newValue = eval(d3.select(this).property('value'));
-    populateTable(newValue);
-});
-
-popuateTable("Points Per Game")
 	
   /**  sort functionality **/
   headers
@@ -362,6 +353,16 @@ popuateTable("Points Per Game")
           
     }) // end of click listeners
 });
+}
+
+d3.select('#opts')
+  .on('change', function() {
+    var newValue = eval(d3.select(this).property('value'));
+    populateTable(newValue);
+});
+
+popuateTable("Points Per Game")
+
 d3.select(self.frameElement).style("height", "780px").style("width", "1150px");	
 </script>
 </body>
