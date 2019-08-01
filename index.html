@@ -80,8 +80,8 @@ tr:hover td { background-color: #edf8b1; }
 <script>
 
 var populateTable = function(val) {
-var column_names = ["Player Name","Team","Position","Games Played"];
-var clicks = {name: 0, team: 0, position: 0,games_played: 0};
+var column_names = ["Player Name","Team","Position","Games Played","Points Per Game"];
+var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
 
 // draw the table
 d3.select("body").append("div")
@@ -92,7 +92,7 @@ d3.select("#container").append("div")
 
 d3.select("#FilterableTable").append("h1")
   .attr("id", "title")
-  .text("NBA 2018/19 Regular Season Leaders")
+  .text("NBA 2018/19 Regular Season Leaders - Points Per Game")
 
     
 	
@@ -142,7 +142,7 @@ d3.json("data.json", function(data) { // loading data from server
 		    arr.push(d[k]);
           }
         }
-        return [arr[0],arr[1],arr[2],arr[4]];
+        return [arr[0],arr[1],arr[2],arr[4],arr[25]];
       })
     .enter()
       .append("td") 
@@ -209,7 +209,7 @@ d3.json("data.json", function(data) { // loading data from server
 		          arr.push(d[k]);
                 }
               }
-              return [arr[0],arr[1],arr[2],arr[4]];
+              return [arr[0],arr[1],arr[2],arr[4],arr[25]];
             })
           .enter()
             .append("td") 
@@ -322,6 +322,34 @@ d3.json("data.json", function(data) { // loading data from server
           });
         }
       } 
+	if (d == "Points Per Game") {
+	    clicks.ppg++;
+        // even number of clicks
+        if (clicks.ppg % 2 == 0) {
+          // sort ascending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.PPG < +b.PPG) { 
+              return -1; 
+            } else if (+a.PPG > +b.PPG) { 
+              return 1; 
+            } else {
+              return 0;
+            }
+          });
+        // odd number of clicks  
+        } else if (clicks.ppg % 2 != 0) { 
+          // sort descending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.PPG < +b.PPG) { 
+              return 1; 
+            } else if (+a.PPG > +b.PPG) { 
+              return -1; 
+            } else {
+              return 0;
+            }
+          });
+        }
+      }  
           if (d == "Team") {
         clicks.team++;
         // even number of clicks
