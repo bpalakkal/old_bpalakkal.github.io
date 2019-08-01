@@ -42,9 +42,11 @@
         .tickSize(-innerWidth);           
 
 const row = d => {
-        return {
+      if (d.Team === "GOL") {  
+      return {              
           PPG: +d.PPG,
           Name: d.Name };
+      }
       };   
 
       d3.csv('data.csv', row, data => {
