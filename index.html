@@ -81,7 +81,7 @@ d3.select("#container").append("div")
   .attr("id", "FilterableTable");
 
 d3.select("#FilterableTable").append("h1")
-  .attr("id", "title")
+  .attr("id", "Name")
   .text("NBA 2018/19 Regular Season Leaders")
 
 d3.select("#FilterableTable").append("div")
@@ -173,7 +173,7 @@ d3.json("data.json", function(data) { // loading data from server
         // filter dataset with searchResults
         searched_data = searchResults.map(function(r) {
            return data.filter(function(p) {
-            return p.title.indexOf(r) != -1;
+            return p.Name.indexOf(r) != -1;
           })
         })
 
