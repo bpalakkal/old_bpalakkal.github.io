@@ -68,7 +68,15 @@ tr:hover td { background-color: #edf8b1; }
 </style>
 	
 <body>
+	
 <script src="https://d3js.org/d3.v3.js"></script>
+<select id = "opts">
+<option value="ds1">Points Per Game</option>
+<option value="ds2">Rebounds Per Game</option> 
+<option value="ds3">Steals Per Game</option>
+<option value="ds3">Assists Per Game</option>	
+<option value="ds3">Minutes Per Game</option>
+</select> 
 <script>
 var column_names = ["Player Name","Team","Position","Games Played"];
 var clicks = {name: 0, team: 0, position: 0,games_played: 0};
@@ -84,13 +92,7 @@ d3.select("#FilterableTable").append("h1")
   .attr("id", "title")
   .text("NBA 2018/19 Regular Season Leaders")
 
-<select id = "opts">
-<option value="ds1">Points Per Game</option>
-<option value="ds2">Rebounds Per Game</option> 
-<option value="ds3">Steals Per Game</option>
-<option value="ds3">Assists Per Game</option>	
-<option value="ds3">Minutes Per Game</option>
-</select>     
+    
 	
 d3.select("#FilterableTable").append("div")
   .attr("class", "SearchBar")
