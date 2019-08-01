@@ -29,19 +29,6 @@ body {
   left: 20px;
   font: 12px sans-serif;
 }
-#container1 {
-  width: 500px;
-  height: 100%;
-  position: relative;
-}
-#FilterableTable1 {
-  width: 480 ;
-  height: 100%;
-  position: absolute;
-  top: 40px;
-  left: 20px;
-  font: 12px sans-serif;
-}	
 .SearchBar { 
   display: inline; 
   position: relative;
@@ -1616,19 +1603,6 @@ d3.select('#opts')
 
 populateTablePPG("Points Per Game")	
 
-// draw the table
-d3.select("body").append("div")
-  .attr("id", "container1")
-
-d3.select("#container1").append("div")
-  .attr("id", "FilterableTable1");
-
-d3.select("#FilterableTable1").append("div")
-  .attr("class", "SearchBar")
-  .append("p")
-    .attr("class", "SearchBar")
-    .text("Search By Player Name:");
-	
 d3.select(self.frameElement).style("height", "1080px").style("width", "1920px");	
 </script>
 </body>
