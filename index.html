@@ -10,7 +10,7 @@ body {
   font: 10px sans-serif;
   color: #FFFFFF
 }
-#container {
+#container1 {
   width: 400px;
   height: 100%;
   position: relative;
@@ -23,6 +23,19 @@ body {
 }
 #FilterableTable {
   width: 380 ;
+  height: 100%;
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  font: 12px sans-serif;
+}
+#container2 {
+  width: 800px;
+  height: 100%;
+  position: relative;
+}
+#PlayerStats {
+  width: 780 ;
   height: 100%;
   position: absolute;
   top: 40px;
@@ -1602,7 +1615,20 @@ d3.select('#opts')
 });
 
 populateTablePPG("Points Per Game")
+	
+// draw the table
+d3.select("body").append("div")
+  .attr("id", "container1")
 
+d3.select("#container1").append("div")
+  .attr("id", "PlayerStats");
+
+d3.select("#PlayerStats").append("div")
+  .attr("class", "SearchBar")
+  .append("p")
+    .attr("class", "SearchBar")
+    .text("Search By Player Name:");
+	
 d3.select(self.frameElement).style("height", "1080px").style("width", "1920px");	
 </script>
 </body>
