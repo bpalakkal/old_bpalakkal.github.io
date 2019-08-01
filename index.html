@@ -39,7 +39,7 @@ body {
   height: 100%;
   position: absolute;
   top: 40px;
-  left: 20px;
+  left: 400px;
   font: 12px sans-serif;
 }
 .SearchBar { 
@@ -1616,6 +1616,20 @@ d3.select('#opts')
 
 populateTablePPG("Points Per Game")	
 
+// draw the table
+d3.select("body").append("div")
+  .attr("id", "container2")
+
+d3.select("#container2").append("div")
+  .attr("id", "PlayerStats");
+
+d3.select("#PlayerStats").append("div")
+  .attr("class", "SearchBar")
+  .append("p")
+    .attr("class", "SearchBar")
+    .text("Search By Player Name:")
+
+	
 d3.select(self.frameElement).style("height", "1080px").style("width", "1920px");	
 </script>
 </body>
