@@ -689,7 +689,8 @@ d3.json("data.json", function(data) { // loading data from server
 
 d3.select('#opts')
   .on('change', function() {
-    var newValue = eval(d3.select(this).property('value'));
+    var selectBox = document.getElementById("opts");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
     if (newValue === "ppg") {
 	populateTablePPG(newValue)};
     if (newValue === "rpg") {
