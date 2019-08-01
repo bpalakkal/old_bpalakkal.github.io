@@ -81,7 +81,7 @@ d3.select("#container").append("div")
   .attr("id", "FilterableTable");
 
 d3.select("#FilterableTable").append("h1")
-  .attr("id", "Name")
+  .attr("id", "title")
   .text("NBA 2018/19 Regular Season Leaders")
 
 d3.select("#FilterableTable").append("div")
@@ -115,7 +115,7 @@ d3.json("data.json", function(data) { // loading data from server
 
   // data bind
   rows = table.select("tbody").selectAll("tr")
-    .data(data, function(d){ return d.id; });
+    .data(data, function(d){ return d.Name; });
   
   // enter the rows
   rows.enter()
@@ -130,7 +130,7 @@ d3.json("data.json", function(data) { // loading data from server
 		    arr.push(d[k]);
           }
         }
-        return [arr[3],arr[1],arr[2],arr[0]];
+        return [arr[0],arr[1],arr[2],arr[4]];
       })
     .enter()
       .append("td") 
@@ -182,7 +182,7 @@ d3.json("data.json", function(data) { // loading data from server
         
         // data bind with new data
 		rows = table.select("tbody").selectAll("tr")
-		  .data(searched_data, function(d){ return d.id; })
+		  .data(searched_data, function(d){ return d.Name; })
 		
         // enter the rows
         rows.enter()
@@ -197,7 +197,7 @@ d3.json("data.json", function(data) { // loading data from server
 		          arr.push(d[k]);
                 }
               }
-              return [arr[3],arr[1],arr[2],arr[0]];
+              return [arr[0],arr[1],arr[2],arr[4]];
             })
           .enter()
             .append("td") 
