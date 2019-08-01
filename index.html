@@ -9,31 +9,18 @@ body {
   background-image: url("nba.jpg");
   font: 10px sans-serif;
   color: #FFFFFF
-}
+}	
 #container {
-  width: 400px;
-  height: 100%;
-  position: relative;
-}
-#svg1 {
   width: 500px;
   height: 100%;
   position: relative;
 }
-
-#svg2 {
-  width: 1400px;
-  height: 100%;
-  position: relative;
-}
-	
 #title {
   font: 14px sans-serif;
   position: absolute;
   top: -40px;
   left: 450px;
-}
-	
+}	
 #FilterableTable {
   width: 480 ;
   height: 100%;
@@ -42,19 +29,19 @@ body {
   left: 20px;
   font: 12px sans-serif;
 }
-#container2 {
-  width: 800px;
+#container1 {
+  width: 500px;
   height: 100%;
   position: relative;
 }
-#PlayerStats {
-  width: 780 ;
+#FilterableTable1 {
+  width: 480 ;
   height: 100%;
   position: absolute;
   top: 40px;
-  left: 400px;
+  left: 20px;
   font: 12px sans-serif;
-}
+}	
 .SearchBar { 
   display: inline; 
   position: relative;
@@ -116,10 +103,10 @@ var column_names = ["Player Name","Team","Position","Games Played","Points Per G
 var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
 
 // draw the table
-d3.select("body").append("svg")
-  .attr("id", "svg1")
+d3.select("body").append("div")
+  .attr("id", "container")
 
-d3.select("#svg1").append("div")
+d3.select("#container").append("div")
   .attr("id", "FilterableTable");
 
 d3.select("#FilterableTable").append("div")
@@ -1630,13 +1617,13 @@ d3.select('#opts')
 populateTablePPG("Points Per Game")	
 
 // draw the table
-d3.select("body").append("svg")
-  .attr("id", "svg2")
+d3.select("body").append("div")
+  .attr("id", "container1")
 
-d3.select("#svg2").append("div")
-  .attr("id", "FilterableTable");
+d3.select("#container1").append("div")
+  .attr("id", "FilterableTable1");
 
-d3.select("#FilterableTable").append("div")
+d3.select("#FilterableTable1").append("div")
   .attr("class", "SearchBar")
   .append("p")
     .attr("class", "SearchBar")
