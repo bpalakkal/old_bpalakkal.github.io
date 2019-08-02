@@ -399,7 +399,7 @@ d3.json("data.json", function(data) { // loading data from server
 
 table.selectAll("tr").on("click",function(d,i){
 	console.log(d);
-	displayPlayer(this.td[0])
+	displayPlayer(d.Name)
 });
 
 });
