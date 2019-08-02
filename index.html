@@ -83,8 +83,7 @@ td { background-color: #17408B; }
 
 tr:hover td { background-color: #C9082A; }
 
-</style>
-	
+</style>	
 <body>
 <h1>NBA 2018/19 Regular Season Leaders</h1>	
 <script src="https://d3js.org/d3.v3.js"></script>
@@ -110,7 +109,7 @@ var svg1 = d3.select("body").append("svg")
       	.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
 // draw the table
-d3.select("svg1").append("div")
+d3.select("#svg1").append("div")
   .attr("id", "container")
 
 d3.select("#container").append("div")
