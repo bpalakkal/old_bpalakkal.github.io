@@ -101,18 +101,18 @@ var svg = d3.select("body").append("svg")
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
     
-//d3.select("body").append("div")
-  //.attr("id", "container")
-  //.attr("class","column")
-	
-//d3.select("#container").append("div")
-  //.attr("id", "FilterableTable")
-  
- var forobj = svg.append("foreignObject")
+var forobj = svg.append("foreignObject")
       .attr("width", 360)
       .attr("height", 720)
       .append("xhtml:body")
-
+ 
+d3.select("forobj").append("div")
+	.attr("id", "container")
+  	.attr("class","column")
+	
+d3.select("#container").append("div")
+  	.attr("id", "FilterableTable")
+  
 d3.select("forobj").append("div")
   .attr("class", "SearchBar")
   .append("p")
