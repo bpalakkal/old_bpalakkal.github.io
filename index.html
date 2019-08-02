@@ -1623,46 +1623,11 @@ d3.select('#opts')
 	
 });
 
-populateTablePPG("Points Per Game")	
+populateTablePPG("Points Per Game")
 
-var displayPlayer = function(playerName){
-
-d3.json('Roster.json',function (data) {  
-	var filteredData =  data.players.filter(function(d) {if( d.name == playerName) {return d};});
-	
-	var html = 
-	'<div class="row" style="margin-right: 15px;margin-left: 415px;">'+
-	'<div class="col" style="max-width: 30%;"> <img style="height:200px" src = "' + filteredData[0]["imgURL"] +'"></img> </div>'+
-	'<div class="col"> <div class="row"> <label>' + playerName +  '</label> </div> ' +
-	'<div class="row"> <label> Position: ' + filteredData[0]["pos"] +  '</label> </div> ' +
-	'<div class="row"> <label> Height : ' + filteredData[0]["hgt"] +  '</label> </div> ' +
-	'<div class="row"> <label> Weight : ' + filteredData[0]["weight"] +  'lbs </label> </div> ' +
-	'<div class="row"> <label> Born : ' + filteredData[0].born.loc + "-" + filteredData[0].born.year +  ' </label> </div> ' +
-	'<div class="row"> <label> College : ' + filteredData[0]["college"] +  'lbs </label> </div> ' +
-	'<div class="row"> <label> Draft : ' + filteredData[0].draft.year + ': Round -' + filteredData[0].draft.round + ': Pick -' + filteredData[0].draft.pick + ' </label> </div> ' +
-	'</div>'+
-      
-	'<div class="col"> <div class="row"> <label>' + filteredData[0].injury.type +  '</label> </div> ' +
-	'<div class="row"> <label> Games Remaining: ' + filteredData[0].injury.gamesRemaining +  '</label> </div> ' +
-	'<div class="row"> <label> Contract Amt : $' + filteredData[0].contract.amount +  '</label> </div> ' +
-	'<div class="row"> <label> Contract Expire : ' + filteredData[0].contract.exp +  '</label> </div> ' +
-	'</div>'+
-      	'</div>';
-   
-	var margin = {top: 40, right: 20, bottom: 40, left: 420}
-	var width = 1920 - margin.left - margin.right, height = 1080 - margin.top - margin.bottom	
-	var svg = d3.select("body").append("svg2")
-		.attr("width", width + margin.left + margin.right)
-      		.attr("height", height + margin.top + margin.bottom)    
-      		.append("g")
-      		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-
-// draw the table
-d3.select("svg2").append("div")
-  .attr("id", "container2")
-	
-document.getElementById('container2').insertAdjacentHTML('afterbegin',html);  
-});
+var displayPlayer = function(playerName)
+{
+}
 d3.select(self.frameElement).style("height", "1080px").style("width", "1920px");	
 </script>
 </body>
