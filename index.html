@@ -15,6 +15,11 @@ body {
   height: 720;
   position: relative;
 }
+#container1 {
+  width: 360;
+  height: 720;
+  position: relative;
+}
 #title {
   font: 14px sans-serif;
   position: absolute;
@@ -29,13 +34,8 @@ body {
   left: 20px;
   font: 12px sans-serif;
 }
-#container1 {
-  width: 560;
-  height: 720;
-  position: relative;
-}
-#playerTable {
-  width: 540;
+#FilterableTable1 {
+  width: 340;
   height: 680;
   position: absolute;
   top: 40px;
@@ -97,10 +97,11 @@ var width = 400 - margin.left - margin.right, height = 800 - margin.top - margin
 // draw the table
 d3.select("body").append("div")
   .attr("id", "container")
-
+  .attr("class","column")
+	
 d3.select("#container").append("div")
-  .attr("id", "FilterableTable");
-
+  .attr("id", "FilterableTable")
+  
 d3.select("#FilterableTable").append("div")
   .attr("class", "SearchBar")
   .append("p")
@@ -1620,28 +1621,26 @@ var displayPlayer = function(playerName){
 d3.json('Roster.json',function (data) {  
 	var filteredData =  data.players.filter(function(d) {if( d.name == playerName) {return d};});
 
-var margin = {top: 40, right: 20, bottom: 40, left: 420}
-var width = 600 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
-var svg2 = d3.select("body").append("svg")
-	.attr("width", width + margin.left + margin.right)
-      	.attr("height", height + margin.top + margin.bottom)    
-      	.append("g")
-      	.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-	// draw the table
-	d3.select("svg2").append("div")
-  		.attr("id", "container1")
-	d3.select("#container1").append("div")
-  		.attr("id", "playerTable");
+// draw the table
+d3.select("body").append("div")
+  .attr("id", "container1")
+  .attr("class","column")
 	
-	d3.select("svg2").append("text")    	
-    		.attr("x",(width/2))
-    		.attr("y",0-(margin.top/4))
-    		.style("text-anchor","middle")
-    		.style("font-size","16px")
-    		.style("fill","#006bb6")
-    		.style("text-decoration","underline")
-    		.style("font-weight","bold") 
-    		.text("Test")
+d3.select("#container1").append("div")
+  .attr("id", "FilterableTable1")
+  
+d3.select("#FilterableTable1").append("div")
+  .attr("class", "SearchBar")
+  .append("p")
+    .attr("class", "SearchBar")
+    .text("Search By Player Name:");
+
+d3.select(".SearchBar")
+  .append("input")
+    .attr("class", "SearchBar")
+    .attr("id", "search")
+    .attr("type", "text")
+    .attr("placeholder", "Search...");
 
 });
 }	
