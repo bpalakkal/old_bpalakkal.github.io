@@ -91,30 +91,38 @@ tr:hover td { background-color: #C9082A; }
 var populateTablePPG = function(val) {
 var column_names = ["Player Name","Team","Position","Games Played","Points Per Game"];
 var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
-var margin = {top: 80, right: 20, bottom: 40, left: 20}
+var margin = {top: 40, right: 20, bottom: 40, left: 20}
 var width = 400 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
+
 d3.select("body").append("svg")
-	.attr("id","svg1")
-      	.attr("width", width + margin.left + margin.right)
+	.attr("id", "svg1");
+	.attr("width", width + margin.left + margin.right)
       	.attr("height", height + margin.top + margin.bottom)    
       	.append("g")
       	.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
-d3.select("svg1").append("div")
+// draw the table
+d3.select("#svg1").append("div")
+  .attr("id", "container")
+
+d3.select("#container").append("div")
+  .attr("id", "FilterableTable");
+
+d3.select("#FilterableTable").append("div")
   	.attr("class", "SearchBar")
   	.append("p")
-    	.attr("class", "SearchBar")
-    	.text("Search By Player Name:");
-
+   	.attr("class", "SearchBar")
+   	.text("Search By Player Name:");
+	
 d3.select(".SearchBar")
   	.append("input")
     	.attr("class", "SearchBar")
     	.attr("id", "search")
     	.attr("type", "text")
     	.attr("placeholder", "Search...");
-  
-var table = d3.select("svg1").append("table");
-table.append("thead").append("tr"); 
+
+var table = d3.select("#FilterableTable").append("table");
+table.append("thead").append("tr");
 
 var headers = table.select("tr").selectAll("th")
     .data(column_names)
