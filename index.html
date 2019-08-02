@@ -16,7 +16,7 @@ body {
   position: relative;
 }
 #container2 {
-  font: 12px sans-serif;
+  font: 10px sans-serif;
   width: 400;
   height: 800;
   position: relative;
@@ -1642,7 +1642,7 @@ d3.json('Roster.json',function (data) {
 	var filteredData =  data.players.filter(function(d) {if( d.name == playerName) {return d};});
 	
 	var html = 
-	'<div class="row" style="margin-right: 15px;margin-left: 415px;">'+
+	'<div class="row" style="margin-right: 15px;margin-left: 15px;">'+
 	'<div class="col" style="max-width: 30%;"> <img style="height:200px" src = "' + filteredData[0]["imgURL"] +'"></img> </div>'+
 	'<div class="col"> <div class="row"> <label>' + playerName +  '</label> </div> ' +
 	'<div class="row"> <label> Position: ' + filteredData[0]["pos"] +  '</label> </div> ' +
