@@ -11,12 +11,13 @@ body {
   color: #FFFFFF
 }	
 #container {
-  width: 360;
+  width: 260;
   height: 800;
   position: relative;
 }
 #container2 {
-  width: 600;
+  font: 14px sans-serif;
+  width: 440;
   height: 800;
   position: relative;
 }
@@ -1660,8 +1661,8 @@ d3.json('Roster.json',function (data) {
 	'</div>'+
       	'</div>';
    
-	var margin = {top: 40, right: 20, bottom: 40, left: 420}
-	var width = 1040 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
+	var margin = {top: 40, right: 20, bottom: 40, left: 320}
+	var width = 800 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
 	var svg = d3.select("body").append("svg2")
 		.attr("width", width + margin.left + margin.right)
       		.attr("height", height + margin.top + margin.bottom)    
