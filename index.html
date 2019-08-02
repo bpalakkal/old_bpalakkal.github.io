@@ -1661,10 +1661,8 @@ d3.json('Roster.json',function (data) {
 d3.select("svg2").append("div")
   .attr("id", "container2")
 	
-   document.getElementById('container2').insertAdjacentHTML('afterbegin',html);  
-   //document.write(html);
-
-}
+document.getElementById('container2').insertAdjacentHTML('afterbegin',html);  
+});
 d3.select(self.frameElement).style("height", "1080px").style("width", "1920px");	
 </script>
 </body>
