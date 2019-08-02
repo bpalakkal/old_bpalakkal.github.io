@@ -59,30 +59,22 @@ table {
   margin-bottom: 20px;
   font: 10px sans-serif;
 }
-
 table a:link, a:visited { text-decoration: none; }
-
 table a:hover, a:active { text-decoration: underline; }
-
 table, th, td { border: 1px solid black; }
-
 td, th {
   padding: 5px;
   text-align: center;
   height: 20px;
   font: 10px sans-serif;
 }
-
 th {
   background-color: #17408B;
   color: #d9f0a3;
   font: 10px sans-serif;
 }
-
 td { background-color: #17408B; }
-
 tr:hover td { background-color: #C9082A; }
-
 </style>	
 <body>
 <h1>NBA 2018/19 Regular Season Leaders</h1>	
@@ -101,27 +93,25 @@ var column_names = ["Player Name","Team","Position","Games Played","Points Per G
 var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
 var margin = {top: 40, right: 20, bottom: 40, left: 20}
 var width = 400 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
+d3.select("body").append("svg")
+	.atttr("id","svg1")
+      	.attr("width", width + margin.left + margin.right)
+      	.attr("height", height + margin.top + margin.bottom)    
+      	.append("g")
+      	.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
-var margin = {top: 20, right: 10, bottom: 20, left: 10}
-var width = 400 - margin.left - margin.right, height = 200 - margin.top - margin.bottom	
-var svg = d3.select("body").append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)    
-      .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-
-d3.select("svg").append("div")
-  .attr("class", "SearchBar")
-  .append("p")
-    .attr("class", "SearchBar")
-    .text("Search By Player Name:");
+d3.select("#svg1").append("div")
+  	.attr("class", "SearchBar")
+  	.append("p")
+    	.attr("class", "SearchBar")
+    	.text("Search By Player Name:");
 
 d3.select(".SearchBar")
-  .append("input")
-    .attr("class", "SearchBar")
-    .attr("id", "search")
-    .attr("type", "text")
-    .attr("placeholder", "Search...");
+  	.append("input")
+    	.attr("class", "SearchBar")
+    	.attr("id", "search")
+    	.attr("type", "text")
+    	.attr("placeholder", "Search...");
   
 var table = d3.select("#svg1").append("table");
 table.append("thead").append("tr"); 
