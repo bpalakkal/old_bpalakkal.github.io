@@ -1642,7 +1642,7 @@ d3.json('Roster.json',function (data) {
 	var filteredData =  data.players.filter(function(d) {if( d.name == playerName) {return d};});
 	
 	var html = 
-	'<div class="row" style="margin-right: 15px;margin-left: 15px;">'+
+	'<div class="row" style="margin-right: 15px;margin-left: 415px;">'+
 	'<div class="col" style="max-width: 30%;"> <img style="height:200px" src = "' + filteredData[0]["imgURL"] +'"></img> </div>'+
 	'<div class="col"> <div class="row"> <label>' + playerName +  '</label> </div> ' +
 	'<div class="row"> <label> Position: ' + filteredData[0]["pos"] +  '</label> </div> ' +
@@ -1658,21 +1658,9 @@ d3.json('Roster.json',function (data) {
 	'<div class="row"> <label> Contract Amt : $' + filteredData[0].contract.amount +  '</label> </div> ' +
 	'<div class="row"> <label> Contract Expire : ' + filteredData[0].contract.exp +  '</label> </div> ' +
 	'</div>'+
-      	'</div>';
-   
-	var margin = {top: 40, right: 20, bottom: 40, left: 320}
-	var width = 440 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
-	var svg = d3.select("body").append("svg2")
-		.attr("width", width + margin.left + margin.right)
-      		.attr("height", height + margin.top + margin.bottom)    
-      		.append("g")
-      		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      	'</div>';   
 
-// draw the table
-d3.select("svg2").append("div")
-  .attr("id", "container2")
-	
-document.getElementById('container2').insertAdjacentHTML('afterbegin',html);  
+document.getElementById('container').insertAdjacentHTML('afterbegin',html);  
 });
 }	
  
