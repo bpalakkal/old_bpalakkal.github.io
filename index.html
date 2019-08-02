@@ -392,7 +392,10 @@ d3.json("data.json", function(data) { // loading data from server
     }) // end of click listeners
 // table row click
 
-table.selectAll("tr").on("click",function(){displayPlayer(this.td[0])});
+table.selectAll("tr").on("click",function(d,i){
+	console.log(d);
+	displayPlayer(this.td[0])
+});
 
 });
 }
