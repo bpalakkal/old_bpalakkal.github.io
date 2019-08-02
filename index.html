@@ -208,7 +208,7 @@ d3.json("data.json", function(data) { // loading data from server
         // enter the rows
         rows.enter()
          .append("tr")
-	 .on("click",function(){displayPlayer(rows[0])});
+	 
          
         // enter td's in each row
         row_entries = rows.selectAll("td")
@@ -390,6 +390,10 @@ d3.json("data.json", function(data) { // loading data from server
       }  
           
     }) // end of click listeners
+// table row click
+
+table.selectAll("tr").on("click",function(){displayPlayer(rows[0])});
+
 });
 }
 
