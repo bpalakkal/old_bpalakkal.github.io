@@ -203,10 +203,12 @@ d3.json("data.json", function(data) { // loading data from server
         // data bind with new data
 		rows = table.select("tbody").selectAll("tr")
 		  .data(searched_data, function(d){ return d.Name; })
+
 		
         // enter the rows
         rows.enter()
-         .append("tr");
+         .append("tr")
+	 .on("click",function(){displayPlayer(rows[0])});
          
         // enter td's in each row
         row_entries = rows.selectAll("td")
@@ -1610,6 +1612,10 @@ d3.select('#opts')
 });
 
 populateTablePPG("Points Per Game")	
+
+var displayPlayer = function(playerName){
+	console.log(playerName)
+}
 
 d3.select(self.frameElement).style("height", "1080px").style("width", "1920px");	
 </script>
