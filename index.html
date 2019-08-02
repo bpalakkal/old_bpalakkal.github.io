@@ -11,7 +11,7 @@ body {
   color: #FFFFFF
 }	
 #container {
-  width: 360;
+  width: 260;
   height: 720;
   position: relative;
 }
@@ -22,7 +22,7 @@ body {
   left: 450px;
 }	
 #FilterableTable {
-  width: 340;
+  width: 240;
   height: 680;
   position: absolute;
   top: 40px;
@@ -102,7 +102,7 @@ var column_names = ["Player Name","Team","Position","Games Played","Points Per G
 var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
 
 var margin = {top: 40, right: 20, bottom: 40, left: 20}
-var width = 400 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
+var width = 300 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
 var svg = d3.select("body").append("svg1")
 	.attr("width", width + margin.left + margin.right)
       	.attr("height", height + margin.top + margin.bottom)    
@@ -1632,7 +1632,7 @@ d3.select('#opts')
 populateTablePPG("Points Per Game")
 
 var displayPlayer = function(playerName){
-var playerInfo = d3.json('Roster.json',function (data) {  
+d3.json('Roster.json',function (data) {  
 	var filteredData =  data.players.filter(function(d) {if( d.name == playerName) {return d};});
 
 var margin = {top: 40, right: 20, bottom: 40, left: 420}
