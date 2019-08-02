@@ -11,13 +11,13 @@ body {
   color: #FFFFFF
 }	
 #container {
-  width: 260;
+  width: 360;
   height: 800;
   position: relative;
 }
 #container2 {
-  font: 14px sans-serif;
-  width: 440;
+  font: 12px sans-serif;
+  width: 400;
   height: 800;
   position: relative;
 }
@@ -29,7 +29,7 @@ body {
 }	
 #FilterableTable {
   width: 340;
-  height: 680;
+  height: 760;
   position: absolute;
   top: 40px;
   left: 20px;
@@ -44,7 +44,6 @@ body {
   position: relative;
   left: 2%;
 }
-
 table { 
   position: absolute;
   top: 40px;
@@ -1662,7 +1661,7 @@ d3.json('Roster.json',function (data) {
       	'</div>';
    
 	var margin = {top: 40, right: 20, bottom: 40, left: 320}
-	var width = 800 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
+	var width = 440 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
 	var svg = d3.select("body").append("svg2")
 		.attr("width", width + margin.left + margin.right)
       		.attr("height", height + margin.top + margin.bottom)    
@@ -1677,7 +1676,7 @@ document.getElementById('container2').insertAdjacentHTML('afterbegin',html);
 });
 }	
  
-d3.select(self.frameElement).style("height", "1080px").style("width", "1920px");	
+d3.select(self.frameElement).style("height", "800px").style("width", "1920px");	
 </script>
 </body>
 </html>
