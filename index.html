@@ -108,14 +108,15 @@ var svg1 = d3.select("body").append("svg")
       	.append("g")
       	.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
-// draw the table
-d3.select("#svg1").append("div")
-  .attr("id", "container")
 
-d3.select("#container").append("div")
+d3.select("body").append("div")
   .attr("id", "FilterableTable");
 
-d3.select("#FilterableTable").append("div")
+// draw the table
+d3.select("#FilterableTable").append("svg")
+  .attr("id", "svg1")
+
+d3.select("#svg1").append("div")
   .attr("class", "SearchBar")
   .append("p")
     .attr("class", "SearchBar")
@@ -128,7 +129,7 @@ d3.select(".SearchBar")
     .attr("type", "text")
     .attr("placeholder", "Search...");
   
-var table = d3.select("#FilterableTable").append("table");
+var table = d3.select("#svg1").append("table");
 table.append("thead").append("tr"); 
 
 var headers = table.select("tr").selectAll("th")
