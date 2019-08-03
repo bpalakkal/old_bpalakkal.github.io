@@ -9,7 +9,16 @@ body {
   background-image: url("nba.jpg");
   font: 10px sans-serif;
   color: #FFFFFF
-}	
+}
+.chartArea{
+      position: relative;}
+
+.dropdownArea {
+      position: absolute;
+      width: 250px;
+      top:400px;
+      left:250px;}	
+
 #container {
   width: 420;
   height: 740;
@@ -79,15 +88,10 @@ tr:hover td { background-color: #C9082A; }
 <body>
 <h1>NBA 2018/19 Regular Season Leaders</h1>	
 <script src="https://d3js.org/d3.v3.js"></script>
-<select id = "opts">
-<option value="ppg">Points Per Game</option>
-<option value="rpg">Rebounds Per Game</option> 
-<option value="spg">Steals Per Game</option>
-<option value="apg">Assists Per Game</option>	
-<option value="mpg">Minutes Per Game</option>
-</select>
-	
+<div class="chartArea">
+  <select class = "dropdownArea"></select></div>
 <script>
+
 var populateTablePPG = function(val) {
 var column_names = ["Player Name","Team","Position","Games Played","Points Per Game"];
 var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
@@ -95,15 +99,20 @@ var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
 // draw the table
 var margin = {top: 50, right: 20, bottom: 10, left: 50}
 var width = 450 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
-var svg = d3.select("body").append("svg")
+var svg = d3.select("body").select(".chartArea").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)      
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
-svg.append("option")
-	.attr("value","ppg")
-	.attr("text","Points Per Game")
+d3.select(".dropdownArea")
+    .append("option")
+    .attr("value", 1)
+    .text("Hello");
+d3.select(".dropdownArea")
+    .append("option")
+    .attr("value", 2)
+    .text("Another Hello");
 
 var forobj = svg.append("foreignObject")
       .attr("width", 430)
