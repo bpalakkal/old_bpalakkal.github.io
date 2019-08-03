@@ -19,6 +19,11 @@ body {
   position: absolute;
   overflow-y: scroll;
 }
+forobj1 {
+  background-color: #C9082A;
+  font: 14px sans-serif;
+  color: #FFFFFF
+}
 container1 {
   width: 600;
   height: 200;
