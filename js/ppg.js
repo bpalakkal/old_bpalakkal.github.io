@@ -313,15 +313,7 @@ d3.json("data.json", function(data) { // loading data from server
 // table row click
 
 table.selectAll("tr").on("click",function(d,i){	
-var selected = d3.select("body").select(".chartArea").select("svg1");
-if (selected.empty()){ 
-	displayPlayer(d.Name)
-} else {
-	d3.select("body").select(".chartArea").select("svg1").remove()
-	displayPlayer(d.Name)
-
-}
-	
+	displayPlayer(d.Name)	
     	});
 
 });
