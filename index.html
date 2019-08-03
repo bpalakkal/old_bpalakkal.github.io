@@ -98,20 +98,19 @@ var margin = {top: 10, right: 20, bottom: 10, left: 20}
 var width = 450 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
 var svg = d3.select("body").append("svg")
       .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .style("opacity",0.5)
+      .attr("height", height + margin.top + margin.bottom)      
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-    
+
+svg.append("option")
+	.attr("value","ppg")
+	.attr("text","Points Per Game")
+
 var forobj = svg.append("foreignObject")
       .attr("width", 430)
       .attr("height", 740)
       .append("xhtml:body")
 
-forobj.append("option")
-	.attr("value","ppg")
-	.attr("text","Points Per Game")
- 
 forobj.append("div")
 	.attr("id", "container")
   	.attr("class","column")
