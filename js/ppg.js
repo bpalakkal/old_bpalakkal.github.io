@@ -1,5 +1,5 @@
 var populateTablePPG = function(val) {
-var column_names = ["Player Name","Team","Position","Games Played","Age","Usage Percentage","Offensive Rating","Defensive Rating","Total Points","Points Per Game"];
+var column_names = ["Player Name","Team","Position","Games Played","Age","Usage Percentage","Offensive Rating","Defensive Rating","Points Per Game"];
 var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
 // draw the table
 var margin = {top: 40, right: 20, bottom: 10, left: 10}
