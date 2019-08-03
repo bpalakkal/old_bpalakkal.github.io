@@ -16,13 +16,13 @@ body {
 #container {
   width: 480;
   height: 750;
-  top: 60px;
   position: absolute;
   overflow-y: scroll;
 }
 container1 {
   width: 600;
   height: 200;
+  top: 100px;
   position: absolute;
 }
 #title {
