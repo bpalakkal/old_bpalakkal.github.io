@@ -79,10 +79,14 @@ var displayPlayer = function(playerName){
 var margin = {top: 40, right: 20, bottom: 10, left: 20}
 var width = 800 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
 svg1.selectAll("*").remove();
+var forobj1 = svg1.append("foreignObject")
+      .attr("width", 900)
+      .attr("height", 600)
+      .append("xhtml:body")
+var container1 = forobj1.append("div")  
 d3.json('Roster.json',function (data) { 
 var filteredData =  data.players.filter(function(d) {if( d.name == playerName) {return d};});  
-
- var svgName = svg1.selectAll("text").data([0])
+ var svgName = container1.selectAll("text").data([0])
  svgName.enter()
 	.append("text")
         .attr("x",(width/2))
@@ -95,7 +99,7 @@ var filteredData =  data.players.filter(function(d) {if( d.name == playerName) {
 svgName.exit()
 	.remove()
 
-var svgimage = svg1.selectAll("image").data([0])
+var svgimage = container1.selectAll("image").data([0])
 svgimage.enter()
 	.append("svg:image")
 	.attr("x",290)
@@ -105,13 +109,6 @@ svgimage.enter()
     	.attr("xlink:href", filteredData[0]["imgURL"]) 
 svgimage.exit()
 	.remove()
-
-var forobj1 = svg1.append("foreignObject")
-      .attr("width", 600)
-      .attr("height", 200)
-      .append("xhtml:body")
-
-var container1 = forobj1.append("div")  	
 var table1 = container1.append("table")
 var tbody1 = table1.append('tbody')
 var rows1 = tbody1.selectAll('tr').data([0])
