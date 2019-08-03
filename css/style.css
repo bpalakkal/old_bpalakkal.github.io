@@ -1,0 +1,82 @@
+body {
+  background-color: #d1e5f0;
+  background-image: url("nba.jpg");
+  font: 10px sans-serif;
+  color: #FFFFFF
+}
+.chartArea{
+      position: relative;}
+
+.dropdownArea {
+      position: absolute;
+      width: 250px;
+      top:20px;
+      left:10px;}	
+
+#container {
+  width: 480;
+  height: 750;
+  position: absolute;
+  overflow-y: scroll;
+}
+#container1 {
+  width: 760;
+  height: 750;
+  position: absolute;
+}
+#title {
+  font: 14px sans-serif;
+  position: absolute;
+  top: -40px;
+  left: 450px;
+}	
+#FilterableTable {
+  width: 470;
+  height: 700;
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  font: 12px sans-serif;
+  overflow-y: scroll;
+}
+#FilterableTable1 {
+  width: 750;
+  height: 710;
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  font: 12px sans-serif;
+}
+.SearchBar { 
+  display: inline; 
+  position: relative;
+  left: 1%;
+}
+.SearchBar input {
+  position: relative;
+  left: 2%;
+}
+table { 
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font: 10px sans-serif;
+}
+table a:link, a:visited { text-decoration: none; }
+table a:hover, a:active { text-decoration: underline; }
+table, th, td { border: 1px solid black; }
+td, th {
+  padding: 5px;
+  text-align: center;
+  height: 20px;
+  font: 10px sans-serif;
+}
+th {
+  background-color: #17408B;
+  color: #d9f0a3;
+  font: 10px sans-serif;
+}
+td { background-color: #17408B; }
+tr:hover td { background-color: #C9082A; }
