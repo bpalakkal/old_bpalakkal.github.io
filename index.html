@@ -93,27 +93,27 @@ var column_names = ["Player Name","Team","Position","Games Played","Points Per G
 var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
 
 // draw the table
-var margin = {top: 40, right: 20, bottom: 40, left: 20}
-var width = 400 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
-var svg = d3.select("body").append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)    
-      .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+//var margin = {top: 40, right: 20, bottom: 40, left: 20}
+//var width = 400 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
+//var svg = d3.select("body").append("svg")
+//      .attr("width", width + margin.left + margin.right)
+//      .attr("height", height + margin.top + margin.bottom)    
+//      .append("g")
+//      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
     
-var forobj = svg.append("foreignObject")
-      .attr("width", 360)
-      .attr("height", 720)
-      .append("xhtml:body")
+//var forobj = svg.append("foreignObject")
+//      .attr("width", 360)
+//      .attr("height", 720)
+//      .append("xhtml:body")
  
-d3.select("forobj").append("div")
+d3.select("body").append("div")
 	.attr("id", "container")
   	.attr("class","column")
 	
 d3.select("#container").append("div")
   	.attr("id", "FilterableTable")
   
-d3.select("forobj").append("div")
+d3.select("#FilterableTable").append("div")
   .attr("class", "SearchBar")
   .append("p")
     .attr("class", "SearchBar")
@@ -126,7 +126,7 @@ d3.select(".SearchBar")
     .attr("type", "text")
     .attr("placeholder", "Search...");
 
-var table = d3.select("forobj").append("table");
+var table = d3.select("#FilterableTable").append("table");
 table.append("thead").append("tr");
 
 var headers = table.select("tr").selectAll("th")
