@@ -339,9 +339,9 @@ if (d == "Age") {
       }  
 // Games Played
 if (d == "Games Played") {
-	    clicks.gp++;
+	    clicks.games_played++;
         // even number of clicks
-        if (clicks.gp % 2 == 0) {
+        if (clicks.games_played % 2 == 0) {
           // sort ascending: numerically
           rows.sort(function(a,b) { 
             if (+a.GP < +b.GP) { 
@@ -353,7 +353,7 @@ if (d == "Games Played") {
             }
           });
         // odd number of clicks  
-        } else if (clicks.gp % 2 != 0) { 
+        } else if (clicks.games_played % 2 != 0) { 
           // sort descending: numerically
           rows.sort(function(a,b) { 
             if (+a.GP < +b.GP) { 
