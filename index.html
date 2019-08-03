@@ -75,22 +75,6 @@ var svg1 = d3.select("body").select(".chartArea").append("svg")
     	.style("font-weight","bold")
     	.text("Select Player Name to display Stats")  
  
-var margin = {top: 40, right: 20, bottom: 10, left: 20}
-var width = 800 - margin.left - margin.right, height = 500 - margin.top - margin.bottom	
-var svg2 = d3.select("body").select(".chartArea").append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)      
-      .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
- var svgtext = svg2.append("text")
-       .attr("x",(width/2))
-       .attr("y",(margin.top*2))
-    	.style("text-anchor","middle")
-    	.style("font-size","24px")
-    	.style("fill","#FFFFFF")    	
-    	.style("font-weight","bold")
-    	.text("Select Player Name to display Stats")
-	
 var displayPlayer = function(playerName){
 var margin = {top: 10, right: 20, bottom: 10, left: 20}
 var width = 800 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
