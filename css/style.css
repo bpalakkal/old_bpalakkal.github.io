@@ -60,8 +60,7 @@ td, th {
   height: 20px;
   font: 12px sans-serif;
 }
-th {
-  display: table;
+th {  
   background-color: #17408B;
   color: #d9f0a3;
   font: 12px sans-serif;
