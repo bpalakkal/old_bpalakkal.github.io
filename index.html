@@ -450,6 +450,7 @@ d3.json("data.json", function(data) { // loading data from server
 // table row click
 
 table.selectAll("tr").on("click",function(d,i){	
+	d3.selectAll("svg1").remove()
 	displayPlayer(d.Name)
 });
 
@@ -1711,6 +1712,7 @@ d3.json("data.json", function(data) { // loading data from server
 populateTablePPG("Points Per Game")
 
 var displayPlayer = function(playerName){
+
 d3.json('Roster.json',function (data) {  
 
 var filteredData =  data.players.filter(function(d) {if( d.name == playerName) {return d};});
@@ -1723,6 +1725,7 @@ var svg1 = d3.select("body").select(".chartArea").append("svg")
       .attr("height", height + margin.top + margin.bottom)      
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      .style("opacity", 0)
 
 var forobj1 = svg1.append("foreignObject")
       .attr("width", 760)
@@ -1736,19 +1739,12 @@ forobj1.append("div")
 d3.select("#container1").append("div")
   	.attr("id", "FilterableTable1")
   
-d3.select("#FilterableTable1").append("div")
-  .attr("class", "SearchBar")
-  .append("p")
-    .attr("class", "SearchBar")
-    .text("Search By Player Name:");
-
-d3.select(".SearchBar")
-  .append("input")
-    .attr("class", "SearchBar")
-    .attr("id", "search")
-    .attr("type", "text")
-    .attr("placeholder", "Search...");
-
+var svgimage = d3.select("FilterableTable1").append("svg:image")
+    	.attr("x",290)
+    	.attr("y",(0-margin.top))
+    	.attr("width", 20)
+	.attr("height", 24)    	      		
+    	.attr("xlink:href", filteredData[0]["imgURL"])
 });
 }	
  
