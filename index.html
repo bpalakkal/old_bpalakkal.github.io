@@ -105,12 +105,15 @@ svgimage.exit()
 	.remove()
 
 var forobj1 = svg1.append("foreignObject")   
-      .attr("width", 800)
-      .attr("height", 160)
-      .attr("y", 280)	
-      .append("xhtml:body")
+      	.attr("width", 800)
+      	.attr("height", 160)
+      	.attr("y", 280)	
+      	.append("xhtml:body")
+	.style("background-color","#C9082A")
 
 var table1 = forobj1.append("table")
+			.style("font-size",14)		
+
 
 var thead1 = table1.append('thead')
 var tbody1 = table1.append('tbody')
@@ -129,6 +132,8 @@ var cells1 = rows1.selectAll('td')
 	.data([filteredData[0]["weight"],filteredData[0]["hgt"],filteredData[0]["pos"],filteredData[0]["college"]])
       	.enter()
     	.append('td')
+	.style("padding",20)
+	.attr("height",40)
     	.text(function (d) { return d })    
 });
 }	 
