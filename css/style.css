@@ -59,12 +59,13 @@ td, th {
   padding: 5px;
   text-align: center;
   height: 20px;
-  font: 10px sans-serif;
+  font: 14px sans-serif;
 }
 th {
   background-color: #17408B;
   color: #d9f0a3;
-  font: 10px sans-serif;
+  font: 18px sans-serif;
+  font-weight: bold;
 }
 td { background-color: #17408B; }
 tr:hover td { background-color: #C9082A; }
