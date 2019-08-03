@@ -20,8 +20,8 @@ body {
       left:10px;}	
 
 #container {
-  width: 420;
-  height: 740;
+  width: 480;
+  height: 750;
   position: relative;
 }
 #container1 {
@@ -36,7 +36,7 @@ body {
   left: 450px;
 }	
 #FilterableTable {
-  width: 400;
+  width: 460;
   height: 700;
   position: absolute;
   top: 40px;
@@ -118,19 +118,19 @@ d3.select(".dropdownArea").on("change", function(d) {
         var selectedOption = d3.select(this).property("value")
         // run the updateChart function with this selected option
         if (selectedOption === "ppg") {
-	svg.remove()
+	d3.selectAll("svg > *").remove()
 	populateTablePPG(newValue)};
     if (selectedOption === "rpg") {
 	svg.remove()
 	populateTableRPG(newValue)};
     if (selectedOption === "apg") {
-	svg.remove()
+	d3.selectAll("svg > *").remove()
 	populateTableAPG(newValue)};
     if (selectedOption === "spg") {
-	svg.remove()
+	d3.selectAll("svg > *").remove()
 	populateTableSPG(newValue)};
     if (selectedOption === "mpg") {
-	svg.remove()
+	d3.selectAll("svg > *").remove()
 	populateTableMPG(newValue)};
     })
 
@@ -140,7 +140,7 @@ var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
 
 // draw the table
 var margin = {top: 40, right: 20, bottom: 10, left: 10}
-var width = 450 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
+var width = 500 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
 var svg = d3.select("body").select(".chartArea").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)      
