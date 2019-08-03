@@ -451,7 +451,7 @@ d3.json("data.json", function(data) { // loading data from server
 // table row click
 
 table.selectAll("tr").on("click",function(d,i){	
-	d3.selectAll("svg1").remove()
+	svg1.selecAll("*").remove()
 	displayPlayer(d.Name)
 });
 
@@ -1741,8 +1741,8 @@ d3.select("#container1").append("div")
   	
 var svgimage = d3.select("#FilterableTable1").append("img")
     	.attr("class","picture")	
-    	.attr("width", 20)
-	.attr("height", 24)    	      		
+    	.attr("width", 200)
+	.attr("height", 240)    	      		
     	.attr("src", filteredData[0]["imgURL"])
 });
 }	
