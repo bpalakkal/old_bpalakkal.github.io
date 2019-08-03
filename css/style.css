@@ -1,5 +1,6 @@
 body {
   background-color: #C9082A;
+  background-image: url("/nba.jpg")
   font: 10px sans-serif;
   color: #FFFFFF
 }
