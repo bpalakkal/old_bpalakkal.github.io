@@ -70,7 +70,7 @@ d3.json("data.json", function(data) { // loading data from server
 		    arr.push(d[k]);
           }
         }
-        return [arr[0],arr[1],arr[2],arr[3],arr[4],arr[5],arr[7],arr[9],arr[10],arr[25],arr[28],arr[26],arr[29]];
+        return [arr[0],arr[1],arr[2],arr[3],arr[4],arr[5],arr[7],arr[9],arr[10],arr[25],arr[28],arr[26],arr[30]];
       })
     .enter()
       .append("td") 
@@ -139,7 +139,7 @@ d3.json("data.json", function(data) { // loading data from server
 		          arr.push(d[k]);
                 }
               }
-              return [arr[0],arr[1],arr[2],arr[3],arr[4],arr[5],arr[7],arr[9],arr[10],arr[25],arr[28],arr[26],arr[29]];
+              return [arr[0],arr[1],arr[2],arr[3],arr[4],arr[5],arr[7],arr[9],arr[10],arr[25],arr[28],arr[26],arr[30]];
             })
           .enter()
             .append("td") 
