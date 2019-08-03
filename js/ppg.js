@@ -3,7 +3,7 @@ var column_names = ["Player Name","Team","Position","Games Played","Points Per G
 var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
 // draw the table
 var margin = {top: 40, right: 20, bottom: 10, left: 10}
-var width =  1000 - margin.left - margin.right, height = 400 - margin.top - margin.bottom	
+var width =  1300 - margin.left - margin.right, height = 400 - margin.top - margin.bottom	
 var svg = d3.select("body").select(".chartArea").append("svg")
       	.attr("width", width + margin.left + margin.right)
       	.attr("height", height + margin.top + margin.bottom)      
@@ -16,7 +16,7 @@ svg.append('svg:pattern')
 	.attr('width', '6')
 	.attr('height', '6')
 	.append('svg:image')
-	.attr('xlink:href', '/nba.jpg')
+	.attr('xlink:href', '/background.jpg')
 	.attr('x', 0)
 	.attr('y', 0)
 	.attr('width', 6)
