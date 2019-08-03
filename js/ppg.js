@@ -1,5 +1,5 @@
 var populateTablePPG = function(val) {
-var column_names = ["Player Name","Team","Position","Games Played","Age","Usage Percentage","Offensive Rating","Defensive Rating","Points Per Game"];
+var column_names = ["Player Name","Team","Position","Age","Games Played","Minutes Per Game","Usage Percentage","Offensive Rating","Defensive Rating","Points Per Game","Assists Per Game","Rebounds Per Game","Steals Per Game"];
 var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
 // draw the table
 var margin = {top: 40, right: 20, bottom: 10, left: 10}
@@ -70,7 +70,7 @@ d3.json("data.json", function(data) { // loading data from server
 		    arr.push(d[k]);
           }
         }
-        return [arr[0],arr[1],arr[2],arr[4],arr[3],arr[7],arr[9],arr[10],arr[25]];
+        return [arr[0],arr[1],arr[2],arr[3],arr[4],arr[5],arr[7],arr[9],arr[10],arr[25],arr[28],arr[26],arr[29]];
       })
     .enter()
       .append("td") 
@@ -139,7 +139,7 @@ d3.json("data.json", function(data) { // loading data from server
 		          arr.push(d[k]);
                 }
               }
-              return [arr[0],arr[1],arr[2],arr[4],arr[3],arr[7],arr[9],arr[10],arr[25]];
+              return [arr[0],arr[1],arr[2],arr[3],arr[4],arr[5],arr[7],arr[9],arr[10],arr[25],arr[28],arr[26],arr[29]];
             })
           .enter()
             .append("td") 
