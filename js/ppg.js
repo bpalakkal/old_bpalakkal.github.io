@@ -12,9 +12,10 @@ var svg = d3.select("body").select(".chartArea").append("svg")
       	.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
 var forobj = svg.append("foreignObject")
-      .attr("width", width)
-      .attr("height", height)
-      .append("xhtml:body")
+      	.attr("width", width)
+      	.attr("height", height)
+	.style("background","rgba(76, 175, 80, 0.1)")
+      	.append("xhtml:body")
 
 forobj.append("div")
 	.attr("id", "container")
@@ -24,17 +25,17 @@ d3.select("#container").append("div")
   	.attr("id", "FilterableTable")
   
 d3.select("#FilterableTable").append("div")
-  .attr("class", "SearchBar")
-  .append("p")
-    .attr("class", "SearchBar")
-    .text("Search By Player Name:");
+  	.attr("class", "SearchBar")
+  	.append("p")
+   	.attr("class", "SearchBar")
+    	.text("Search By Player Name:");
 
 d3.select(".SearchBar")
-  .append("input")
-    .attr("class", "SearchBar")
-    .attr("id", "search")
-    .attr("type", "text")
-    .attr("placeholder", "Search...");
+  	.append("input")
+    	.attr("class", "SearchBar")
+    	.attr("id", "search")
+    	.attr("type", "text")
+    	.attr("placeholder", "Search...");
 
 var table = d3.select("#FilterableTable").append("table");
 table.append("thead").append("tr");
