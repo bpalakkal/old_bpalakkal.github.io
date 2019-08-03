@@ -452,11 +452,15 @@ d3.json("data.json", function(data) { // loading data from server
 
 table.selectAll("tr").on("click",function(d,i){	
 var selected = d3.select("svg1");
-if (!selected.empty()){ 
-	svg1.selecAll("*").remove()
+if (selected.empty()){ 
+	displayPlayer(d.Name)
+} else {
+	svg1.remove()
+	displayPlayer(d.Name)
+
 }
-    	displayPlayer(d.Name)
-});
+	
+    	});
 
 });
 }
