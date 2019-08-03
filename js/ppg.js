@@ -7,7 +7,7 @@ var width =  1300 - margin.left - margin.right, height = 400 - margin.top - marg
 var svg = d3.select("body").select(".chartArea").append("svg")
       	.attr("width", width + margin.left + margin.right)
       	.attr("height", height + margin.top + margin.bottom) 
-	.style("background",rgba(76, 175, 80, 0.1))
+	.style("background","rgba(76, 175, 80, 0.1)")
       	.append("g")
       	.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
