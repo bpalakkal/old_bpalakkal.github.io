@@ -14,24 +14,12 @@ body {
       left:10px;}	
 
 #container {
-  width: 480;
+  width: 770;
   height: 750;
   position: absolute;
   overflow-y: scroll;
 }
 
-#forobj1 {
-  background-color: #C9082A;
-  font: 14px sans-serif;
-  color: #FFFFFF
-}
-
-container1 {
-  width: 600;
-  height: 200;
-  top: 100px;
-  position: absolute;
-}
 #title {
   font: 14px sans-serif;
   position: absolute;
@@ -39,21 +27,13 @@ container1 {
   left: 450px;
 }	
 #FilterableTable {
-  width: 470;
-  height: 700;
-  position: absolute;
-  top: 40px;
-  left: 10px;
-  font: 12px sans-serif;
-  overflow-y: scroll;
-}
-#FilterableTable1 {
-  width: 750;
+  width: 760;
   height: 710;
   position: absolute;
   top: 40px;
   left: 10px;
   font: 12px sans-serif;
+  overflow-y: scroll;
 }
 .SearchBar { 
   display: inline; 
@@ -71,14 +51,6 @@ table {
   border-collapse: collapse;
   margin-bottom: 20px;
   font: 10px sans-serif;
-}
-table1 { 
-  position: absolute;
-  top: 40px;
-  left: 10px;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-  font: 14px sans-serif;  
 }
 table a:link, a:visited { text-decoration: none; }
 table a:hover, a:active { text-decoration: underline; }
