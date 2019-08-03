@@ -462,9 +462,23 @@ var column_names = ["Player Name","Team","Position","Games Played","Rebounds Per
 var clicks = {name: 0, team: 0, position: 0,games_played: 0,rpg:0};
 
 // draw the table
-d3.select("body").append("div")
-  .attr("id", "container")
+var margin = {top: 40, right: 20, bottom: 10, left: 10}
+var width = 500 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
+var svg = d3.select("body").select(".chartArea").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)      
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
+var forobj = svg.append("foreignObject")
+      .attr("width", 430)
+      .attr("height", 740)
+      .append("xhtml:body")
+
+forobj.append("div")
+	.attr("id", "container")
+  	.attr("class","column")
+	
 d3.select("#container").append("div")
   .attr("id", "FilterableTable");
 
@@ -761,8 +775,22 @@ var column_names = ["Player Name","Team","Position","Games Played","Assists Per 
 var clicks = {name: 0, team: 0, position: 0,games_played: 0,apg:0};
 
 // draw the table
-d3.select("body").append("div")
-  .attr("id", "container")
+var margin = {top: 40, right: 20, bottom: 10, left: 10}
+var width = 500 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
+var svg = d3.select("body").select(".chartArea").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)      
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+var forobj = svg.append("foreignObject")
+      .attr("width", 430)
+      .attr("height", 740)
+      .append("xhtml:body")
+
+forobj.append("div")
+	.attr("id", "container")
+  	.attr("class","column")
 
 d3.select("#container").append("div")
   .attr("id", "FilterableTable");
@@ -1060,8 +1088,22 @@ var column_names = ["Player Name","Team","Position","Games Played","Steals Per G
 var clicks = {name: 0, team: 0, position: 0,games_played: 0,spg:0};
 
 // draw the table
-d3.select("body").append("div")
-  .attr("id", "container")
+var margin = {top: 40, right: 20, bottom: 10, left: 10}
+var width = 500 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
+var svg = d3.select("body").select(".chartArea").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)      
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+var forobj = svg.append("foreignObject")
+      .attr("width", 430)
+      .attr("height", 740)
+      .append("xhtml:body")
+
+forobj.append("div")
+	.attr("id", "container")
+  	.attr("class","column")
 
 d3.select("#container").append("div")
   .attr("id", "FilterableTable");
@@ -1359,8 +1401,22 @@ var column_names = ["Player Name","Team","Position","Games Played","Minutes Per 
 var clicks = {name: 0, team: 0, position: 0,games_played: 0,mpg:0};
 
 // draw the table
-d3.select("body").append("div")
-  .attr("id", "container")
+var margin = {top: 40, right: 20, bottom: 10, left: 10}
+var width = 500 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
+var svg = d3.select("body").select(".chartArea").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)      
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+var forobj = svg.append("foreignObject")
+      .attr("width", 430)
+      .attr("height", 740)
+      .append("xhtml:body")
+
+forobj.append("div")
+	.attr("id", "container")
+  	.attr("class","column")
 
 d3.select("#container").append("div")
   .attr("id", "FilterableTable");
