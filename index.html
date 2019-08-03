@@ -118,19 +118,19 @@ d3.select(".dropdownArea").on("change", function(d) {
         var selectedOption = d3.select(this).property("value")
         // run the updateChart function with this selected option
         if (selectedOption === "ppg") {
-	d3.selectAll("svg > *").remove()
+	d3.selectAll("svg").remove()
 	populateTablePPG(selectedOption)};
     if (selectedOption === "rpg") {
 	d3.selectAll("svg > *").remove()
 	populateTableRPG(selectedOption)};
     if (selectedOption === "apg") {
-	d3.selectAll("svg > *").remove()
+	d3.selectAll("svg").remove()
 	populateTableAPG(selectedOption)};
     if (selectedOption === "spg") {
-	d3.selectAll("svg > *").remove()
+	d3.selectAll("svg").remove()
 	populateTableSPG(selectedOption)};
     if (selectedOption === "mpg") {
-	d3.selectAll("svg > *").remove()
+	d3.selectAll("svg").remove()
 	populateTableMPG(selectedOption)};
     })
 
