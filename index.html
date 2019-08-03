@@ -88,13 +88,12 @@ tr:hover td { background-color: #C9082A; }
 </select>
 	
 <script>
-
 var populateTablePPG = function(val) {
 var column_names = ["Player Name","Team","Position","Games Played","Points Per Game"];
 var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
 
 // draw the table
-var margin = {top: 10, right: 20, bottom: 10, left: 20}
+var margin = {top: 50, right: 20, bottom: 10, left: 50}
 var width = 450 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
 var svg = d3.select("body").append("svg")
       .attr("width", width + margin.left + margin.right)
