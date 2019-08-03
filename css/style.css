@@ -65,6 +65,14 @@ table {
   margin-bottom: 20px;
   font: 10px sans-serif;
 }
+table1 { 
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font: 14px sans-serif;  
+}
 table a:link, a:visited { text-decoration: none; }
 table a:hover, a:active { text-decoration: underline; }
 table, th, td { border: 1px solid black; }
