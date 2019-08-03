@@ -11,13 +11,13 @@ body {
   color: #FFFFFF
 }	
 #container {
-  width: 430;
-  height: 720;
+  width: 420;
+  height: 740;
   position: relative;
 }
 #container1 {
   width: 360;
-  height: 720;
+  height: 740;
   position: relative;
 }
 #title {
@@ -27,8 +27,8 @@ body {
   left: 450px;
 }	
 #FilterableTable {
-  width: 410;
-  height: 680;
+  width: 400;
+  height: 700;
   position: absolute;
   top: 40px;
   left: 20px;
@@ -85,7 +85,8 @@ tr:hover td { background-color: #C9082A; }
 <option value="spg">Steals Per Game</option>
 <option value="apg">Assists Per Game</option>	
 <option value="mpg">Minutes Per Game</option>
-</select> 
+</select>
+	
 <script>
 
 var populateTablePPG = function(val) {
@@ -93,17 +94,18 @@ var column_names = ["Player Name","Team","Position","Games Played","Points Per G
 var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
 
 // draw the table
-var margin = {top: 10, right: 20, bottom: 20, left: 10}
+var margin = {top: 40, right: 20, bottom: 20, left: 10}
 var width = 450 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
 var svg = d3.select("body").append("svg")
       .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)    
+      .attr("height", height + margin.top + margin.bottom)
+      .style("opacity",0.5)
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
     
 var forobj = svg.append("foreignObject")
       .attr("width", 430)
-      .attr("height", 760)
+      .attr("height", 740)
       .append("xhtml:body")
  
 forobj.append("div")
