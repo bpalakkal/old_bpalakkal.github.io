@@ -156,7 +156,7 @@ table.append("thead").append("tr");
 
 var headers = table.select("tr").selectAll("th")
     .data(column_names)
-  .enter()
+    .enter()
     .append("th")
     .text(function(d) { return d; });
 
