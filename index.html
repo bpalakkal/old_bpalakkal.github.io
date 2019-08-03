@@ -148,6 +148,7 @@ var svg = d3.select("body").select(".chartArea").append("svg")
       .attr("height", height + margin.top + margin.bottom)      
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      .style("opacity", 0)
 
 var forobj = svg.append("foreignObject")
       .attr("width", 430)
@@ -1739,12 +1740,12 @@ forobj1.append("div")
 d3.select("#container1").append("div")
   	.attr("id", "FilterableTable1")
   
-var svgimage = d3.select("FilterableTable1").append("svg:image")
-    	.attr("x",290)
-    	.attr("y",(0-margin.top))
+	
+var svgimage = d3.select("FilterableTable1").append("img")
+    	.attr("class","picture")	
     	.attr("width", 20)
 	.attr("height", 24)    	      		
-    	.attr("xlink:href", filteredData[0]["imgURL"])
+    	.attr("src", filteredData[0]["imgURL"])
 });
 }	
  
