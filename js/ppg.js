@@ -7,7 +7,7 @@ var width =  1000 - margin.left - margin.right, height = 400 - margin.top - marg
 var svg = d3.select("body").select(".chartArea").append("svg")
       	.attr("width", width + margin.left + margin.right)
       	.attr("height", height + margin.top + margin.bottom)      
-      	.sytle("background-image",url("nba2.jpg"))
+      	.sytle("background-image",url("/nba.jpg"))
       	.append("g")
       	.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
      
