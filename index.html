@@ -114,7 +114,7 @@ var thead1 = table1.append('thead')
 var tbody1 = table1.append('tbody')
 	thead1.append('tr')
 	  .selectAll('th')
-	    .data(["Height"])
+	    .data(["Height","Weight","Position","College"])
 	    .enter()
 	  .append('th')
 	    .text(function (d) { return d })
@@ -128,7 +128,7 @@ var cells1 = rows1.selectAll('td')
 	    .data([0])
       .enter()
     .append('td')
-    .text(filteredData[0]["imgURL"])
+    .text([filteredData[0]["weight"],filteredData[0]["hgt"],filteredData[0]["pos"],filteredData[0]["college"]])
 
 });
 }	 
