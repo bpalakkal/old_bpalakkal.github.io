@@ -16,7 +16,6 @@ body {
   width: 1300;
   height: 400;
   position: absolute;
-  overflow-y: scroll;
   background: rgba(76, 175, 80, 0.1)
 }
 
@@ -50,6 +49,7 @@ table {
   border-collapse: collapse;
   margin-bottom: 20px;
   font: 10px sans-serif;
+  overflow-y: auto;
 }
 table a:link, a:visited { text-decoration: none; }
 table a:hover, a:active { text-decoration: underline; }
@@ -58,7 +58,7 @@ td, th {
   padding: 5px;
   text-align: center;
   height: 20px;
-  font: 14px sans-serif;
+  font: 12px sans-serif;
 }
 th {
   background-color: #17408B;
