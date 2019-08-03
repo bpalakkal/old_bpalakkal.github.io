@@ -452,7 +452,7 @@ d3.json("data.json", function(data) { // loading data from server
 
 table.selectAll("tr").on("click",function(d,i){	
 var selected = d3.select("svg1");
-if (selected._group[0][0] != null){ 
+if (!selected.empty()){ 
 	svg1.selecAll("*").remove()
 }
     	displayPlayer(d.Name)
