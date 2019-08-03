@@ -1,27 +1,15 @@
 var populateTablePPG = function(val) {
-var column_names = ["Player Name","Team","Position","Games Played","Points Per Game"];
+var column_names = ["Player Name","Team","Position","Games Played","Age","Games Played","Minutes Played","Total Points","Points Per Game"];
 var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
 // draw the table
 var margin = {top: 40, right: 20, bottom: 10, left: 10}
 var width =  1300 - margin.left - margin.right, height = 400 - margin.top - margin.bottom	
 var svg = d3.select("body").select(".chartArea").append("svg")
       	.attr("width", width + margin.left + margin.right)
-      	.attr("height", height + margin.top + margin.bottom)      
+      	.attr("height", height + margin.top + margin.bottom) 
+	.style("background",rgba(76, 175, 80, 0.1))
       	.append("g")
       	.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-
-svg.append('svg:pattern')
-	.attr('id', 'tile-ww')
-	.attr('patternUnits', 'userSpaceOnUse')
-	.attr('width', '6')
-	.attr('height', '6')
-	.append('svg:image')
-	.attr('xlink:href', '/background.jpg')
-	.attr('x', 0)
-	.attr('y', 0)
-	.attr('width', 6)
-	.attr('height', 6)
-
 
 var forobj = svg.append("foreignObject")
       .attr("width", width)
