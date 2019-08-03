@@ -83,15 +83,15 @@ d3.json('Roster.json',function (data) {
 var filteredData =  data.players.filter(function(d) {if( d.name == playerName) {return d};});    
 
 	
-var svgimage = d3.selectAll("svg1")
-svgimage.enter().append("svg:image")
+var svgimage = d3.selectAll("image")
+		.data(filteredData)
+svgimage.enter()
+	.append("svg:image")
 	.attr("x",290)
     	.attr("y",(0-margin.top))
     	.attr("width", 200)
 	.attr("height", 250)    	      		
     	.attr("xlink:href", filteredData[0]["imgURL"]) 
-svgimage.exit()
-	.remove()
 	
 });
 }	 
