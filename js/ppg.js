@@ -1,6 +1,6 @@
 var populateTablePPG = function(val) {
 var column_names = ["Player Name","Team","Position","Age","Games Played","Minutes Per Game","Usage Percentage","Offensive Rating","Defensive Rating","Points Per Game","Assists Per Game","Rebounds Per Game","Steals Per Game"];
-var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
+var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0,age:0,mpg:0,uper:0,offrating:0,defrating:0,apg:0,rpg:0,spg:0};
 // draw the table
 var margin = {top: 10, right: 10, bottom: 10, left: 10}
 var width =  1400 - margin.left - margin.right, height = 400 - margin.top - margin.bottom	
@@ -308,7 +308,268 @@ d3.json("data.json", function(data) { // loading data from server
           });
         }
       }  
-          
+//age
+if (d == "Age") {
+	    clicks.age++;
+        // even number of clicks
+        if (clicks.age % 2 == 0) {
+          // sort ascending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.Age < +b.Age) { 
+              return -1; 
+            } else if (+a.Age > +b.Age) { 
+              return 1; 
+            } else {
+              return 0;
+            }
+          });
+        // odd number of clicks  
+        } else if (clicks.age % 2 != 0) { 
+          // sort descending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.Age < +b.Age) { 
+              return 1; 
+            } else if (+a.Age > +b.Age) { 
+              return -1; 
+            } else {
+              return 0;
+            }
+          });
+        }
+      }  
+// Games Played
+if (d == "Games Played") {
+	    clicks.gp++;
+        // even number of clicks
+        if (clicks.gp % 2 == 0) {
+          // sort ascending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.GP < +b.GP) { 
+              return -1; 
+            } else if (+a.GP > +b.GP) { 
+              return 1; 
+            } else {
+              return 0;
+            }
+          });
+        // odd number of clicks  
+        } else if (clicks.gp % 2 != 0) { 
+          // sort descending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.GP < +b.GP) { 
+              return 1; 
+            } else if (+a.GP > +b.GP) { 
+              return -1; 
+            } else {
+              return 0;
+            }
+          });
+        }
+      }  
+//MPG
+if (d == "Minutes Per Game") {
+	    clicks.mpg++;
+        // even number of clicks
+        if (clicks.mpg % 2 == 0) {
+          // sort ascending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.MPG < +b.MPG) { 
+              return -1; 
+            } else if (+a.MPG > +b.MPG) { 
+              return 1; 
+            } else {
+              return 0;
+            }
+          });
+        // odd number of clicks  
+        } else if (clicks.mpg % 2 != 0) { 
+          // sort descending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.MPG < +b.MPG) { 
+              return 1; 
+            } else if (+a.MPG > +b.MPG) { 
+              return -1; 
+            } else {
+              return 0;
+            }
+          });
+        }
+      }  
+//Usage
+	  if (d == "Usage Percentage") {
+	    clicks.uper++;
+        // even number of clicks
+        if (clicks.uper % 2 == 0) {
+          // sort ascending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.UsagePt < +b.UsagePt) { 
+              return -1; 
+            } else if (+a.UsagePt > +b.UsagePt) { 
+              return 1; 
+            } else {
+              return 0;
+            }
+          });
+        // odd number of clicks  
+        } else if (clicks.uper % 2 != 0) { 
+          // sort descending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.UsagePt < +b.UsagePt) { 
+              return 1; 
+            } else if (+a.UsagePt > +b.UsagePt) { 
+              return -1; 
+            } else {
+              return 0;
+            }
+          });
+        }
+      }  
+//OffRating
+	  if (d == "Offensive Rating") {
+	    clicks.offrating++;
+        // even number of clicks
+        if (clicks.offrating % 2 == 0) {
+          // sort ascending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.OffRating < +b.OffRating) { 
+              return -1; 
+            } else if (+a.OffRating > +b.OffRating) { 
+              return 1; 
+            } else {
+              return 0;
+            }
+          });
+        // odd number of clicks  
+        } else if (clicks.offrating % 2 != 0) { 
+          // sort descending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.OffRating < +b.OffRating) { 
+              return 1; 
+            } else if (+a.OffRating > +b.OffRating) { 
+              return -1; 
+            } else {
+              return 0;
+            }
+          });
+        }
+      }  
+	  
+//Def Rating
+if (d == "Defensive Rating") {
+	    clicks.defrating++;
+        // even number of clicks
+        if (clicks.defrating % 2 == 0) {
+          // sort ascending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.DefRating < +b.DefRating) { 
+              return -1; 
+            } else if (+a.DefRating > +b.DefRating) { 
+              return 1; 
+            } else {
+              return 0;
+            }
+          });
+        // odd number of clicks  
+        } else if (clicks.defrating % 2 != 0) { 
+          // sort descending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.DefRating < +b.DefRating) { 
+              return 1; 
+            } else if (+a.DefRating > +b.DefRating) { 
+              return -1; 
+            } else {
+              return 0;
+            }
+          });
+        }
+      }  
+//APG
+if (d == "Assists Per Game") {
+	    clicks.apg++;
+        // even number of clicks
+        if (clicks.apg % 2 == 0) {
+          // sort ascending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.APG < +b.APG) { 
+              return -1; 
+            } else if (+a.APG > +b.APG) { 
+              return 1; 
+            } else {
+              return 0;
+            }
+          });
+        // odd number of clicks  
+        } else if (clicks.apg % 2 != 0) { 
+          // sort descending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.APG < +b.APG) { 
+              return 1; 
+            } else if (+a.APG > +b.APG) { 
+              return -1; 
+            } else {
+              return 0;
+            }
+          });
+        }
+      }  
+//RPG
+if (d == "Rebounds Per Game") {
+	    clicks.rpg++;
+        // even number of clicks
+        if (clicks.rpg % 2 == 0) {
+          // sort ascending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.RPG < +b.RPG) { 
+              return -1; 
+            } else if (+a.RPG > +b.RPG) { 
+              return 1; 
+            } else {
+              return 0;
+            }
+          });
+        // odd number of clicks  
+        } else if (clicks.rpg % 2 != 0) { 
+          // sort descending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.RPG < +b.RPG) { 
+              return 1; 
+            } else if (+a.RPG > +b.RPG) { 
+              return -1; 
+            } else {
+              return 0;
+            }
+          });
+        }
+      }  
+//SPG
+if (d == "Steals Per Game") {
+	    clicks.spg++;
+        // even number of clicks
+        if (clicks.spg % 2 == 0) {
+          // sort ascending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.SPG < +b.SPG) { 
+              return -1; 
+            } else if (+a.SPG > +b.SPG) { 
+              return 1; 
+            } else {
+              return 0;
+            }
+          });
+        // odd number of clicks  
+        } else if (clicks.spg % 2 != 0) { 
+          // sort descending: numerically
+          rows.sort(function(a,b) { 
+            if (+a.SPG < +b.SPG) { 
+              return 1; 
+            } else if (+a.SPG > +b.SPG) { 
+              return -1; 
+            } else {
+              return 0;
+            }
+          });
+        }
+      }  
     }) // end of click listeners
 // table row click
 
