@@ -60,7 +60,7 @@ d3.select(".dropdownArea").on("change", function(d) {
 
 populateTablePPG("Points Per Game")
 var margin = {top: 40, right: 20, bottom: 10, left: 20}
-var width = 800 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
+var width = 600 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
 var svg1 = d3.select("body").select(".chartArea").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)      
@@ -77,7 +77,7 @@ var svg1 = d3.select("body").select(".chartArea").append("svg")
  
 var displayPlayer = function(playerName){
 var margin = {top: 40, right: 20, bottom: 10, left: 20}
-var width = 800 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
+var width = 600 - margin.left - margin.right, height = 300 - margin.top - margin.bottom	
 svg1.selectAll("*").remove();
 d3.json('Roster.json',function (data) { 
 var filteredData =  data.players.filter(function(d) {if( d.name == playerName) {return d};});  
