@@ -1,6 +1,6 @@
 var populateTablePPG = function(val) {
 var column_names = ["Player Name","Team","Position","Age","Games Played","Minutes Per Game","Usage Percentage","Offensive Rating","Defensive Rating","Points Per Game","Assists Per Game","Rebounds Per Game","Steals Per Game"];
-var clicks = {name: 0, team: 0, position: 0,games_played:0,ppg:0,age:0,mpg:0,uper:0,offrating:0,defrating:0,apg:0,rpg:0,spg:0};
+var clicks = {name: 0, team: 0, position: 0,games:0,ppg:0,age:0,mpg:0,uper:0,offrating:0,defrating:0,apg:0,rpg:0,spg:0};
 // draw the table
 var margin = {top: 10, right: 10, bottom: 10, left: 10}
 var width =  1400 - margin.left - margin.right, height = 400 - margin.top - margin.bottom	
@@ -340,9 +340,9 @@ if (d == "Age") {
  
 //Games Played
 if (d == "Games Played") {
-	    clicks.games_played++;
+	    clicks.games++;
         // even number of clicks
-        if (clicks.games_played % 2 == 0) {
+        if (clicks.games % 2 == 0) {
           // sort ascending: numerically
           rows.sort(function(a,b) { 
             if (+a.GP < +b.GP) { 
@@ -354,7 +354,7 @@ if (d == "Games Played") {
             }
           });
         // odd number of clicks  
-        } else if (clicks.games_played % 2 != 0) { 
+        } else if (clicks.games % 2 != 0) { 
           // sort descending: numerically
           rows.sort(function(a,b) { 
             if (+a.GP < +b.GP) { 
