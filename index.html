@@ -90,7 +90,8 @@ svgimage.enter()
     	.attr("width", 200)
 	.attr("height", 250)    	      		
     	.attr("xlink:href", filteredData[0]["imgURL"]) 
-	.exit().remove()
+svgimage.exit()
+	.remove()
 	
 });
 }	 
