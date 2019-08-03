@@ -61,9 +61,10 @@ td, th {
   font: 12px sans-serif;
 }
 th {
+  display: table;
   background-color: #17408B;
   color: #d9f0a3;
-  font: 16px sans-serif;
+  font: 12px sans-serif;
   font-weight: bold;
 }
 td { background-color: #17408B; }
