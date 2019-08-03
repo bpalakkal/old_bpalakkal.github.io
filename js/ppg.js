@@ -7,10 +7,21 @@ var width =  1000 - margin.left - margin.right, height = 400 - margin.top - marg
 var svg = d3.select("body").select(".chartArea").append("svg")
       	.attr("width", width + margin.left + margin.right)
       	.attr("height", height + margin.top + margin.bottom)      
-      	.style("background-image",url("/nba.jpg"))
       	.append("g")
       	.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-     
+
+svg.append('svg:pattern')
+	.attr('id', 'tile-ww')
+	.attr('patternUnits', 'userSpaceOnUse')
+	.attr('width', '6')
+	.attr('height', '6')
+	.append('svg:image')
+	.attr('xlink:href', '/nba.jpg')
+	.attr('x', 0)
+	.attr('y', 0)
+	.attr('width', 6)
+	.attr('height', 6)
+
 
 var forobj = svg.append("foreignObject")
       .attr("width", width)
