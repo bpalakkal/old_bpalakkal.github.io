@@ -104,14 +104,13 @@ svgimage.enter()
 svgimage.exit()
 	.remove()
 
-var forobj1 = svg1.append("foreignObject")
-      .attr("id","forobj1")
-      .attr("width", 600)
+var forobj1 = svg1.append("foreignObject")   
+      .attr("width", 800)
       .attr("height", 160)
       .attr("y", 280)	
       .append("xhtml:body")
 
-var table1 = d3.select("#forobj1").append("table")
+var table1 = forobj1.append("table")
 
 var thead1 = table1.append('thead')
 var tbody1 = table1.append('tbody')
