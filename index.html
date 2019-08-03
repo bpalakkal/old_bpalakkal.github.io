@@ -84,7 +84,7 @@ var filteredData =  data.players.filter(function(d) {if( d.name == playerName) {
 
 	
 var svgimage = d3.selectAll("image")
-		.data(filteredData)
+		.data(data)
 svgimage.enter()
 	.append("svg:image")
 	.attr("x",290)
@@ -92,7 +92,8 @@ svgimage.enter()
     	.attr("width", 200)
 	.attr("height", 250)    	      		
     	.attr("xlink:href", filteredData[0]["imgURL"]) 
-	
+svgimage.exit()
+	.remove()
 });
 }	 
 //d3.select(self.frameElement).style("height", "800px").style("width", "10800px");	
