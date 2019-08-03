@@ -16,8 +16,8 @@ body {
 .dropdownArea {
       position: absolute;
       width: 250px;
-      top:40px;
-      left:20px;}	
+      top:20px;
+      left:10px;}	
 
 #container {
   width: 420;
@@ -97,7 +97,7 @@ var column_names = ["Player Name","Team","Position","Games Played","Points Per G
 var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
 
 // draw the table
-var margin = {top: 50, right: 20, bottom: 10, left: 50}
+var margin = {top: 40, right: 20, bottom: 10, left: 10}
 var width = 450 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
 var svg = d3.select("body").select(".chartArea").append("svg")
       .attr("width", width + margin.left + margin.right)
