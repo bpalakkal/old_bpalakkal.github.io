@@ -14,7 +14,7 @@ body {
       left:10px;}	
 
 #container {
-  width: 1250;
+  width: 1330;
   height: 750;
   position: absolute;
   overflow-y: scroll;
@@ -27,7 +27,7 @@ body {
   left: 450px;
 }	
 #FilterableTable {
-  width: 1240;
+  width: 1320;
   height: 710;
   position: absolute;
   top: 40px;
