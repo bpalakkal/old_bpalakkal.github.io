@@ -12,52 +12,9 @@
 <script type='text/javascript' src='/js/spg.js'></script>
 <script type='text/javascript' src='/js/mpg.js'></script>
 <script type='text/javascript' src='/js/rpg.js'></script>
-	
 <div class="chartArea">
   <select class = "dropdownArea"></select></div>
 <script>
-d3.select(".dropdownArea")
-    .append("option")
-    .attr("value", "ppg")
-    .text("Points Per Game");
-d3.select(".dropdownArea")
-    .append("option")
-    .attr("value", "rpg")
-    .text("Rebounds Per Game");
-d3.select(".dropdownArea")
-    .append("option")
-    .attr("value", "apg")
-    .text("Assists Per Game");
-d3.select(".dropdownArea")
-    .append("option")
-    .attr("value", "spg")
-    .text("Steals Per Game");
-d3.select(".dropdownArea")
-    .append("option")
-    .attr("value", "mpg")
-    .text("Minutes Per Game");
-	
-d3.select(".dropdownArea").on("change", function(d) {
-        // recover the option that has been chosen
-        var selectedOption = d3.select(this).property("value")
-        // run the updateChart function with this selected option
-	if (selectedOption === "ppg") {
-		d3.selectAll("svg").remove()
-		populateTablePPG(selectedOption)};
-    	if (selectedOption === "rpg") {
-		d3.selectAll("svg").remove()
-		populateTableRPG(selectedOption)};
-    if (selectedOption === "apg") {
-		d3.selectAll("svg").remove()
-		populateTableAPG(selectedOption)};
-    if (selectedOption === "spg") {
-		d3.selectAll("svg").remove()
-		populateTableSPG(selectedOption)};
-    if (selectedOption === "mpg") {
-		d3.selectAll("svg").remove()
-		populateTableMPG(selectedOption)};
-    })
-
 populateTablePPG("Points Per Game")
 var margin = {top: 10, right: 10, bottom: 10, left: 10}
 var width = 1300 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
@@ -73,8 +30,7 @@ var svg1 = d3.select("body").select(".chartArea").append("svg")
     	.style("font-size","24px")
     	.style("fill","#FFFFFF")    	
     	.style("font-weight","bold")
-    	.text("Select Player Name to display Stats")  
- 
+    	.text("Select Player Name to display Stats")   
 var displayPlayer = function(playerName){
 var margin = {top: 10, right: 10, bottom: 10, left: 10}
 var width = 1300 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
