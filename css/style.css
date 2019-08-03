@@ -19,9 +19,9 @@ body {
   position: absolute;
   overflow-y: scroll;
 }
-#container1 {
-  width: 760;
-  height: 750;
+container1 {
+  width: 600;
+  height: 200;
   position: absolute;
 }
 #title {
