@@ -1,10 +1,10 @@
 var populateTablePPG = function(val) {
 var column_names = ["Player Name","Team","Position","Games Played","Points Per Game"];
 var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
-
+var parentDiv = document.getElementById(".chartArea");
 // draw the table
 var margin = {top: 40, right: 20, bottom: 10, left: 10}
-var width = 1360 - margin.left - margin.right, height = 400 - margin.top - margin.bottom	
+var width =  parentDiv.clientWidth - margin.left - margin.right, height = 400 - margin.top - margin.bottom	
 var svg = d3.select("body").select(".chartArea").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)      
@@ -13,8 +13,8 @@ var svg = d3.select("body").select(".chartArea").append("svg")
      
 
 var forobj = svg.append("foreignObject")
-      .attr("width", 1330)
-      .attr("height", 350)
+      .attr("width", width)
+      .attr("height", height)
       .append("xhtml:body")
 
 forobj.append("div")
