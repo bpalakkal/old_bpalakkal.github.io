@@ -92,19 +92,6 @@ tr:hover td { background-color: #C9082A; }
   <select class = "dropdownArea"></select></div>
 <script>
 
-var populateTablePPG = function(val) {
-var column_names = ["Player Name","Team","Position","Games Played","Points Per Game"];
-var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
-
-// draw the table
-var margin = {top: 40, right: 20, bottom: 10, left: 10}
-var width = 450 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
-var svg = d3.select("body").select(".chartArea").append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)      
-      .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-
 d3.select(".dropdownArea")
     .append("option")
     .attr("value", "ppg")
@@ -126,6 +113,40 @@ d3.select(".dropdownArea")
     .attr("value", "mpg")
     .text("Minutes Per Game");
 	
+d3.select(".dropdownArea").on("change", function(d) {
+        // recover the option that has been chosen
+        var selectedOption = d3.select(this).property("value")
+        // run the updateChart function with this selected option
+        if (selectedOption === "ppg") {
+	svg.remove()
+	populateTablePPG(newValue)};
+    if (selectedOption === "rpg") {
+	svg.remove()
+	populateTableRPG(newValue)};
+    if (selectedOption === "apg") {
+	svg.remove()
+	populateTableAPG(newValue)};
+    if (selectedOption === "spg") {
+	svg.remove()
+	populateTableSPG(newValue)};
+    if (selectedOption === "mpg") {
+	svg.remove()
+	populateTableMPG(newValue)};
+    })
+
+var populateTablePPG = function(val) {
+var column_names = ["Player Name","Team","Position","Games Played","Points Per Game"];
+var clicks = {name: 0, team: 0, position: 0,games_played: 0,ppg:0};
+
+// draw the table
+var margin = {top: 40, right: 20, bottom: 10, left: 10}
+var width = 450 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
+var svg = d3.select("body").select(".chartArea").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)      
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
 var forobj = svg.append("foreignObject")
       .attr("width", 430)
       .attr("height", 740)
@@ -1628,28 +1649,6 @@ d3.json("data.json", function(data) { // loading data from server
     }) // end of click listeners
 });
 }
-
-d3.select('#opts')
-  .on('change', function() {
-    var selectBox = document.getElementById("opts");
-    var newValue = selectBox.options[selectBox.selectedIndex].value;
-    if (newValue === "ppg") {
-	container.remove()
-	populateTablePPG(newValue)};
-    if (newValue === "rpg") {
-	container.remove()
-	populateTableRPG(newValue)};
-    if (newValue === "apg") {
-	container.remove()
-	populateTableAPG(newValue)};
-    if (newValue === "spg") {
-	container.remove()
-	populateTableSPG(newValue)};
-    if (newValue === "mpg") {
-	container.remove()
-	populateTableMPG(newValue)};
-	
-});
 
 populateTablePPG("Points Per Game")
 
