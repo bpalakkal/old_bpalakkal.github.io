@@ -234,27 +234,54 @@ var createChart = function(data){
 } 
 
 var getDummyData = function(){
-return d3.json('data.json',function (data) { 
-	var filteredData =  data.filter(function(d) {if( d.Team === "GOL") {return d};});
-	var data = [];
-  	filteredData.forEach(function(str){
-  	var dataObj = {
-      	"ppg"  : str.PPG,
-      	"rpg"  : str.RPG,
-      	"mpg"  : str.MPG,
-      	"apg"  : str.APG,
-      	"spg"  : str.SPG,
-      	"date" : str.Name
+  /*
+
+  date  New York  San Francisco Austin
+  20161001  432 624 724
+  20161002  582 594 674
+  20161003  999 599 694
+  20161004  575 584 685
+  20161005  200 399 360
+  20161006  758 757 770
+  20161007  257 526 282
+
+0bject
+Austin:"724"
+New York:"432"
+San Francisco:"624"
+date:"20161001"
+
+*/
+
+
+  let cityNames = ["new york","toronto","San Francisco","bangalore","tokyo"];
+  let dates = ["20161001", "20161002","20161003","20161004","20161005","20161006","20161007"];
+
+  let data = [];
+
+  dates.forEach((dateStr) => {
+
+    let dataObj = {
+      "new york" : Math.floor( Math.random() * 1500 ),
+      "toronto" : Math.floor( Math.random() * 1500 ),
+      "San Francisco" : Math.floor( Math.random() * 1500 ),
+      "bangalore" : Math.floor( Math.random() * 1500 ),
+      "tokyo" : Math.floor( Math.random() * 1500 ),
+      date: dateStr,
     }
+
     data.push(dataObj);
-  });	//console.log(data)
-  return data; 
-  }); 
- 
+
+  });
+
+	//console.log(data)
+  return data;
+  
 }
 
+
 var onTabLoaded = function(data){  
- // data = tabProcessData(data);
+  data = tabProcessData(data);
   createChart(data);
   // make sure the selected line is on top...
   // D3 v3 isnt easiser with jquery but v4 has better ordering
