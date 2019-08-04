@@ -101,7 +101,7 @@ var svg1 = d3.select("body").append("svg")
 svg1.call(tip);    
     
 var tabProcessData = function(data){  
-    color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
+    color.domain(d3.keys(data[5]).filter(function(key) { return key !== "date"; }));
 
   data.forEach(function(d) {
     d.date = d.date;
