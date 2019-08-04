@@ -50,19 +50,22 @@ var svg1 = d3.select("body")
 
 /* Data in strings like it would be if imported from a csv */
 
-var teamdata = d3.csv("data.csv", 
+var teamdata = d3.json("data.json", 
        function(error, data){
   	// change string (from CSV) into number format
-    	var alldata = data.map(function(d) {
-    	d.ppg = +d.PPG;
-    	d.spg = +d.SPG;
-    	d.name = d.Name;
-    	d.apg = d.APG;
-	d.rpg = d.RPG	
-    return(d);
+    	var alldata = data.filter(function(d) { 
+    	if( d.Team === "GOL"){
+		d.ppg = +d.PPG;
+		d.mpg = +d.mpg;	
+		d.spg = +d.SPG;
+		d.name = d.Name;
+		d.apg = d.APG;
+		d.rpg = d.RPG	
+	    return(d);
+	}
   })
  
-
+	
 // Transpose the data into layers
 var dataset = d3.layout.stack()(["ppg", "rpg", "apg", "spg"].map(function(stat) {
   return alldata.map(function(d) {
