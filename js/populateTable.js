@@ -580,8 +580,8 @@ table.selectAll("tr").on("click",function(d,i){
 	    {showPlayerInfo (d)}
 	if (document.getElementById("nbachart2").checked)
 	    {drawBarChart(d.Team)}
-	if (document.getElementById("nbachart3").checked)
-	    {drawBarChart(d.Team)}
+//	if (document.getElementById("nbachart3").checked)
+//	    {drawBarChart(d.Team)}
     	});
 
 });
