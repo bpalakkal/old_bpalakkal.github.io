@@ -575,7 +575,7 @@ if (d == "Steals Per Game") {
 // table row click
 
 table.selectAll("tr").on("click",function(d,i){	
-	val = document.getElementById("chart1").value
+	val = document.getElementById("chart").value
 	if (val === "chart1")
 	    {showPlayerInfo (d)}
 	if (val==="chart2")
