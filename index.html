@@ -36,9 +36,9 @@ var svgtext = svg1.append("text")
     	.text("Select Player Name to display Stats")   
 
 var drawBarChart = function(player) {
-var margin = {top: 20, right: 20, bottom: 20, left: 20},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+var margin = {top: 10, right: 10, bottom: 10, left: 10},
+    width = 1500 - margin.left - margin.right,
+    height = 800 - margin.top - margin.bottom;
 
 var x = d3.scale.linear()
     .range([0, width]);
@@ -111,10 +111,8 @@ var tabProcessData = function(data){
 }  
 
 var createCitiesData = function(data){
-  return color.domain().map(function(name) {
-    
-    let bSelected = (name === "ppg") ? true : false;
-    
+  return color.domain().map(function(name) {    
+    let bSelected = (name === "ppg") ? true : false;    
     return {
       name: name,
       values: data.map(function(d) {
@@ -234,49 +232,23 @@ var createChart = function(data){
 } 
 
 var getDummyData = function(){
-  /*
-
-  date  New York  San Francisco Austin
-  20161001  432 624 724
-  20161002  582 594 674
-  20161003  999 599 694
-  20161004  575 584 685
-  20161005  200 399 360
-  20161006  758 757 770
-  20161007  257 526 282
-
-0bject
-Austin:"724"
-New York:"432"
-San Francisco:"624"
-date:"20161001"
-
-*/
-
-
-  let cityNames = ["new york","toronto","San Francisco","bangalore","tokyo"];
-  let dates = ["20161001", "20161002","20161003","20161004","20161005","20161006","20161007"];
-
-  let data = [];
-
-  dates.forEach((dateStr) => {
-
-    let dataObj = {
-      "new york" : Math.floor( Math.random() * 1500 ),
-      "toronto" : Math.floor( Math.random() * 1500 ),
-      "San Francisco" : Math.floor( Math.random() * 1500 ),
-      "bangalore" : Math.floor( Math.random() * 1500 ),
-      "tokyo" : Math.floor( Math.random() * 1500 ),
-      date: dateStr,
+return d3.json('data.json',function (data) { 
+	var filteredData =  data.filter(function(d) {if( d.Team === "GOL") {return d};});
+	var data = [];
+  	filteredData.forEach(function(str){
+  	var dataObj = {
+      	"ppg"  : str.PPG,
+      	"rpg"  : str.RPG,
+      	"mpg"  : str.MPG,
+      	"apg"  : str.APG,
+      	"spg"  : str.SPG,
+      	"date" : str.Name
     }
-
     data.push(dataObj);
-
-  });
-
-	//console.log(data)
-  return data;
-  
+  });	//console.log(data)
+  return data; 
+  }); 
+ 
 }
 
 
