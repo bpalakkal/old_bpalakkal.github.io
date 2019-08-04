@@ -39,8 +39,7 @@ const xValue = d => d.RatingValue;
 const xLabel = 'Player Rating';
 const yValue = d => d.Rating;
 const yLabel = 'Measure';
-const margin = { left: 200, right: 30, top: 5, bottom: 75 };
-var margin = {top: 10, right: 10, bottom: 10, left: 10}
+const margin = { left: 10, right: 10, top: 10, bottom: 10 };
 svg1.selectAll("*").remove();
 var width =  1500 - margin.left - margin.right, height = 800 - margin.top - margin.bottom
 var svg1 = d3.select("body").select(".chartArea").append("svg")
