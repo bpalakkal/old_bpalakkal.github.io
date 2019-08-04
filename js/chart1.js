@@ -41,39 +41,7 @@ var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;margin-
 	
 	 donut(newData, "#chart", ["FT Attempts","2 Pt Attempts", "3 Pt Attempts"]);
 	
-	 var newData_2 ={};
-	newData_2.FTM =  parseInt(player["FTM"]);
-	newData_2["2PM"] = parseInt(player["2PM"]);
-	newData_2["3PM"] = parseInt(player["3PM"]);
 	
-	 donut(newData_2, "#chart2", ["FT Made","2 Pt Made", "3 Pt Made"]);
-	
-	var newData_arr =[];
-	 var newData_3 ={};
-	newData_3.key = "FGPt";
-	newData_3.value = parseInt(player["FGPt"]);
-	newData_arr.push(newData_3);
-	 var newData_3 ={};
-	newData_3.key = "5TO9FGPt";
-	newData_3.value =parseInt(player["5TO9FGPt"]);
-	newData_arr.push(newData_3);
-	 var newData_3 ={};
-	newData_3.key = "10TO14FGPt";
-	newData_3.value =parseInt(player["10TO14FGPt"]);
-	newData_arr.push(newData_3);
-	 var newData_3 ={};
-	newData_3.key = "15TO19FGPt";
-	newData_3.value =parseInt(player["15TO19FGPt"]);
-	newData_arr.push(newData_3);
-	 var newData_3 ={};
-	newData_3.key = "20TO24FGPt";
-	newData_3.value =parseInt(player["20TO24FGPt"]);
-	newData_arr.push(newData_3);
-	 var newData_3 ={};
-	newData_3.key = "25TO29FGPt";
-	newData_3.value =parseInt(player["25TO29FGPt"]);
-	newData_arr.push(newData_3);
-	barchart(newData_arr, "#chart3", ["FT Made","2 Pt Made", "3 Pt Made"]);
 	
    //document.write(html);
 })
