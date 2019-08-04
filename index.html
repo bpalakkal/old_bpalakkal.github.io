@@ -9,6 +9,12 @@
 <script src="https://d3js.org/d3.v3.js"></script>
 <script type='text/javascript' src='/js/ppg.js'></script>
 <div class="chartArea"></div>
+<form id="dimensions">
+  <input  type='radio' id="income" name="mode" checked>Income</input>
+  <input type='radio' id="population" name="mode">Population</input>
+	<input type='radio' id="lifeExpectancy" name="mode">Life Expectancy</input>
+</form>
+ <script>
 <script>
 
 populateTablePPG("Points Per Game")
@@ -20,17 +26,7 @@ var svg1 = d3.select("body").select(".chartArea").append("svg")
       	.attr("height", height + margin.top + margin.bottom)
 	.append("g")
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")")	
-  	
 
-svg1.append("select")
-    .attr("id","chartDropdown")
-    .selectAll("option")
-    .data(["Chart1","Chart2","Chart3"])
-    .enter()
-    .append("option")
-    .attr("value", function(d){return d;})
-    .text(function(d){return d;}) 
-	
 var margin = {top: 10, right: 10, bottom: 10, left: 10}
 var width = 1300 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
 var svg2 = d3.select("body").select(".chartArea").append("svg")
