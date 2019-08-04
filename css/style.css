@@ -70,6 +70,7 @@ td, th {
   font: 12px sans-serif !important;
 }
 th {  
+  position: absolute !important;
   background-color: #17408B !important;
   color: #d9f0a3 !important;
   font: 13px sans-serif !important;
