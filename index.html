@@ -12,24 +12,32 @@
 <script>
 populateTablePPG("Points Per Game")
 
+var margin = {top: 5, right: 5, bottom: 5, left: 5}
+var width = 1300 - margin.left - margin.right, height = 100 - margin.top - margin.bottom	
+var svg1 = d3.select("body").select(".chartArea").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)      
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")	
+
+d3.select("svg1")
+       .append("option")
+       .attr("value",1)
+       .text("Chart 1");
+d3.select("svg1")
+    .append("option")
+    .attr("value", 2)
+    .text("Chart 2");
+
 var margin = {top: 10, right: 10, bottom: 10, left: 10}
 var width = 1300 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
-var svg1 = d3.select("body").select(".chartArea").append("svg")
+var svg2 = d3.select("body").select(".chartArea").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)      
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
-d3.select("#FilterableTable")
-       .append("option")
-       .attr("value",1)
-       .text("Chart 1");
-d3.select("#FilterableTable")
-    .append("option")
-    .attr("value", 2)
-    .text("Chart 2");
-	
-var svgtext = svg1.append("text")
+var svgtext = svg2.append("text")
        .attr("x",(width/2))
        .attr("y",(margin.top*2))
     	.style("text-anchor","middle")
@@ -40,10 +48,10 @@ var svgtext = svg1.append("text")
 var displayPlayer = function(playerName){
 var margin = {top: 10, right: 10, bottom: 10, left: 10}
 var width = 1300 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
-svg1.selectAll("*").remove();
+svg2.selectAll("*").remove();
 d3.json('Roster.json',function (data) { 
 var filteredData =  data.players.filter(function(d) {if( d.name == playerName) {return d};});  
-var svgName = svg1.selectAll("text").data([0])
+var svgName = svg2.selectAll("text").data([0])
  svgName.enter()
 	.append("text")
         .attr("x",(width/2))
@@ -55,7 +63,7 @@ var svgName = svg1.selectAll("text").data([0])
     	.text(playerName) 
 svgName.exit()
 	.remove()
-var svgimage =svg1.selectAll("image").data([0])
+var svgimage =svg2.selectAll("image").data([0])
 svgimage.enter()
 	.append("svg:image")
 	.attr("x",290)
@@ -65,7 +73,7 @@ svgimage.enter()
     	.attr("xlink:href", filteredData[0]["imgURL"]) 
 svgimage.exit()
 	.remove()
-var svgWt = svg1.selectAll("text").data([0])
+var svgWt = svg2.selectAll("text").data([0])
  svgWt.enter()
 	.append("text")
         .attr("x",(width/2))
