@@ -14,6 +14,7 @@ while(div.firstElementChild){
 }
 var svg1 = d3.select("body").select("#playerInfo")  
  .append("svg")
+ .append("id","newsvg")
  .attr("width", width + margin.left + margin.right)
  .attr("height", height + 100 + margin.top + margin.bottom)
  .append("g")
@@ -28,7 +29,7 @@ var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;">'+
       '</div>';
 
 //var svgid = d3.select("#playerInfo").select("#svg1");
-var svgid = div.firstElementChild
+var svgid = document.getElementbyId("newsvg")
 svgid.insertAdjacentHTML('afterbegin',html);
 	
 displayLineChart (player);
