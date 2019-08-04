@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="/css/style.css" type="text/css">
 <body>
 <h1>NBA 2018/19 Regular Season Leaders</h1>	
-<script src="https://d3js.org/d3.v3.js"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
 <script type='text/javascript' src='/js/ppg.js'></script>
 <div class="chartArea"></div>
 <form id="chartOptions">
@@ -40,8 +40,15 @@ const xLabel = 'Player Rating';
 const yValue = d => d.Rating;
 const yLabel = 'Measure';
 const margin = { left: 200, right: 30, top: 5, bottom: 75 };
-
-const svg1 = d3.select('svg');
+var margin = {top: 10, right: 10, bottom: 10, left: 10}
+svg1.selectAll("*").remove();
+var width =  1500 - margin.left - margin.right, height = 800 - margin.top - margin.bottom
+var svg1 = d3.select("body").select(".chartArea").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)      
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")	
+const svg1 = d3.select('svg1');
 const width = svg1.attr('width');
 const height = svg1.attr('height');
 const innerWidth = width - margin.left - margin.right;
