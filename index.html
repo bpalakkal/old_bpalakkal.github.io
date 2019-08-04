@@ -50,25 +50,19 @@ var svg1 = d3.select("body")
 
 /* Data in strings like it would be if imported from a csv */
 
-var teamdata = function() {
-return d3.json('data.json',function (data) { 
-	var filteredData =  data.filter(function(d) {if( d.Team === "GOL") {return d};});
-	var data = [];
-  	filteredData.forEach(function(str){
-  	var dataObj = {
-      	"ppg"  : str.PPG,
-      	"rpg"  : str.RPG,
-      	"mpg"  : str.MPG,
-      	"apg"  : str.APG,
-      	"spg"  : str.SPG,
-      	"date" : str.Name
-    }
-    data.push(dataObj);
-  });	
-  console.log(data)
-  return data; 
-  });  
-}
+var teamdata = d3.csv("data.csv", 
+       function(error, data){
+  	// change string (from CSV) into number format
+    	var alldata = data.map(function(d) {
+    	d.ppg = +d.PPG;
+    	d.spg = +d.SPG;
+    	d.name = d.Name;
+    	d.apg = d.APG;
+	d.rpg = d.RPG	
+    return(d);
+  })
+});    
+    
 // Transpose the data into layers
 var dataset = d3.layout.stack()(["ppg", "rpg", "apg", "spg"].map(function(stat) {
   return teamdata.map(function(d) {
