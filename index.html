@@ -20,11 +20,11 @@ var svg1 = d3.select("body").select(".chartArea").append("svg")
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
-d3.select("#chartSelection")
+d3.select("svg")
        .append("option")
        .attr("value",1)
        .text("Chart 1");
-d3.select("#chartSelection")
+d3.select("svg")
     .append("option")
     .attr("value", 2)
     .text("Chart 2");
