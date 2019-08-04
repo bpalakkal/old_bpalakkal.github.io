@@ -100,8 +100,7 @@ var svg = d3.select("body").append("svg")
 
 svg.call(tip);    
     
-var tabProcessData = function(data){
-  
+var tabProcessData = function(data){  
     color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
 
   data.forEach(function(d) {
@@ -255,7 +254,7 @@ return d3.json('data.json',function (data) {
 }
 
 var onTabLoaded = function(data){  
-  data = tabProcessData(data);
+ // data = tabProcessData(data);
   createChart(data);
   // make sure the selected line is on top...
   // D3 v3 isnt easiser with jquery but v4 has better ordering
