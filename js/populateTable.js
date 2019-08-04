@@ -575,11 +575,12 @@ if (d == "Steals Per Game") {
 // table row click
 
 table.selectAll("tr").on("click",function(d,i){	
-	if (document.getElementByName("chart1").checked)
+	val = document.getElementById("chart1").value
+	if (val === "chart1")
 	    {showPlayerInfo (d)}
-	if (document.getElementByName("chart2").checked)
+	if (val==="chart2")
 	    {drawBarChart(d.Team)}
-	if (document.getElementByName("chart3").checked)
+	if (val==="chart3")
 	    {drawBarChart(d.Team)}
     	});
 
