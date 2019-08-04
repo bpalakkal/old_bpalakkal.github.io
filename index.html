@@ -36,237 +36,144 @@ var svgtext = svg1.append("text")
     	.text("Select Player Name to display Stats")   
 
 var drawBarChart = function(player) {
-var margin = {top: 10, right: 10, bottom: 10, left: 10},
-    width = 1500 - margin.left - margin.right,
-    height = 800 - margin.top - margin.bottom;
+var margin = {top: 20, right: 160, bottom: 35, left: 30}
+var width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
-var x = d3.scale.linear()
-    .range([0, width]);
+var svg1 = d3.select("body")
+  .append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+/* Data in strings like it would be if imported from a csv */
+
+var data = [
+  { year: "2006", redDelicious: "10", mcintosh: "15", oranges: "9", pears: "6" },
+  { year: "2007", redDelicious: "12", mcintosh: "18", oranges: "9", pears: "4" },
+  { year: "2008", redDelicious: "05", mcintosh: "20", oranges: "8", pears: "2" },
+  { year: "2009", redDelicious: "01", mcintosh: "15", oranges: "5", pears: "4" },
+  { year: "2010", redDelicious: "02", mcintosh: "10", oranges: "4", pears: "2" },
+  { year: "2011", redDelicious: "03", mcintosh: "12", oranges: "6", pears: "3" },
+  { year: "2012", redDelicious: "04", mcintosh: "15", oranges: "8", pears: "1" },
+  { year: "2013", redDelicious: "06", mcintosh: "11", oranges: "9", pears: "4" },
+  { year: "2014", redDelicious: "10", mcintosh: "13", oranges: "9", pears: "5" },
+  { year: "2015", redDelicious: "16", mcintosh: "19", oranges: "6", pears: "9" },
+  { year: "2016", redDelicious: "19", mcintosh: "17", oranges: "5", pears: "7" },
+];
+
+var parse = d3.time.format("%Y").parse;
+
+// Transpose the data into layers
+var dataset = d3.layout.stack()(["redDelicious", "mcintosh", "oranges", "pears"].map(function(fruit) {
+  return data.map(function(d) {
+    return {x: parse(d.year), y: +d[fruit]};
+  });
+}));
+
+// Set x, y and colors
+var x = d3.scale.ordinal()
+  .domain(dataset[0].map(function(d) { return d.x; }))
+  .rangeRoundBands([10, width-10], 0.02);
 
 var y = d3.scale.linear()
-    .range([height, 0]);
+  .domain([0, d3.max(dataset, function(d) {  return d3.max(d, function(d) { return d.y0 + d.y; });  })])
+  .range([height, 0]);
 
-var color = d3.scale.category10();
+var colors = ["b33040", "#d25c4d", "#f2b447", "#d9d574"];
+
+// Define and draw axes
+var yAxis = d3.svg.axis()
+  .scale(y)
+  .orient("left")
+  .ticks(5)
+  .tickSize(-width, 0, 0)
+  .tickFormat( function(d) { return d } );
 
 var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
+  .scale(x)
+  .orient("bottom")
+  .tickFormat(d3.time.format("%Y"));
 
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left");
+svg.append("g")
+  .attr("class", "y axis")
+  .call(yAxis);
 
-var line = d3.svg.line()
-    .interpolate("cardinal")
-    .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.value); });
-  
-var tip = d3.tip()
-  .attr('class', 'd3-tip')
-  .offset([-10, 0])
-  .html(function(d) {
-    return "<strong>Frequency:</strong> <span style='color:pink'>" + d.value + "</span>";
-  })  
+svg.append("g")
+  .attr("class", "x axis")
+  .attr("transform", "translate(0," + height + ")")
+  .call(xAxis);
 
-var reorder = function(){
-  // make sure the selected line is on top...
-  // with D3 v3, ordering  is easiser with jquery but v4 has better ordering
+// Create groups for each series, rects for each segment 
+var groups = svg1.selectAll("g.cost")
+  .data(dataset)
+  .enter().append("g")
+  .attr("class", "cost")
+  .style("fill", function(d, i) { return colors[i]; });
 
-  var selectedLineGroup = $(".lineSelected");
-  selectedLineGroup.remove();
-
-  // add it back first     
-  $('#chart').append(selectedLineGroup);
-}
-  
-var getLineColor = function(d){
-   return ( d.selected ) ? "pink" : "lightgrey";
-}  
-
-var getLineWidth = function(d){
-   return ( d.selected ) ? "4px" : "1px";
-}  
-
-var getCityClass = function(d){
-   return ( d.selected ) ? "city lineSelected" : "city";
-} 
-
-var svg1 = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("id","chart")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-svg1.call(tip);    
-    
-var tabProcessData = async function(data){
-	await getDummyData()	
-    color.domain(d3.keys(data[5]).filter(function(key) { return key !== "date"; }));
-
-  data.forEach(function(d) {
-    d.date = d.date;
+var rect = groups.selectAll("rect")
+  .data(function(d) { return d; })
+  .enter()
+  .append("rect")
+  .attr("x", function(d) { return x(d.x); })
+  .attr("y", function(d) { return y(d.y0 + d.y); })
+  .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); })
+  .attr("width", x.rangeBand())
+  .on("mouseover", function() { tooltip.style("display", null); })
+  .on("mouseout", function() { tooltip.style("display", "none"); })
+  .on("mousemove", function(d) {
+    var xPosition = d3.mouse(this)[0] - 15;
+    var yPosition = d3.mouse(this)[1] - 25;
+    tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+    tooltip.select("text").text(d.y);
   });
-  
-  return data;
-}  
 
-var createCitiesData = function(data){
-  return color.domain().map(function(name) {    
-    let bSelected = (name === "ppg") ? true : false;    
-    return {
-      name: name,
-      values: data.map(function(d) {
-        return {date: d.date, value: +d[name], selected: bSelected};
-      }),
-      selected: bSelected,
-    };
-  });
-}
-  
-var createChart = function(data){
-  
-  var cities = createCitiesData(data);
-
-  x.domain(d3.extent(data, function(d) { return d.date; }));
-
-  y.domain([
-    d3.min(cities, function(c) { return d3.min(c.values, function(v) { return v.value; }); }),
-    d3.max(cities, function(c) { return d3.max(c.values, function(v) { return v.value; }); })
-  ]);
-
-  svg1.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
-
-  svg1.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text(""); // obviously a value - label isn't necessary 
-
-  
-  
-  var city = svg1.selectAll(".city")
-      .data(cities)
-    .enter().append("g")
-      .attr("class", "city");
-
-  let path = city.append("path")
-      .attr("class", "line")
-      .attr("d", function(d) { return line(d.values); })
-      .style("stroke", function(d) { return getLineColor(d) })
-      .style("stroke-width", function(d) { return getLineWidth(d) });
-  
-  var totalLength = path.node().getTotalLength();
-  
-  let onUpdate = function(){
-    
-  };
-  
-  let pathLengths = [];
-  
-  path.each( function() {
-		var len = d3.select(this).node().getTotalLength();
-    pathLengths.push(len);
-  }); 
-    
-  
-  let getTotalLengthPerNode = function(d,i){
-    let totalLength = pathLengths[i];
-    return totalLength + " " + totalLength
-  }
-
-    path
-      .attr("stroke-dasharray", function(d,i){return getTotalLengthPerNode()})
-      .attr("stroke-dashoffset", totalLength)
-      .transition()
-        .duration(2000)
-        .ease("linear")
-    		.each("end", onUpdate)
-        .attr("stroke-dashoffset", 0)
-  
-  
-  // add the points
-  
- var point = city.append("g")
-.attr("class", "line-point");
-
-  
-  point.selectAll('circle')
-  .data(function(d){ return d.values})
-  .enter().append('circle')
-  .on("mouseover", tip.show)
-  .on("mouseout", tip.hide)
-  .attr("cx", function(d) { return x(d.date) })
-  .attr("cy", function(d) { return y(d.value) })
-  .attr("r", 0)
-  .style("opacity", function(d){ return (d.selected) ? 1 : 0})
-  .style("fill", "white")
-  .style("stroke", function(d) { return getLineColor(d); })
-  .transition()
-    .duration(1000)
-    .delay( function(d,i){ return 250 + ( 750 * i) })
-    .attr("r", 5);
-
-  // city label 
-  cityLabelContainer = city
-      .append("g")
-      .attr("class", "cityLabelContainer");
-  
-  cityLabelContainer
-  	.append("text")
-  	.datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
-      .attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.value) + ")"; })
-      .attr("x", 5)
-      .attr("dy", ".35em")
-      .text(function(d) {  return d.name; });
-
-
-  reorder(); 
-
-} 
-
-var getDummyData = function() {
-return d3.json('data.json',function (data) { 
-	var filteredData =  data.filter(function(d) {if( d.Team === "GOL") {return d};});
-	var data = [];
-  	filteredData.forEach(function(str){
-  	var dataObj = {
-      	"ppg"  : str.PPG,
-      	"rpg"  : str.RPG,
-      	"mpg"  : str.MPG,
-      	"apg"  : str.APG,
-      	"spg"  : str.SPG,
-      	"date" : str.Name
-    }
-    data.push(dataObj);
-  });	
-  console.log(data)
-  return data; 
-  }); 
+// Draw legend
+var legend = svg.selectAll(".legend")
+  .data(colors)
+  .enter().append("g")
+  .attr("class", "legend")
+  .attr("transform", function(d, i) { return "translate(30," + i * 19 + ")"; });
  
-}
+legend.append("rect")
+  .attr("x", width - 18)
+  .attr("width", 18)
+  .attr("height", 18)
+  .style("fill", function(d, i) {return colors.slice().reverse()[i];});
+ 
+legend.append("text")
+  .attr("x", width + 5)
+  .attr("y", 9)
+  .attr("dy", ".35em")
+  .style("text-anchor", "start")
+  .text(function(d, i) { 
+    switch (i) {
+      case 0: return "Anjou pears";
+      case 1: return "Naval oranges";
+      case 2: return "McIntosh apples";
+      case 3: return "Red Delicious apples";
+    }
+  });
 
+// Prep the tooltip bits, initial display is hidden
+var tooltip = svg1.append("g")
+  .attr("class", "tooltip")
+  .style("display", "none");
+    
+tooltip.append("rect")
+  .attr("width", 30)
+  .attr("height", 20)
+  .attr("fill", "white")
+  .style("opacity", 0.5);
 
-var onTabLoaded = function(data){  
-  data = tabProcessData(data);
-  createChart(data);
-  // make sure the selected line is on top...
-  // D3 v3 isnt easiser with jquery but v4 has better ordering
-  let selectedLineGroup = $(".lineSelected");
-  selectedLineGroup.remove();			
-	// add it back first 		
-  $('svg1 g').append(selectedLineGroup);  
-}
-var dummyData = getDummyData();
-onTabLoaded(dummyData); 
-
+tooltip.append("text")
+  .attr("x", 15)
+  .attr("dy", "1.2em")
+  .style("text-anchor", "middle")
+  .attr("font-size", "12px")
+  .attr("font-weight", "bold");
 } //end of function
 
 </script>
