@@ -50,7 +50,7 @@ var svg1 = d3.select("body")
 
 /* Data in strings like it would be if imported from a csv */
 
-var getDummyData = function() {
+var data = function() {
 return d3.json('data.json',function (data) { 
 	var filteredData =  data.filter(function(d) {if( d.Team === "GOL") {return d};});
 	var data = [];
