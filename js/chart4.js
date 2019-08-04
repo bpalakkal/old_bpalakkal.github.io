@@ -20,9 +20,9 @@ d3.json("Roster.json", function(error, data) {
 			case "drb": newObj.Rating = "Def Rebounding";
 			case "oiq": newObj.Rating = "Off IQ";
 			case "tp": newObj.Rating = "Turnover %";
-			case "diq": newObj.Rating = "Def IQ;
-			case "stre": newObj.Rating = "Stretch;
-			case "ins": newObj.Rating = "Ins;
+			case "diq": newObj.Rating = "Def IQ";
+			case "stre": newObj.Rating = "Stretch";
+			case "ins": newObj.Rating = "Ins";
 			 }
 			
     
