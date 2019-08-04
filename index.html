@@ -100,7 +100,8 @@ var svg1 = d3.select("body").append("svg")
 
 svg1.call(tip);    
     
-var tabProcessData = function(data){  
+var tabProcessData = async function(data){
+	await getDummyData(50)	
     color.domain(d3.keys(data[5]).filter(function(key) { return key !== "date"; }));
 
   data.forEach(function(d) {
@@ -193,7 +194,7 @@ var createChart = function(data){
   
   // add the points
   
-  var point = city.append("g")
+ var point = city.append("g")
 .attr("class", "line-point");
 
   
@@ -231,7 +232,7 @@ var createChart = function(data){
 
 } 
 
-async function getDummyData() {
+var getDummyData = function() {
 return d3.json('data.json',function (data) { 
 	var filteredData =  data.filter(function(d) {if( d.Team === "GOL") {return d};});
 	var data = [];
