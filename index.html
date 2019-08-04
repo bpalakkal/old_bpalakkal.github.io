@@ -36,7 +36,7 @@ var svgtext = svg1.append("text")
     	.text("Select Player Name to display Stats")   
 
 var drawBarChart = function(player) {
-var margin = {top: 20, right: 80, bottom: 30, left: 50},
+var margin = {top: 20, right: 20, bottom: 20, left: 20},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -91,14 +91,14 @@ var getCityClass = function(d){
    return ( d.selected ) ? "city lineSelected" : "city";
 } 
 
-var svg = d3.select("body").append("svg")
+var svg1 = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("id","chart")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-svg.call(tip);    
+svg1.call(tip);    
     
 var tabProcessData = function(data){  
     color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
@@ -136,12 +136,12 @@ var createChart = function(data){
     d3.max(cities, function(c) { return d3.max(c.values, function(v) { return v.value; }); })
   ]);
 
-  svg.append("g")
+  svg1.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis);
 
-  svg.append("g")
+  svg1.append("g")
       .attr("class", "y axis")
       .call(yAxis)
     .append("text")
