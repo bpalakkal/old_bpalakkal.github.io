@@ -20,7 +20,7 @@ function donut(newData , chartName, displayName ){
 
   var object = {};
     if(!svgdonut){
-      arc = d3.svgdonut.arc()
+      arc = d3.svg.arc()
       .outerRadius(radius)
       .innerRadius(radius - (radius/2.5));
 
