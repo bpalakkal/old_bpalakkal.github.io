@@ -19,7 +19,7 @@
   font: 12px sans-serif;
   color: #FFFFFF;  
  }
-#container {
+#chartOptions #container {
   width: 1500;
   height: 400;
   position: absolute;
