@@ -50,26 +50,28 @@ var svg1 = d3.select("body")
 
 /* Data in strings like it would be if imported from a csv */
 
-var data = [
-  { year: "2006", redDelicious: "10", mcintosh: "15", oranges: "9", pears: "6" },
-  { year: "2007", redDelicious: "12", mcintosh: "18", oranges: "9", pears: "4" },
-  { year: "2008", redDelicious: "05", mcintosh: "20", oranges: "8", pears: "2" },
-  { year: "2009", redDelicious: "01", mcintosh: "15", oranges: "5", pears: "4" },
-  { year: "2010", redDelicious: "02", mcintosh: "10", oranges: "4", pears: "2" },
-  { year: "2011", redDelicious: "03", mcintosh: "12", oranges: "6", pears: "3" },
-  { year: "2012", redDelicious: "04", mcintosh: "15", oranges: "8", pears: "1" },
-  { year: "2013", redDelicious: "06", mcintosh: "11", oranges: "9", pears: "4" },
-  { year: "2014", redDelicious: "10", mcintosh: "13", oranges: "9", pears: "5" },
-  { year: "2015", redDelicious: "16", mcintosh: "19", oranges: "6", pears: "9" },
-  { year: "2016", redDelicious: "19", mcintosh: "17", oranges: "5", pears: "7" },
-];
-
-var parse = d3.time.format("%Y").parse;
-
+var getDummyData = function() {
+return d3.json('data.json',function (data) { 
+	var filteredData =  data.filter(function(d) {if( d.Team === "GOL") {return d};});
+	var data = [];
+  	filteredData.forEach(function(str){
+  	var dataObj = {
+      	"ppg"  : str.PPG,
+      	"rpg"  : str.RPG,
+      	"apg"  : str.APG,
+      	"spg"  : str.SPG,
+      	"name" : str.Name
+    }
+    data.push(dataObj);
+  });	
+  console.log(data)
+  return data; 
+  });  
+}
 // Transpose the data into layers
-var dataset = d3.layout.stack()(["redDelicious", "mcintosh", "oranges", "pears"].map(function(fruit) {
+var dataset = d3.layout.stack()(["ppg", "rpg", "apg", "spg"].map(function(stat) {
   return data.map(function(d) {
-    return {x: parse(d.year), y: +d[fruit]};
+    return {x: d.name, y: +d[stat]};
   });
 }));
 
@@ -107,10 +109,10 @@ svg1.append("g")
   .call(xAxis);
 
 // Create groups for each series, rects for each segment 
-var groups = svg1.selectAll("g.cost")
+var groups = svg1.selectAll("g.stat")
   .data(dataset)
   .enter().append("g")
-  .attr("class", "cost")
+  .attr("class", "stat")
   .style("fill", function(d, i) { return colors[i]; });
 
 var rect = groups.selectAll("rect")
@@ -150,10 +152,10 @@ legend.append("text")
   .style("text-anchor", "start")
   .text(function(d, i) { 
     switch (i) {
-      case 0: return "Anjou pears";
-      case 1: return "Naval oranges";
-      case 2: return "McIntosh apples";
-      case 3: return "Red Delicious apples";
+      case 0: return "Points Per Game";
+      case 1: return "Rebounds Per Game";
+      case 2: return "Assists Per Game";
+      case 3: return "Steals Per Game";
     }
   });
 
