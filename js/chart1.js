@@ -28,7 +28,7 @@ var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;">'+
       '</div>';
 
 //var svgid = d3.select("#playerInfo").select("#svg1");
-var svgid = document.getElementById("#svg1")
+var svgid = document.getElementById("svg1")
 svgid.insertAdjacentHTML('afterbegin',html);
 	
 displayLineChart (player);
