@@ -41,7 +41,29 @@ var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;margin-
 	
 	 donut(newData, "#chart", ["FT Attempts","2 Pt Attempts", "3 Pt Attempts"]);
 	
+	var newData_2 ={};
+	newData_2.FTM =  parseInt(player["FTM"]);
+	newData_2["2PM"] = parseInt(player["2PM"]);
+	newData_2["3PM"] = parseInt(player["3PM"]);
 	
+	 donut(newData_2, "#chart2", ["FT Made","2 Pt Made", "3 Pt Made"])
+				      
+				      
+	 var newData_3 ={};
+	
+	newData_3["FGPt"] = parseInt(player["FGPt"]);
+	
+	newData_3["5TO9FGPt"] = parseInt(player["5TO9FGPt"]);
+	newData_3["10TO14FGPt"] =parseInt(player["10TO14FGPt"]) ;
+	
+	newData_3[ "15TO19FGPt"] =parseInt(player["15TO19FGPt"]);
+	
+
+	newData_3[ "20TO24FGPt"] = parseInt(player["20TO24FGPt"]);
+	
+	newData_3[ "25TO29FGPt"] = parseInt(player["25TO29FGPt"]);
+	
+	donut(newData_3, "#chart3", ["FG Pt","5TO9FGPt", "10TO14FGPt" ,"15TO19FGPt" ,"20TO24FGPt","25TO29FGPt"]);
 	
    //document.write(html);
 })
