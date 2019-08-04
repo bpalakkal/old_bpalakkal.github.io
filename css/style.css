@@ -1,4 +1,4 @@
-#chartOptions body {
+body {
   background-image:url("/nba.jpg");
   font: 10px sans-serif;
 }
@@ -19,7 +19,8 @@
   font: 12px sans-serif;
   color: #FFFFFF;  
  }
-#chartOptions #container {
+
+#container {
   width: 1500;
   height: 400;
   position: absolute;
