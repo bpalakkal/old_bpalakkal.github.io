@@ -20,7 +20,7 @@ body {
 
 #container {
   width: 1500;
-  height: 400;
+  height: 450;
   position: absolute;
   background: rgba(76, 175, 80, 0.1)
 }
@@ -33,8 +33,9 @@ body {
 }	
 #FilterableTable {
   width: 1500;
-  height: 400;
+  height: 450;
   top:10px;  
+  bottom:30px
   position: absolute;
   font: 12px sans-serif;
   overflow-y: scroll;
