@@ -1,8 +1,8 @@
 var showPlayerInfo = function(player){ 
-  var playerName = player.Name;
+var playerName = player.Name;
 d3.json('Roster.json',function (data) {
   
-  var filteredData =  data.players.filter(function(d) {  if( d.name == playerName) {return d};});
+var filteredData =  data.players.filter(function(d) {  if( d.name == playerName) {return d};});
   
 var margin = {top: 40, right: 160, bottom: 35, left: 30}
 var width = 960 - margin.left - margin.right,
@@ -12,6 +12,7 @@ var div = document.getElementById("playerInfo");
 while(div.firstElementChild){
     div.removeChild(div.firstElementChild);
 }
+
 var svg1 = d3.select("body").select("#playerInfo")
   .append("svg")
   .attr("width", width + margin.left + margin.right)
@@ -19,7 +20,7 @@ var svg1 = d3.select("body").select("#playerInfo")
   .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");	
 
-  var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;">'+
+var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;">'+
             '<div class="col" style="max-width: 30%;"> <img style="height:200px" src = "' + filteredData[0]["imgURL"] +'"></img> </div>'+
             '<div class="col" > <div id="chart"> </div> </div> ' +
       '<div class="col" > <div id="chart2"> </div> </div> ' +
@@ -27,9 +28,8 @@ var svg1 = d3.select("body").select("#playerInfo")
             '<div class="col" > <div id="linechart"> </div> </div> ' 
       '</div>';
    
-}
-   document.getElementById('svg1').insertAdjacentHTML('afterbegin',html);
-   displayLineChart (player);
+document.getElementById('svg1').insertAdjacentHTML('afterbegin',html);
+displayLineChart (player);
 	 var newData ={};
 	newData.FTA =  parseInt(player["FTA"]);
 	newData["2PA"] = parseInt(player["2PA"]);
