@@ -231,7 +231,7 @@ var createChart = function(data){
 
 } 
 
-var getDummyData = function(){
+async function getDummyData() {
 return d3.json('data.json',function (data) { 
 	var filteredData =  data.filter(function(d) {if( d.Team === "GOL") {return d};});
 	var data = [];
@@ -263,7 +263,7 @@ var onTabLoaded = function(data){
 	// add it back first 		
   $('svg1 g').append(selectedLineGroup);  
 }
-var dummyData = getDummyData();
+var dummyData = await getDummyData();
 onTabLoaded(dummyData); 
 
 } //end of function
