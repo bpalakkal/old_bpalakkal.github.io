@@ -66,6 +66,10 @@ h1{
 table a:link, a:visited { text-decoration: none; }
 table a:hover, a:active { text-decoration: underline; }
 table, th, td { border: 1px solid black; }
+tbody{
+   display:block;
+  overflow:auto;
+}
 td, th {
   padding: 5px !important;
   text-align: center !important;
@@ -73,6 +77,7 @@ td, th {
   font: 12px sans-serif !important;
 }
 th {  
+  display:block;
   background-color: #17408B !important;
   color: #d9f0a3 !important;
   font: 13px sans-serif !important;
