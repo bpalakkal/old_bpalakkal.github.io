@@ -67,13 +67,15 @@ table a:link, a:visited { text-decoration: none; }
 table a:hover, a:active { text-decoration: underline; }
 table, th, td { border: 1px solid black; }
 tbody{
-   display:block;
-  overflow:auto;
+   display:block !important;
+   overflow:auto !important;   
+   height: 400 !important;
 }
 td, th {
   padding: 5px !important;
   text-align: center !important;
   height: 20px !important;
+  width: 30px !important;
   font: 12px sans-serif !important;
 }
 th {  
