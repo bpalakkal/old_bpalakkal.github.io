@@ -18,7 +18,6 @@
 <script>
 	
 populateTablePPG("Points Per Game")
-
 var margin = {top: 10, right: 10, bottom: 10, left: 10}
 var width =  1500 - margin.left - margin.right, height = 800 - margin.top - margin.bottom
 var svg1 = d3.select("body").select(".chartArea").append("svg")
@@ -39,17 +38,13 @@ var drawBarChart = function(player) {
 var margin = {top: 20, right: 160, bottom: 35, left: 30}
 var width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
-
+d3.select("svg1").remove();
 var svg1 = d3.select("body")
   .append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
   .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-
-/* Data in strings like it would be if imported from a csv */
-
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");	
 var teamdata = d3.json("data.json", 
        function(error, data){
   	// change string (from CSV) into number format
@@ -63,9 +58,7 @@ var teamdata = d3.json("data.json",
 		d.rpg = d.RPG	
 	    return(d);
 	}
-  })
- 
-	
+  }) 
 // Transpose the data into layers
 var dataset = d3.layout.stack()(["ppg", "rpg", "apg", "spg"].map(function(stat) {
   return alldata.map(function(d) {
@@ -76,11 +69,11 @@ var dataset = d3.layout.stack()(["ppg", "rpg", "apg", "spg"].map(function(stat) 
 // Set x, y and colors
 var x = d3.scale.ordinal()
   .domain(dataset[0].map(function(d) { return d.x; }))
-  .rangeRoundBands([10, width-10], 0.02);
+  .rangeRoundBands([10, 500], 0.02);
 
 var y = d3.scale.linear()
   .domain([0, d3.max(dataset, function(d) {  return d3.max(d, function(d) { return d.y0 + d.y; });  })])
-  .range([height, 0]);
+  .range([400, 0]);
 
 var colors = ["b33040", "#d25c4d", "#f2b447", "#d9d574"];
 
@@ -95,7 +88,11 @@ var yAxis = d3.svg.axis()
 var xAxis = d3.svg.axis()
   .scale(x)
   .orient("bottom");
-  
+  .selectAll("text")	
+	.attr("transform", function(d) {
+        return "rotate(-65)" 
+                });
+
 
 svg1.append("g")
   .attr("class", "y axis")
@@ -103,7 +100,7 @@ svg1.append("g")
 
 svg1.append("g")
   .attr("class", "x axis")
-  .attr("transform", "translate(0," + height + ")")
+  .attr("transform", "translate(0," + height + ")")	
   .call(xAxis);
 
 // Create groups for each series, rects for each segment 
@@ -140,7 +137,7 @@ var legend = svg1.selectAll(".legend")
 legend.append("rect")
   .attr("x", width - 18)
   .attr("width", 18)
-  .attr("height", 18)
+  .attr("height", 18)  	
   .style("fill", function(d, i) {return colors.slice().reverse()[i];});
  
 legend.append("text")
