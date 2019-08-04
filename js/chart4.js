@@ -34,7 +34,7 @@ d3.json("Roster.json", function(error, data) {
         })
   	//data.sort(function(a, b) { return a.value - b.value; });
 	var svgline =  d3.select("#linechart").append("svg").attr("width",560).attr("height",300),
-    	margin = {top: 40, right: 20, bottom: 30, left: 80},
+    	margin = {top: 20, right: 20, bottom: 30, left: 80},
     	width = +svgline.attr("width") - margin.left - margin.right,
    	 height = +svgline.attr("height") - margin.top - margin.bottom;
   
