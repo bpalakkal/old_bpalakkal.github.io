@@ -44,11 +44,11 @@ d3.json("Roster.json", function(error, data) {
             }));
 
 
-	var xAxis = d3.svgline.axis()
+	var xAxis = d3.svg.axis()
 		.scale(x)
 		.orient("bottom");
 
-	  var yAxis = d3.svgline.axis()
+	  var yAxis = d3.svg.axis()
             .scale(y)
             //no tick marks
             .tickSize(0)
