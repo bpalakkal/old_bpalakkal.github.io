@@ -11,7 +11,7 @@ d3.json("Roster.json", function(error, data) {
      			case "spd":  newObj.Rating = "Speed"; break;
 			case "pss": newObj.Rating = "Pass"; break;
       			case "dnk": newObj.Rating = "Dunk"; break;
-      			case "ft": newObj.Rating = "Freet Throw";break;
+      			case "ft": newObj.Rating = "Free Throw";break;
 			case "fg": newObj.Rating = "Field Goals"; break;
 			case "jmp": newObj.Rating = "Jump"; break;
       			case "reb": newObj.Rating = "Rebounding"; break;
@@ -33,7 +33,7 @@ d3.json("Roster.json", function(error, data) {
         })
   	//data.sort(function(a, b) { return a.value - b.value; });
 	var svgline =  d3.select("#linechart").append("svg").attr("width",560).attr("height",300),
-    	margin = {top: 20, right: 20, bottom: 30, left: 80},
+    	margin = {top: 20, right: 20, bottom: 30, left: 100},
     	width = +svgline.attr("width") - margin.left - margin.right,
    	 height = +svgline.attr("height") - margin.top - margin.bottom;
   
