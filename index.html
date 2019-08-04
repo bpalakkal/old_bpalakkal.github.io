@@ -65,7 +65,7 @@ var teamdata = d3.csv("data.csv",
 
 // Transpose the data into layers
 var dataset = d3.layout.stack()(["ppg", "rpg", "apg", "spg"].map(function(stat) {
-  return teamdata.map(function(d) {
+  return alldata.map(function(d) {
     return {x: d.name, y: +d[stat]};
   });
 }));
