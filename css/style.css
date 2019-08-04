@@ -78,6 +78,9 @@ td, th {
   min-width:110px !important;
   font: 12px sans-serif !important;
 }
+tr{
+  table-layout:fixed;
+}
 th {  
   display:block;
   min-width:110px !important;
