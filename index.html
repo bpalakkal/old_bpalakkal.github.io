@@ -12,8 +12,12 @@
 <div class="chartArea"></div>
 <div id="playerInfo"></div>	
 <script>
+<form id="chartOptions">
+  <input  type='radio' id="chart1" name="chart1" checked>Chart 1</input>
+  <input type='radio' id="chart2" name="chart2">Chart 2</input>
+  <input type='radio' id="chart3" name="chart3">Chart 3</input>
+</form>
 populateTablePPG("Points Per Game")
-
 var drawBarChart = function(player) {
 var margin = {top: 40, right: 160, bottom: 35, left: 30}
 var width = 960 - margin.left - margin.right,
