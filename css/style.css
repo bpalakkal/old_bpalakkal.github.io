@@ -6,17 +6,22 @@ body {
 .chartArea{
       position: relative;}
 
-#demoSelection {
-    position: absolute;
-    width: 100px;
-    top:405px;
-    left:10px;
+rect {
+	fill: teal;
 }
-.dropdownArea {
-      position: absolute;
-      width: 250px;
-      top:20px;
-      left:10px;}	
+.dropdown .option {
+  display:none;
+}
+.dropdown rect{
+  stroke-width:0.5;
+  stroke:rgb(0,0,0)
+}
+.dropdown:hover .option {
+  display:unset;
+}
+.dropdown {
+  cursor:pointer;
+}
 
 #container {
   width: 1500;
