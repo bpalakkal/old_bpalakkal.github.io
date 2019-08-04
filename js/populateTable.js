@@ -99,7 +99,7 @@ d3.json("data.json", function(data) { // loading data from server
             text = this.value.trim();
         
         var searchResults = searched_data.map(function(r) {
-          var regex = new RegExp("^." + text + ".*", "i");
+          var regex = new RegExp("^.*" + text + ".*", "i");
           if (regex.test(r.Name)) { // if there are any results
             return regex.exec(r.Name)[0]; // return them to searchResults
           } 
