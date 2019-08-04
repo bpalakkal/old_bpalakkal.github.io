@@ -18,8 +18,7 @@ body {
 #playerInfo{
   position: absolute;
   font: 12px sans-serif;
-  color: #FFFFFF;
-  overflow: scroll;
+  color: #FFFFFF;  
  }
 #container {
   width: 1500;
