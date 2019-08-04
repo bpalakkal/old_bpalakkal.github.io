@@ -235,22 +235,23 @@ var createChart = function(data){
 } 
 
 var getDummyData = function(){
-  d3.json('data.json',function (data) { 
+return d3.json('data.json',function (data) { 
 	var filteredData =  data.filter(function(d) {if( d.Team === "GOL") {return d};});
-  }); 
-  var data = [];
-  filteredData.forEach(function(str){
-  var dataObj = {
-      "ppg"  : str.PPG,
-      "rpg"  : str.RPG,
-      "MPG"  : str.MPG,
-      "apg"  : str.APG,
-      "spg"  : str.SPG,
-      "date" : str.Name
+	var data = [];
+  	filteredData.forEach(function(str){
+  	var dataObj = {
+      	"ppg"  : str.PPG,
+      	"rpg"  : str.RPG,
+      	"mpg"  : str.MPG,
+      	"apg"  : str.APG,
+      	"spg"  : str.SPG,
+      	"date" : str.Name
     }
     data.push(dataObj);
   });	//console.log(data)
-  return data;  
+  return data; 
+  }); 
+ 
 }
 
 var onTabLoaded = function(data){  
