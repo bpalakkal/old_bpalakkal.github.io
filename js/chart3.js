@@ -40,11 +40,11 @@ function donut(newData , chartName, displayName ){
         .each(function(d) { this._current = d; })
         .attr("d", arc)
         .style("fill", function(d) { return color(d.data.key); });
-      g.append("text")
-          .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-          .attr("dy", ".35em")
-          .style("text-anchor", "middle");
-      g.select("text").text(function(d) { return d.data.key  + " - " + d.data.value ; });
+     // g.append("text")
+     //     .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+     //     .attr("dy", ".35em")
+     //     .style("text-anchor", "middle");
+     // g.select("text").text(function(d) { return d.data.key  + " - " + d.data.value ; });
 
       svgdonut.append("text")
           .datum(newData)
