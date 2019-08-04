@@ -18,40 +18,18 @@ var svg1 = d3.select("body").select(".chartArea").append("svg")
       	.attr("height", height + margin.top + margin.bottom)      
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")")	
   	.append("g")
-  	.attr("class","dropdown");
-var select = svg1.append("g")
-  		.attr("class","select");
 
-var buttonNames = ["Chart 1", "Chart 2", "Chart 3"];
-var l=20;	
-select.append("rect")
-  	.attr("x", 10)
-	.attr("y",  10 )
-	.attr("width", l)
-	.attr("height", 30);
-
-select.append("text")
-	.attr("x", 15)
-	.attr("y",30 )
-  	.attr("id","mydropdown")
-	.text( buttonNames[0]);
-  
-var options = svg1.selectAll(".myBars")
-	.data(buttonNames)
-	.enter()
-	.append("g");
-	
-options.attr("class", "option").on("click", function() { document.getElementById("mydropdown").innerHTML=this.getElementsByTagName("text")[0].innerHTML;
-  d3.event.stopPropagation();
-});
-options.append("rect").attr("x", 10)
-	.attr("y", function(d,i){ return 40 + i*30})
-	.attr("width", l)
-	.attr("height", 30);
-
- options.append("text").attr("x", function(d){ return 15})
-	.attr("y", function(d,i){ return 60 + i*30})
-	.text(function(d){ return d});
+d3.select("svg1")
+             .append("select")
+             .attr("id","chartDropdown")
+             .on("change",changeChart())
+             .selectAll("option")
+             .data(["Chart1","Chart2","Chart3"])
+             .enter()
+             .append("option")
+             .attr("value", function(d){return d;})
+             .text(function(d){return d;})
+          ; 
 	
 var margin = {top: 10, right: 10, bottom: 10, left: 10}
 var width = 1300 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
