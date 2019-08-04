@@ -31,7 +31,7 @@ while(div.firstElementChild){
 var svg1 = d3.select("body").select("#playerInfo")
   .append("svg")
   .attr("width", width + margin.left + margin.right)
-  .attr("height", height + 100 + margin.top + margin.bottom)
+  .attr("height", height + 50 + margin.top + margin.bottom)
   .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 var teamdata = d3.json("data.json", 
@@ -82,20 +82,18 @@ svg1.append("g")
   .attr("class", "y axis")
   .call(yAxis)
   .selectAll("text")	
-  .style("fill","#FFFFFF")
-  .style("font-size",8)
+  .style("fill","#FFFFFF")  
 
 svg1.append("g")
   .attr("class", "x axis")
-  .attr("transform", "translate(0," + (height) + ")")  
+  .attr("transform", "translate(0," + height + ")")  
   .call(xAxis)
 .selectAll("text")	
     .attr("y", 0)
     .attr("x", 9)
     .attr("dy", ".35em")
     .attr("transform", "rotate(65)")
-    .style("fill","#FFFFFF")
-    .style("font-size",8)	
+    .style("fill","#FFFFFF")    	
     .style("text-anchor", "start");
 
 // Create groups for each series, rects for each segment 
