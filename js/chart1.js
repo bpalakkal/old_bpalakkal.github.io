@@ -47,7 +47,7 @@ displayLineChart (player);
 	
 	 donut(newData_2, "#chart2", ["FT Made","2 Pt Made", "3 Pt Made"]);
 	
-	 var newData_3 ={};
+	var newData_3 ={};
 	newData_3["FGPt"] =  parseInt(player["FGPt"]);
 	newData_3["5TO9FGPt"] =  parseInt(player["5TO9FGPt"]);
 	newData_3["10TO14FGPt"] = parseInt(player["10TO14FGPt"]);
