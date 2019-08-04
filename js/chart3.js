@@ -15,22 +15,22 @@ function donut(newData , chartName, displayName ){
     .sort(null)
     .value(function(d) { return d.value; });
 
-  var svg, g, arc; 
+  var svgdonut, g, arc; 
 
 
   var object = {};
-    if(!svg){
-      arc = d3.svg.arc()
+    if(!svgdonut){
+      arc = d3.svgdonut.arc()
       .outerRadius(radius)
       .innerRadius(radius - (radius/2.5));
 
-      svg = $el.append("svg")
+      svgdonut = $el.append("svg")
         .attr("width", width)
         .attr("height", height)
       .append("g")
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-      g = svg.selectAll(".arc")
+      g = svgdonut.selectAll(".arc")
         .data(pie(d3.entries(newData)))
       .enter().append("g")
       .attr("class", "arc");
@@ -46,7 +46,7 @@ function donut(newData , chartName, displayName ){
           .style("text-anchor", "middle");
       g.select("text").text(function(d) { return d.data.key  + " - " + d.data.value ; });
 
-      svg.append("text")
+      svgdonut.append("text")
           .datum(newData)
           .attr("x", 0 )
           .attr("y", 0 + radius/10 )
@@ -57,7 +57,7 @@ function donut(newData , chartName, displayName ){
 
       g.on("mouseover", function(obj){
         console.log(obj.data)
-        svg.select("text.text-tooltip")
+        svgdonut.select("text.text-tooltip")
         .attr("fill", function(d) { return color(obj.data.value ); })
         .text(function(d){
           return d[obj.data.key];
@@ -65,7 +65,7 @@ function donut(newData , chartName, displayName ){
       });
 
       g.on("mouseout", function(obj){
-        svg.select("text.text-tooltip").text( "")
+        svgdonut.select("text.text-tooltip").text( "")
       });
 
     }else{
@@ -84,10 +84,10 @@ function donut(newData , chartName, displayName ){
       g.select("text")
       .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; });
 
-      svg.select("text.text-tooltip").datum(newData);
+      svgdonut.select("text.text-tooltip").datum(newData);
     }      
  
-var legendG = svg.selectAll(".legend") // note appending it to mySvg and not svg to make positioning easier
+var legendG = svgdonut.selectAll(".legend") // note appending it to mySvg and not svg to make positioning easier
   .data(pie(d3.entries(newData)))
   .enter().append("g")
   .attr("transform", function(d,i){
