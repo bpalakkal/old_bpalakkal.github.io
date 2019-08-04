@@ -27,8 +27,8 @@ var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;">'+
       '<div class="col" > <div id="chart3"> </div> </div> ' +
             '<div class="col" > <div id="linechart"> </div> </div> ' 
       '</div>';
-   
-svg1.insertAdjacentHTML('afterbegin',html);
+var svgid = document.getElementById('svg1')
+svgid.insertAdjacentHTML('afterbegin',html);
 displayLineChart (player);
 	 var newData ={};
 	newData.FTA =  parseInt(player["FTA"]);
