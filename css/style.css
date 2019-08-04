@@ -145,3 +145,20 @@ circle {
   top: 100%;
   left: 0;
 }
+
+.bar {
+  fill: #C9082A;
+}
+text {
+  font-size: 14px;
+  fill: #fff;
+  font-weight: bold;
+}
+
+path {
+  stroke: gray;
+}
+
+line {
+  stroke: gray;
+}
