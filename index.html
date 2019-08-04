@@ -19,19 +19,16 @@ var svg1 = d3.select("body").select(".chartArea").append("svg")
       .attr("height", height + margin.top + margin.bottom)      
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-<select class = "option" id = "dropdownArea"></select>
-d3.select(".dropdownArea")
+
+d3.select("#chartSelection")
+       .append("option")
+       .attr("value",1)
+       .text("Chart 1);
+d3.select("#chartSelection")
     .append("option")
-    .attr("value", "chart1")
-    .text("Chart 1");
-d3.select(".dropdownArea")
-    .append("option")
-    .attr("value", "chart2")
+    .attr("value", 2)
     .text("Chart 2");
-d3.select(".dropdownArea")
-    .append("option")
-    .attr("value", "chart3")
-    .text("Chart 3");
+	
 var svgtext = svg1.append("text")
        .attr("x",(width/2))
        .attr("y",(margin.top*2))
