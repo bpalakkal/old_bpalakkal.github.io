@@ -97,11 +97,11 @@ var xAxis = d3.svg.axis()
   .orient("bottom")
   .tickFormat(d3.time.format("%Y"));
 
-svg.append("g")
+svg1.append("g")
   .attr("class", "y axis")
   .call(yAxis);
 
-svg.append("g")
+svg1.append("g")
   .attr("class", "x axis")
   .attr("transform", "translate(0," + height + ")")
   .call(xAxis);
@@ -131,7 +131,7 @@ var rect = groups.selectAll("rect")
   });
 
 // Draw legend
-var legend = svg.selectAll(".legend")
+var legend = svg1.selectAll(".legend")
   .data(colors)
   .enter().append("g")
   .attr("class", "legend")
