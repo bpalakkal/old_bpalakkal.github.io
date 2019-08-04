@@ -55,6 +55,7 @@ h1{
 }
 .chartArea table {
   table-layout: fixed;
+  display: block;
   position: absolute;
   top: 30px;
   left: 5px;
@@ -79,8 +80,10 @@ td, th {
   font: 12px sans-serif !important;
 }
 tr{
-  table-layout:fixed;
-}
+  display: table;
+  table-layout: fixed;
+  width:100%;
+  }
 th {  
   display:block;
   min-width:110px !important;
