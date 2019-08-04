@@ -23,6 +23,8 @@ var select = svg1.append("g")
   		.attr("class","select");
 
 var buttonNames = ["button 1", "button 2", "button 3", "button 4"];
+var l=4;
+for(i=0;i<buttonNames.length;i++){if(l<buttonNames[i].length)l=buttonNames[i].length};	
 	
 select.append("rect")
   	.attr("x", 10)
