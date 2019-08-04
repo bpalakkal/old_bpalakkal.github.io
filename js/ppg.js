@@ -575,7 +575,7 @@ if (d == "Steals Per Game") {
 // table row click
 
 table.selectAll("tr").on("click",function(d,i){	
-	displayPlayer(d.Name)	
+	drawBarChart(d.Name)	
     	});
 
 });
