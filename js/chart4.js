@@ -33,7 +33,7 @@ d3.json("Roster.json", function(error, data) {
             return d3.ascending(a.RatingValue, b.RatingValue);
         })
   	//data.sort(function(a, b) { return a.value - b.value; });
-	var svgline =  d3.select("#linechart").append("svg").attr("width",660).attr("height",300),
+	var svgline =  d3.select("#linechart").append("svg").attr("width",560).attr("height",300),
     	margin = {top: 20, right: 20, bottom: 30, left: 80},
     	width = +svgline.attr("width") - margin.left - margin.right,
    	 height = +svgline.attr("height") - margin.top - margin.bottom;
@@ -49,7 +49,7 @@ d3.json("Roster.json", function(error, data) {
 	//var color = d3.scaleOrdinal(d3.schemeCategory10);
 	
 	 var x = d3.scale.linear()
-            .range([0, width-100])
+            .range([0, width])
             .domain([0, d3.max(newData, function (d) {
                 return d.RatingValue;
             })]);
@@ -78,7 +78,7 @@ d3.json("Roster.json", function(error, data) {
     
 	g.append("g")
         .attr("class", "x axis")
-       	.attr("transform", "translate(0," + (width-100) + ")")
+       	.attr("transform", "translate(0," + height + ")")
       	.call(xAxis);
 
     	g.append("g")
