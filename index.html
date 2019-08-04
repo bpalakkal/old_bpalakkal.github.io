@@ -10,7 +10,9 @@
 <script type='text/javascript' src='/js/ppg.js'></script>
 <div class="chartArea"></div>
 <script>
+
 populateTablePPG("Points Per Game")
+
 var margin = {top: 5, right: 5, bottom: 5, left: 5}
 var width = 1300 - margin.left - margin.right, height = 50 - margin.top - margin.bottom	
 var svg1 = d3.select("body").select(".chartArea").append("svg")
@@ -19,16 +21,14 @@ var svg1 = d3.select("body").select(".chartArea").append("svg")
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")")	
   	.append("g")
 
-d3.select("svg1")
-             .append("select")
-             .attr("id","chartDropdown")
-             .selectAll("option")
-             .data(["Chart1","Chart2","Chart3"])
-             .enter()
-             .append("option")
-             .attr("value", function(d){return d;})
-             .text(function(d){return d;})
-          ; 
+svg1.append("select")
+    .attr("id","chartDropdown")
+    .selectAll("option")
+    .data(["Chart1","Chart2","Chart3"])
+    .enter()
+    .append("option")
+    .attr("value", function(d){return d;})
+    .text(function(d){return d;}) 
 	
 var margin = {top: 10, right: 10, bottom: 10, left: 10}
 var width = 1300 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
@@ -37,6 +37,7 @@ var svg2 = d3.select("body").select(".chartArea").append("svg")
       .attr("height", height + margin.top + margin.bottom)      
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
 var svgtext = svg2.append("text")
        .attr("x",(width/2))
        .attr("y",(margin.top*2))
@@ -45,6 +46,7 @@ var svgtext = svg2.append("text")
     	.style("fill","#FFFFFF")    	
     	.style("font-weight","bold")
     	.text("Select Player Name to display Stats")   
+
 var displayPlayer = function(playerName){
 var margin = {top: 10, right: 10, bottom: 10, left: 10}
 var width = 1300 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
