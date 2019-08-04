@@ -18,10 +18,17 @@
 <script>
 	
 populateTablePPG("Points Per Game")
-
-
+var margin = {top: 40, right: 160, bottom: 35, left: 30}
+var width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+var svg1 = d3.select("body")
+  .append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 var drawBarChart = function(player) {
-var margin = {top: 20, right: 160, bottom: 35, left: 30}
+var margin = {top: 40, right: 160, bottom: 35, left: 30}
 var width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 svg1.selectAll("*").remove();
@@ -30,8 +37,7 @@ var svg1 = d3.select("body")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
   .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");	
-
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 var teamdata = d3.json("data.json", 
        function(error, data){
   	// change string (from CSV) into number format
