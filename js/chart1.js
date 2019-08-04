@@ -12,8 +12,7 @@ var div = document.getElementById("playerInfo");
 while(div.firstElementChild){
     div.removeChild(div.firstElementChild);
 }
-var svg1 = d3.select("body").select("#playerInfo")
- .attr("id","svg1")  
+var svg1 = d3.select("body").select("#playerInfo")  
  .append("svg")
  .attr("width", width + margin.left + margin.right)
  .attr("height", height + 100 + margin.top + margin.bottom)
@@ -28,7 +27,7 @@ var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;">'+
             '<div class="col" > <div id="linechart"> </div> </div> ' 
       '</div>';
 
-var svgid = document.getElementById("svg1");
+var svgid = d3.select("#playerInfo).select("svg1");
 //var svgid = div.firstElementChild.attr("id")
 svgid.insertAdjacentHTML('afterbegin',html);
 	
