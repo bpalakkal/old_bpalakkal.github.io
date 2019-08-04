@@ -101,7 +101,7 @@ var svg1 = d3.select("body").append("svg")
 svg1.call(tip);    
     
 var tabProcessData = async function(data){
-	await getDummyData(50)	
+	await getDummyData()	
     color.domain(d3.keys(data[5]).filter(function(key) { return key !== "date"; }));
 
   data.forEach(function(d) {
@@ -152,7 +152,7 @@ var createChart = function(data){
 
   
   
-  var city = svg.selectAll(".city")
+  var city = svg1.selectAll(".city")
       .data(cities)
     .enter().append("g")
       .attr("class", "city");
