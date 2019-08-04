@@ -575,6 +575,9 @@ if (d == "Steals Per Game") {
 // table row click
 
 table.selectAll("tr").on("click",function(d,i){	
+	var rowId = this.parentNode.rowIndex;
+	var rowSelected = table.getElementsByTagName('tr')[rowId];
+	rowSelected.style.backgroundColor = "yellow";
 	val = document.getElementById("nbachart1").value
 	if (document.getElementById("nbachart1").checked)
 	    {showPlayerInfo (d)}
@@ -586,3 +589,4 @@ table.selectAll("tr").on("click",function(d,i){
 
 });
 }
+} //end of function
