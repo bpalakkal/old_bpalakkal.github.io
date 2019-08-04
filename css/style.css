@@ -6,22 +6,15 @@ body {
 .chartArea{
       position: relative;}
 
-rect {
-	fill: teal;
+#chartDropdown {
+  width: 300;
+  height: 50;
+  top:10px;  
+  position: absolute;
+  font: 12px sans-serif;
+  overflow-y: scroll;
 }
-.dropdown .option {
-  display:none;
-}
-.dropdown rect{
-  stroke-width:0.5;
-  stroke:rgb(0,0,0)
-}
-.dropdown:hover .option {
-  display:unset;
-}
-.dropdown {
-  cursor:pointer;
-}
+
 
 #container {
   width: 1500;
