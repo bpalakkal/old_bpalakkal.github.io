@@ -25,7 +25,7 @@ var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;margin-
             '<div class="col" style="max-width: 30%;"> <img style="height:200px" src = "' + filteredData[0]["imgURL"] +'"></img> </div>'+
             '<div class="col" ><text font-size:16px> Shot Attempts </text> <div id="chart"> </div> </div> ' +
       '<div class="col" > <text font-size:16px> Shots Made </text> <div id="chart2"> </div> </div> ' +
-      '<div class="col" > <text font-size: 16px>Shot Range<div id="chart3"> </div> </div> ' +
+      '<div class="col" > <text font-size: 16px>Shot Range (%)<div id="chart3"> </div> </div> ' +
             '<div class="col" > <text font-size:16px> Player Stats </text> <div id="linechart"> </div> </div> ' 
       '</div>';
 
@@ -62,7 +62,7 @@ var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;margin-
 	
 	newData_3[ "25TO29FGPt"] = parseInt(player["25TO29FGPt"]);
 	
-	donut(newData_3, "#chart3", ["5TO9FGPt", "10TO14FGPt" ,"15TO19FGPt" ,"20TO24FGPt","25TO29FGPt"]);
+	donut(newData_3, "#chart3", ["5 to 9 ft", "10 to 14 ft" ,"15 to 19 ft" ,"20 to 24 ft","25 to 29 ft"]);
 	
    //document.write(html);
 })
