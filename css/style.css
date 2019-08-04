@@ -9,8 +9,10 @@ body {
 #chartOptions {
   width: 800;
   height: 95;
-  top:405px;  
+  top:420px;  
   position: absolute;
+  font: 12px sans-serif;
+  color: #FFFFFF
  }
 
 #container {
