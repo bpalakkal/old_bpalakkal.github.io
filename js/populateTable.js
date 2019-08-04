@@ -586,7 +586,5 @@ table.selectAll("tr").on("click",function(d,i){
 //	if (document.getElementById("nbachart3").checked)
 //	    {drawBarChart(d.Team)}
     	});
-
 });
-}
 } //end of function
