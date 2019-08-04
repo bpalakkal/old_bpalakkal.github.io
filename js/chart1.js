@@ -23,10 +23,10 @@ while(div.firstElementChild){
 */
 var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;margin-top: 30px">'+
             '<div class="col" style="max-width: 30%;"> <img style="height:200px" src = "' + filteredData[0]["imgURL"] +'"></img> </div>'+
-            '<div class="col" ><h1> Shot Attempts </h1> <div id="chart"> </div> </div> ' +
-      '<div class="col" > <h1> Shot Attempts </h1> <div id="chart2"> </div> </div> ' +
-      '<div class="col" > <h1> Player Statistics </h1> <div id="chart3"> </div> </div> ' +
-            '<div class="col" > <div id="linechart"> </div> </div> ' 
+            '<div class="col" ><h1 font-size:16px> Shot Attempts </h1> <div id="chart"> </div> </div> ' +
+      '<div class="col" > <h1 font-size:16px> Shots Made </h1> <div id="chart2"> </div> </div> ' +
+      '<div class="col" > <div id="chart3"> </div> </div> ' +
+            '<div class="col" > <h1 font-size:16px> Player Stats </h1> <div id="linechart"> </div> </div> ' 
       '</div>';
 
 //var svgid = d3.select("#playerInfo").select("#svg1");
