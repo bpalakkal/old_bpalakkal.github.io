@@ -31,7 +31,7 @@ while(div.firstElementChild){
 var svg1 = d3.select("body").select("#playerInfo")
   .append("svg")
   .attr("width", width + margin.left + margin.right)
-  .attr("height", height + 50 + margin.top + margin.bottom)
+  .attr("height", height + 70 + margin.top + margin.bottom)
   .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 var teamdata = d3.json("data.json", 
