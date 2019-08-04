@@ -82,8 +82,7 @@ d3.json("Roster.json", function(error, data) {
 
     	g.append("g")
         .attr("class", "y axis")
-	.attr("transform", "translate(20," + width + ")")
-        .call(yAxis);
+	.call(yAxis);
 
 	 var bars = g.selectAll(".bar")
             .data(newData)
