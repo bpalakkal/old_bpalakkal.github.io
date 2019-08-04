@@ -39,7 +39,7 @@ displayLineChart (player);
 	newData["2PA"] = parseInt(player["2PA"]);
 	newData["3PA"] = parseInt(player["3PA"]);
 	
-	 donut(newData, "#chart", ["FT Attemps","2 Pt Attemps", "3 Pt Attemps"]);
+	 donut(newData, "#chart", ["FT Attempts","2 Pt Attempts", "3 Pt Attempts"]);
 	
 	 var newData_2 ={};
 	newData_2.FTM =  parseInt(player["FTM"]);
