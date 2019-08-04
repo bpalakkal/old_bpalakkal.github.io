@@ -18,7 +18,7 @@
   <input type='radio' id="chart3" name="chart3">Chart 3</input>
 </form>
 populateTablePPG("Points Per Game")
-var drawBarChart = function(player) {
+var drawBarChart = function(team) {
 var margin = {top: 40, right: 160, bottom: 35, left: 30}
 var width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
@@ -38,13 +38,13 @@ var teamdata = d3.json("data.json",
        function(error, data){
   	// change string (from CSV) into number format
     	var alldata = data.filter(function(d) { 
-    	if( d.Team === "GOL"){
+    	if( d.Team === team){
 		d.ppg = +d.PPG;
 		d.mpg = +d.mpg;	
 		d.spg = +d.SPG;
 		d.name = d.Name;
-		d.apg = d.APG;
-		d.rpg = d.RPG	
+		d.apg = +d.APG;
+		d.rpg = +d.RPG	
 	    return(d);
 	}
   }) 
