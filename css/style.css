@@ -75,12 +75,12 @@ td, th {
   padding: 5px !important;
   text-align: center !important;
   height: 20px !important;
-  min-width:120px !important;
+  min-width:110px !important;
   font: 12px sans-serif !important;
 }
 th {  
   display:block;
-  min-width:120px !important;
+  min-width:110px !important;
   background-color: #17408B !important;
   color: #d9f0a3 !important;
   font: 13px sans-serif !important;
