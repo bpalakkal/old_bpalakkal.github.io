@@ -54,8 +54,6 @@ h1{
   left: 2%;
 }
 .chartArea table {
-  table-layout: fixed;
-  display: table;
   position: absolute;
   top: 30px;
   left: 5px;
@@ -67,26 +65,17 @@ h1{
 table a:link, a:visited { text-decoration: none; }
 table a:hover, a:active { text-decoration: underline; }
 table, th, td { border: 1px solid black; }
-tbody{
-   display:table !important;
+tbody{   
    overflow:auto !important;   
    height: 400 !important;
 }
 td, th {
   padding: 5px !important;
   text-align: center !important;
-  height: 20px !important;
-  min-width:105px !important;
+  height: 20px !important;  
   font: 12px sans-serif !important;
 }
-tr{
-  display: table;
-  table-layout: fixed;
-  width:100%;
-  }
 th {  
-  display:table;
-  min-width:105px !important;
   background-color: #17408B !important;
   color: #d9f0a3 !important;
   font: 13px sans-serif !important;
