@@ -82,7 +82,7 @@ const row = d => {
 			d.RatingValue = +(filteredData[0]["ratings"][0][key]) 
 			}
 	return(d)
-	})
+	}
 
 d3.json("data.json", row, data => {
 	yScale
