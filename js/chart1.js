@@ -51,7 +51,6 @@ var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;margin-
 				      
 	 var newData_3 ={};
 	
-	newData_3["FGPt"] = parseInt(player["FGPt"]);
 	
 	newData_3["5TO9FGPt"] = parseInt(player["5TO9FGPt"]);
 	newData_3["10TO14FGPt"] =parseInt(player["10TO14FGPt"]) ;
@@ -63,7 +62,7 @@ var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;margin-
 	
 	newData_3[ "25TO29FGPt"] = parseInt(player["25TO29FGPt"]);
 	
-	donut(newData_3, "#chart3", ["FG Pt","5TO9FGPt", "10TO14FGPt" ,"15TO19FGPt" ,"20TO24FGPt","25TO29FGPt"]);
+	donut(newData_3, "#chart3", ["5TO9FGPt", "10TO14FGPt" ,"15TO19FGPt" ,"20TO24FGPt","25TO29FGPt"]);
 	
    //document.write(html);
 })
