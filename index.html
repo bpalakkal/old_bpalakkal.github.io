@@ -9,14 +9,13 @@
 <script src="https://d3js.org/d3.v3.js"></script>
 <script type='text/javascript' src='/js/ppg.js'></script>
 <div class="chartArea"></div>
-<form id="dimensions">
-  <input  type='radio' id="income" name="mode" checked>Income</input>
-  <input type='radio' id="population" name="mode">Population</input>
-	<input type='radio' id="lifeExpectancy" name="mode">Life Expectancy</input>
+<form id="chartOptions">
+  <input  type='radio' id="chart1" name="chart1" checked>Chart 1</input>
+  <input type='radio' id="chart2" name="chart2">Chart 2</input>
+	<input type='radio' id="chart3" name="chart3">Chart 3</input>
 </form>
- <script>
 <script>
-
+	
 populateTablePPG("Points Per Game")
 
 var margin = {top: 10, right: 20, bottom: 10, left: 20}
