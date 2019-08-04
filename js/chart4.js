@@ -7,7 +7,24 @@ d3.json("Roster.json", function(error, data) {
 	var newData = []; 
 	for (var key in filteredData[0]["ratings"][0]) {
 		var newObj ={};
-  		newObj.Rating =  key;
+  		newObj.Rating =  switch (key) {
+     			case "spd": return "Speed";
+			case "pss": return "Pass";
+      			case "dnk": return "Dunk";
+      			case "ft": return "Freet Throw";
+			case "fg": return "Field Goals";
+			case "jmp": return "Jump";
+      			case "reb": return "Rebounding";
+      			case "hgt": return "Height";
+			case "endu": return "Endurance";
+			case "drb": return "Def Rebounding";
+			case "oiq": return "Off IQ";
+			case "tp": return "Turnover %";
+			case "diq": return "Def IQ;
+			case "stre": return "Stretch;
+			case "ins": return "Ins;
+			
+    };
 		newObj.RatingValue =parseInt( filteredData[0]["ratings"][0][key]); 
 		newData.push(newObj);
 	}
