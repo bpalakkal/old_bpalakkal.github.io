@@ -6,15 +6,12 @@ body {
 .chartArea{
       position: relative;}
 
-#chartDropdown {
-  width: 300;
-  height: 50;
-  top:10px;  
+#chartOptions {
+  width: 800;
+  height: 95;
+  top:405px;  
   position: absolute;
-  font: 12px sans-serif;
-  overflow-y: scroll;
-}
-
+ }
 
 #container {
   width: 1500;
