@@ -14,11 +14,12 @@ body {
   font: 16px sans-serif;
   color: #FFFFFF
  }
-#playerInfo 
-{
+
+#playerInfo{
   position: absolute;
   font: 12px sans-serif;
-  color: #FFFFFF
+  color: #FFFFFF;
+  overflow: scroll;
  }
 #container {
   width: 1500;
