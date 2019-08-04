@@ -6,12 +6,12 @@ body {
 .chartArea{
       position: relative;}
 
-#chartOptions {
+#playerInfo {
   width: 800;
   height: 95;
   top:450px;  
   position: absolute;
-  font: 16px sans-serif;
+  font: 12px sans-serif;
   color: #FFFFFF
  }
 
