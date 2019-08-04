@@ -31,7 +31,7 @@ var drawBarChart = function(player) {
 var margin = {top: 40, right: 160, bottom: 35, left: 30}
 var width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
-svg1.selectAll("*").remove();
+d3.select("svg1").selectAll("*").remove();
 var svg1 = d3.select("body")
   .append("svg")
   .attr("width", width + margin.left + margin.right)
