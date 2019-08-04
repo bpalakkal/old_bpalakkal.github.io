@@ -54,7 +54,7 @@ displayLineChart (player);
 	newData_3["15TO19FGPt"] = parseInt(player["15TO19FGPt"]);
 	newData_3["20TO24FGPt"] = parseInt(player["20TO24FGPt"]);
 	newData_3["25TO29FGPt"] = parseInt(player["25TO29FGPt"]);
-	 barchart(newData_3, "#chart3", ["FT Made","2 Pt Made", "3 Pt Made"]);
+	//barchart(newData_3, "#chart3", ["FT Made","2 Pt Made", "3 Pt Made"]);
 	
 	
 	
