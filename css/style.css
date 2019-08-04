@@ -77,10 +77,7 @@ th {
 }
 td { background-color: #17408B !important; }
 tr:hover td { background-color: #C9082A !important; }
-tr.selected td {
-        background: none repeat scroll 0 0 #FFCF8B !important;
-        color: #C9082A !important
-    }
+tr.selected td {background-color: #C9082A !important}
 .bar {
   fill: #80cbc4;
 }
