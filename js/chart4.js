@@ -16,15 +16,15 @@ d3.json("Roster.json", function(error, data) {
             return d3.ascending(a.RatingValue, b.RatingValue);
         })
   	//data.sort(function(a, b) { return a.value - b.value; });
-	var svg =  d3.select("#linechart").append("svg").attr("width",560).attr("height",300),
+	var svgline =  d3.select("#linechart").append("svg").attr("width",560).attr("height",300),
     	margin = {top: 40, right: 20, bottom: 30, left: 80},
-    	width = +svg.attr("width") - margin.left - margin.right,
-   	 height = +svg.attr("height") - margin.top - margin.bottom;
+    	width = +svgline.attr("width") - margin.left - margin.right,
+   	 height = +svgline.attr("height") - margin.top - margin.bottom;
   
 	var tooltip = d3.select("#linechart").append("div").attr("class", "toolTip");
   
 
-	var g = svg.append("g")
+	var g = svgline.append("g")
 		.attr("transform", "translate("+ margin.top + "," + margin.top  + ")");
   
  	 //var x = d3.scaleLinear().range([0, width]);
@@ -44,11 +44,11 @@ d3.json("Roster.json", function(error, data) {
             }));
 
 
-	var xAxis = d3.svg.axis()
+	var xAxis = d3.svgline.axis()
 		.scale(x)
 		.orient("bottom");
 
-	  var yAxis = d3.svg.axis()
+	  var yAxis = d3.svgline.axis()
             .scale(y)
             //no tick marks
             .tickSize(0)
