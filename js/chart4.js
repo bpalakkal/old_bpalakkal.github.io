@@ -25,7 +25,7 @@ d3.json("Roster.json", function(error, data) {
   
 
 	var g = svgline.append("g")
-		.attr("transform", "translate("+ margin.top + "," + margin.top  + ")");
+		.attr("transform", "translate("+ margin.left + "," + margin.top  + ")");
   
  	 //var x = d3.scaleLinear().range([0, width]);
 	//var y = d3.scaleBand().range([height, 0]).padding(.1);
