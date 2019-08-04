@@ -12,8 +12,9 @@ var div = document.getElementById("playerInfo");
 while(div.firstElementChild){
     div.removeChild(div.firstElementChild);
 }
-var svg1 = d3.select("body").select("#playerInfo")  
- .append("svg").attr("id","svg1")
+d3.select("body").select("#playerInfo")  
+ .append("svg")
+ .attr("id","svg1")
  .attr("width", width + margin.left + margin.right)
  .attr("height", height + 100 + margin.top + margin.bottom)
  .append("g")
