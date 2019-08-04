@@ -17,9 +17,10 @@ var margin = {top: 5, right: 5, bottom: 5, left: 5}
 var width = 1300 - margin.left - margin.right, height = 50 - margin.top - margin.bottom	
 var svg1 = d3.select("body").select(".chartArea").append("svg")
       	.attr("width", width + margin.left + margin.right)
-      	.attr("height", height + margin.top + margin.bottom)      
+      	.attr("height", height + margin.top + margin.bottom)
+	.append("g")
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")")	
-  	.append("g")
+  	
 
 svg1.append("select")
     .attr("id","chartDropdown")
