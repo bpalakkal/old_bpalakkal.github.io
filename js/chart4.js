@@ -49,7 +49,7 @@ d3.json("Roster.json", function(error, data) {
 	//var color = d3.scaleOrdinal(d3.schemeCategory10);
 	
 	 var x = d3.scale.linear()
-            .range([0, width])
+            .range([0, width-100])
             .domain([0, d3.max(newData, function (d) {
                 return d.RatingValue;
             })]);
