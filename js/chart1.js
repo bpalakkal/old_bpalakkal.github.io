@@ -13,14 +13,14 @@ while(div.firstElementChild){
     div.removeChild(div.firstElementChild);
 }
 
-d3.select("body").select("#playerInfo")  
+/*d3.select("body").select("#playerInfo")  
  .append("svg")
  .attr("id","svg2")
  .attr("width", width + margin.left + margin.right)
  .attr("height", height + 100 + margin.top + margin.bottom)
  .append("g")
  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");	
-
+*/
 var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;">'+
             '<div class="col" style="max-width: 30%;"> <img style="height:200px" src = "' + filteredData[0]["imgURL"] +'"></img> </div>'+
             '<div class="col" > <div id="chart"> </div> </div> ' +
@@ -30,9 +30,9 @@ var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;">'+
       '</div>';
 
 //var svgid = d3.select("#playerInfo").select("#svg1");
-var svgid = document.getElementById("svg2")
-svgid.insertAdjacentHTML('afterbegin',html);
-	
+//var svgid = document.getElementById("svg2")
+//svgid.insertAdjacentHTML('afterbegin',html);
+	document.getElementById("playerInfo").insertAdjacentHTML('afterbegin',html);
 displayLineChart (player);
 	 var newData ={};
 	newData.FTA =  parseInt(player["FTA"]);
