@@ -236,7 +236,7 @@ var createChart = function(data){
 
 var getDummyData = function(){
   d3.json('data.json',function (data) { 
-	var filteredData =  data.players.filter(function(d) {if( d.Team === "GOL") {return d};});
+	var filteredData =  data.filter(function(d) {if( d.Team === "GOL") {return d};});
   }); 
   var data = [];
   filteredData.forEach(function(str){
