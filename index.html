@@ -10,15 +10,21 @@
 <script type='text/javascript' src='/js/ppg.js'></script>
 <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <div class="chartArea"></div>
+<div id="playerInfo"></div>	
 <script>
-//populateTablePPG("Points Per Game")
+populateTablePPG("Points Per Game")
+
 var drawBarChart = function(player) {
 var margin = {top: 40, right: 160, bottom: 35, left: 30}
 var width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 //d3.select("body").select(".chartArea").select("svg1").selectAll("*").remove();
-d3.select("body").select(".chartArea").select("svg1").remove();	
-var svg1 = d3.select("body").select(".chartArea")
+//d3.select("body").select("#playerInfo").select("svg1").remove();
+var div = document.getElementById('playerInfo');
+while(div.firstElementChild){
+    div.removeChild(div.firstElementChild);
+}
+var svg1 = d3.select("body").select("#playerInfo")
   .append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
