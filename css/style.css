@@ -27,7 +27,10 @@ body {
   position: absolute;
   background: rgba(76, 175, 80, 0.1)
 }
-
+h1{
+  font-size: 20px; 
+  font: "Bookman Old Style";
+}
 #title {
   font: 14px sans-serif !important;
   position: absolute !important;
@@ -70,7 +73,6 @@ td, th {
   font: 12px sans-serif !important;
 }
 th {  
-  position: absolute !important;
   background-color: #17408B !important;
   color: #d9f0a3 !important;
   font: 13px sans-serif !important;
