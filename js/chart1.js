@@ -27,7 +27,7 @@ var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;">'+
             '<div class="col" > <div id="linechart"> </div> </div> ' 
       '</div>';
 
-var svgid = d3.select("#playerInfo).select("svg1");
+var svgid = d3.select("#playerInfo").select("svg1");
 //var svgid = div.firstElementChild.attr("id")
 svgid.insertAdjacentHTML('afterbegin',html);
 	
