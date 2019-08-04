@@ -29,7 +29,7 @@ var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;">'+
       '</div>';
 
 //var svgid = d3.select("#playerInfo").select("#svg1");
-var svgid = document.getElementbyId("#newsvg")
+var svgid = document.getElementbyId("newsvg")
 svgid.insertAdjacentHTML('afterbegin',html);
 	
 displayLineChart (player);
