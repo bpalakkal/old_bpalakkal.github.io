@@ -231,7 +231,7 @@ var createChart = function(data){
 
 } 
 
-var getDummyData = async function(){
+var getDummyData = function(){
 return d3.json('data.json',function (data) { 
 	var filteredData =  data.filter(function(d) {if( d.Team === "GOL") {return d};});
 	var data = [];
@@ -245,7 +245,8 @@ return d3.json('data.json',function (data) {
       	"date" : str.Name
     }
     data.push(dataObj);
-  });	//console.log(data)
+  });	
+  console.log(data)
   return data; 
   }); 
  
