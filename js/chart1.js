@@ -13,11 +13,12 @@ while(div.firstElementChild){
     div.removeChild(div.firstElementChild);
 }
 var svg1 = d3.select("body").select("#playerInfo")
-  .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + 100 + margin.top + margin.bottom)
-  .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");	
+ .attr("id","svg1")  
+ .append("svg")
+ .attr("width", width + margin.left + margin.right)
+ .attr("height", height + 100 + margin.top + margin.bottom)
+ .append("g")
+ .attr("transform", "translate(" + margin.left + "," + margin.top + ")");	
 
 var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;">'+
             '<div class="col" style="max-width: 30%;"> <img style="height:200px" src = "' + filteredData[0]["imgURL"] +'"></img> </div>'+
@@ -27,8 +28,8 @@ var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;">'+
             '<div class="col" > <div id="linechart"> </div> </div> ' 
       '</div>';
 
-var div = document.getElementById("playerInfo");
-var svgid = div.firstElementChild.attr("id")
+var svgid = document.getElementById("svg1");
+//var svgid = div.firstElementChild.attr("id")
 svgid.insertAdjacentHTML('afterbegin',html);
 	
 displayLineChart (player);
