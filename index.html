@@ -18,21 +18,7 @@
 <script>
 	
 populateTablePPG("Points Per Game")
-var margin = {top: 10, right: 10, bottom: 10, left: 10}
-var width =  1500 - margin.left - margin.right, height = 800 - margin.top - margin.bottom
-var svg1 = d3.select("body").select(".chartArea").append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)      
-      .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-var svgtext = svg1.append("text")
-       .attr("x",(width/2))
-       .attr("y",(margin.top*2))
-    	.style("text-anchor","middle")
-    	.style("font-size","24px")
-    	.style("fill","#FFFFFF")    	
-    	.style("font-weight","bold")
-    	.text("Select Player Name to display Stats")   
+
 
 var drawBarChart = function(player) {
 var margin = {top: 20, right: 160, bottom: 35, left: 30}
@@ -99,9 +85,11 @@ svg1.append("g")
   .attr("transform", "translate(0," + height + ")")  
   .call(xAxis)
 .selectAll("text")	
-	.attr("transform", function(d) {
-        return "rotate(-65)" 
-                });
+    .attr("y", 0)
+    .attr("x", 9)
+    .attr("dy", ".35em")
+    .attr("transform", "rotate(90)")
+    .style("text-anchor", "start");
 
 // Create groups for each series, rects for each segment 
 var groups = svg1.selectAll("g.stat")
