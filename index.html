@@ -10,13 +10,6 @@
 <script type='text/javascript' src='/js/ppg.js'></script>
 <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <div class="chartArea"></div>
-<form id="chartOptions">
-  <input  type='radio' id="chart1" name="chart1" checked>Chart 1</input>
-  <input type='radio' id="chart2" name="chart2">Chart 2</input>
-	<input type='radio' id="chart3" name="chart3">Chart 3</input>
-</form>
-<script>
-	
 populateTablePPG("Points Per Game")
 var margin = {top: 20, right: 20, bottom: 20, left: 20}
 var width = 1300 - margin.left - margin.right,
@@ -27,6 +20,7 @@ var svg1 = d3.select("body").select(".chartArea").append("svg")
   .attr("height", height + margin.top + margin.bottom)
   .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
 var drawBarChart = function(player) {
 var margin = {top: 40, right: 160, bottom: 35, left: 30}
 var width = 960 - margin.left - margin.right,
