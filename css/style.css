@@ -5,10 +5,7 @@ body {
 }
 .chartArea{
       position: relative;}
-.chartArea h1{
-  font: 18px sans-serif;
-  color: #FFFFFF
-}
+
 #chartOptions {
   width: 800;
   height: 95;
@@ -62,23 +59,23 @@ body {
   font: 10px sans-serif;
   overflow-y: auto;
 }
-.chartArea table a:link, a:visited { text-decoration: none; }
-.chartArea table a:hover, a:active { text-decoration: underline; }
-.chartArea table, th, td { border: 1px solid black; }
-.chartArea td, th {
+table a:link, a:visited { text-decoration: none; }
+table a:hover, a:active { text-decoration: underline; }
+table, th, td { border: 1px solid black; }
+td, th {
   padding: 5px;
   text-align: center;
   height: 20px;
   font: 12px sans-serif;
 }
-.chartArea th {  
+th {  
   background-color: #17408B;
   color: #d9f0a3;
   font: 13px sans-serif;
   font-weight: bold;
 }
-.chartArea td { background-color: #17408B; }
-.chartArea tr:hover td { background-color: #C9082A; }
+td { background-color: #17408B; }
+tr:hover td { background-color: #C9082A; }
 .bar {
   fill: #80cbc4;
 }
