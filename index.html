@@ -50,7 +50,7 @@ var svg1 = d3.select("body")
 
 /* Data in strings like it would be if imported from a csv */
 
-var data = function() {
+var teamdata = function() {
 return d3.json('data.json',function (data) { 
 	var filteredData =  data.filter(function(d) {if( d.Team === "GOL") {return d};});
 	var data = [];
@@ -58,9 +58,10 @@ return d3.json('data.json',function (data) {
   	var dataObj = {
       	"ppg"  : str.PPG,
       	"rpg"  : str.RPG,
+      	"mpg"  : str.MPG,
       	"apg"  : str.APG,
       	"spg"  : str.SPG,
-      	"name" : str.Name
+      	"date" : str.Name
     }
     data.push(dataObj);
   });	
@@ -70,7 +71,7 @@ return d3.json('data.json',function (data) {
 }
 // Transpose the data into layers
 var dataset = d3.layout.stack()(["ppg", "rpg", "apg", "spg"].map(function(stat) {
-  return data.map(function(d) {
+  return teamdata.map(function(d) {
     return {x: d.name, y: +d[stat]};
   });
 }));
