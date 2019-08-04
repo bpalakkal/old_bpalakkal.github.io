@@ -11,6 +11,7 @@
 <div class="chartArea"></div>
 <script>
 populateTablePPG("Points Per Game")
+
 var margin = {top: 10, right: 10, bottom: 10, left: 10}
 var width = 1300 - margin.left - margin.right, height = 800 - margin.top - margin.bottom	
 var svg1 = d3.select("body").select(".chartArea").append("svg")
@@ -18,7 +19,20 @@ var svg1 = d3.select("body").select(".chartArea").append("svg")
       .attr("height", height + margin.top + margin.bottom)      
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
- var svgtext = svg1.append("text")
+<select class = "option" id = "dropdownArea"></select>
+d3.select(".dropdownArea")
+    .append("option")
+    .attr("value", "chart1")
+    .text("Chart 1");
+d3.select(".dropdownArea")
+    .append("option")
+    .attr("value", "chart2")
+    .text("Chart 2");
+d3.select(".dropdownArea")
+    .append("option")
+    .attr("value", "chart3")
+    .text("Chart 3");
+var svgtext = svg1.append("text")
        .attr("x",(width/2))
        .attr("y",(margin.top*2))
     	.style("text-anchor","middle")
