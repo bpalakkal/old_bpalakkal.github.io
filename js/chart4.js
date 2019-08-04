@@ -78,7 +78,7 @@ d3.json("Roster.json", function(error, data) {
     
 	g.append("g")
         .attr("class", "x axis")
-       	.attr("transform", "translate(0," + height + ")")
+       	.attr("transform", "translate(0," + 480 + ")")
       	.call(xAxis);
 
     	g.append("g")
