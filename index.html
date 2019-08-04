@@ -64,7 +64,7 @@ var y = d3.scale.linear()
   .domain([0, d3.max(dataset, function(d) {  return d3.max(d, function(d) { return d.y0 + d.y; });  })])
   .range([400, 0]);
 
-var colors = ["#2e4fa1", "#bb469d", "#ff5963", "#ffa600"];
+var colors = ["#a30622", "#c9441e", "#e87413", "#ffa600"];
 
 // Define and draw axes
 var yAxis = d3.svg.axis()
@@ -91,7 +91,7 @@ svg1.append("g")
 .selectAll("text")	
     .attr("y", 0)
     .attr("x", 9)
-    .attr("dy", ".35em")
+    .attr("dy", ".15em")
     .attr("transform", "rotate(90)")
     .style("fill","#FFFFFF")	
     .style("text-anchor", "start");
