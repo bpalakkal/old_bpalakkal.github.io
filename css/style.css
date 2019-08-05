@@ -57,7 +57,7 @@ h1{
 
 .fixed_header{
     width: 400px;
-    table-layout: fixed;
+    table-layout: block;
     border-collapse: collapse;
 }
 
