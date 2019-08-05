@@ -54,6 +54,12 @@ h1{
   position: relative;
   left: 2%;
 }
+.fixed_header{
+    width: 400px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
 .chartArea table {
   position: absolute;
   top: 30px;
@@ -63,16 +69,27 @@ h1{
   font: 10px sans-serif;
   overflow-y: auto;
 }
+
 table a:link, a:visited { text-decoration: none; }
 table a:hover, a:active { text-decoration: underline; }
 table, th, td { border: 1px solid black; }
-tbody{   
-   overflow:auto !important;   
-   height: 400 !important;
+.fixed_header tbody{   
+  display:block !important;
+  width: 100% !important;
+  overflow: auto !important;
+  height: 100px !important;
 }
-td, th {
+.fixed_header tr{
+display: block;
+}
+.fixed_header thead{
+  background: black;
+  color:#fff;}
+
+.fixed_header th, .fixed_header td {
   padding: 5px !important;
   text-align: center !important;
+  width: 200px;
   height: 20px !important;  
   min-width: 100px !important;
   font: 12px sans-serif !important;
