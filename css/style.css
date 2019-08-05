@@ -97,7 +97,7 @@ td, th {
   padding: 5px !important;
   text-align: center !important;
   height: 20px !important;  
-  min-width: 105px !important;
+  min-width: 100px !important;
   font: 12px sans-serif !important;
 }
 th {  
