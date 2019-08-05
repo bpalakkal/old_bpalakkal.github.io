@@ -54,39 +54,6 @@ h1{
   position: relative;
   left: 2%;
 }
-
-.fixed_header{
-    width: 400px;
-    table-layout: fixed;
-    border-collapse: collapse;
-}
-
-.fixed_header tbody{
-  display:block;
-  overflow: auto;
-  height: 100px;
-}
-
-.fixed_header thead, tbody tr, tfoot {
-display:table;
-width:100%;
-table-layout:fixed;
-}
-
-
-.fixed_header thead {
-  background: black;
-  color:#fff;
-}
-
-.fixed_header th, .fixed_header td {
-  padding: 5px;
-  text-align: center !important;
-  text-align: left;
-  width: 200px;
-  font: 12px sans-serif !important;
-}
-
 .chartArea table {
   position: absolute;
   top: 30px;
@@ -99,7 +66,17 @@ table-layout:fixed;
 table a:link, a:visited { text-decoration: none; }
 table a:hover, a:active { text-decoration: underline; }
 table, th, td { border: 1px solid black; }
-
+tbody{   
+   overflow:auto !important;   
+   height: 400 !important;
+}
+td, th {
+  padding: 5px !important;
+  text-align: center !important;
+  height: 20px !important;  
+  min-width: 100px !important;
+  font: 12px sans-serif !important;
+}
 th {  
   background-color: #17408B !important;
   color: #d9f0a3 !important;
