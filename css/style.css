@@ -85,6 +85,7 @@ table, th, td { border: 1px solid black; }
 display: block;
 }
 .fixed_header thead{
+  display:block;
   background: black;
   color:#fff;}
 
