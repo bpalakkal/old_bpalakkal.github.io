@@ -579,6 +579,7 @@ table.selectAll("tr").on("click",function(d,i){
     for(var i = 0; i < trs.length; i++){
     trs[i].addEventListener("click", function(){this.className += " selected";});
     }	    
+    playerNameMain = d	
     val = document.getElementById("nbachart1").value
     if (document.getElementById("nbachart1").checked)
 	    {showPlayerInfo (d)}
