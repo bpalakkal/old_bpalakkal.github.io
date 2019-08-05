@@ -22,7 +22,7 @@ while(div.firstElementChild){
  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");	
 */
 var html = '<div class="row" style="margin-right: 15px;margin-left: 15px;margin-top: 30px">'+
-            '<div class="col" style="max-width: 30%;"> <img style="height:200px" src = "' + filteredData[0]["imgURL"] +'"></img> </div>'+
+            '<div class="col" style="max-width: 30%;"><text font-size:16px>' + d.name + ' </text>  <img style="height:200px" src = "' + filteredData[0]["imgURL"] +'"></img> </div>'+
             '<div class="col" ><text font-size:16px> Shot Attempts </text> <div id="chart"> </div> </div> ' +
       '<div class="col" > <text font-size:16px> Shots Made </text> <div id="chart2"> </div> </div> ' +
       '<div class="col" > <text font-size: 16px>Shot Range (%)<div id="chart3"> </div> </div>  </div>' +
