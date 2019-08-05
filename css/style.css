@@ -54,7 +54,7 @@ h1{
   position: relative;
   left: 2%;
 }
-.fixed_header {
+.fixed_header{
     width: 400px;
     table-layout: fixed;
     border-collapse: collapse;
@@ -75,24 +75,30 @@ table a:link, a:visited { text-decoration: none; }
 table a:hover, a:active { text-decoration: underline; }
 
 table, th, td { border: 1px solid black; }
-.fixed_header tbody{   
-  display:block !important;  
-  overflow: auto !important;
-  height: 100px !important;
+.fixed_header tbody{
+  display:block;
+  width: 100%;
+  overflow: auto;
+  height: 100px;
 }
 
-.fixed_header tr{
-display: block;
+.fixed_header thead tr {
+   display: block;
 }
-.fixed_header thead{
-  display:block;
+.fixed_header thead {
   background: black;
-  color:#fff;}
+  color:#fff;
+}
+
+.fixed_header th, .fixed_header td {
+  padding: 5px;
+  text-align: left;
+  width: 200px;
+}
 
 fixed_header td {
   padding: 5px !important;
   text-align: center !important;
-  width: 180px;
   height: 20px !important;  
   min-width: 80px !important;
   font: 12px sans-serif !important;
@@ -100,7 +106,6 @@ fixed_header td {
 th {  
   padding: 5px !important;
   text-align: center !important;
-  width: 180px;
   height: 20px !important;  
   min-width: 80px !important;
   font: 12px sans-serif !important;
