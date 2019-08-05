@@ -113,7 +113,15 @@ tr:hover td { background-color: #C9082A !important; }
 tr:selected td {
   background: none repeat scroll 0 0 #FFCF8B !important;
   color: #000000 !important;}
-  
+
+	th.des:after {
+      content: "\21E9";
+    }
+    
+    th.aes:after {
+      content: "\21E7";
+    }
+
 .bar {
   fill: #80cbc4;
 }
