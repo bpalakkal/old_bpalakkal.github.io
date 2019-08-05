@@ -90,7 +90,7 @@ display: block;
 fixed_header td {
   padding: 5px !important;
   text-align: center !important;
-  width: 200px;
+  width: 180px;
   height: 20px !important;  
   min-width: 100px !important;
   font: 12px sans-serif !important;
@@ -98,7 +98,7 @@ fixed_header td {
 th {  
   padding: 5px !important;
   text-align: center !important;
-  width: 200px;
+  width: 180px;
   height: 20px !important;  
   min-width: 100px !important;
   font: 12px sans-serif !important;
