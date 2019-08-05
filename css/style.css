@@ -69,7 +69,7 @@ table thead tr{
 }
 
 table th,table td{
-    width:105px;//fixed width
+    width:110px;//fixed width
 }
 
 
@@ -97,7 +97,7 @@ td, th {
   padding: 5px !important;
   text-align: center !important;
   height: 20px !important;  
-  min-width:105px;
+  min-width:110px;
   font: 12px sans-serif !important;
 }
 th {  
