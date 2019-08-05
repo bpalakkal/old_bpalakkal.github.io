@@ -177,6 +177,7 @@ d3.json("data.json", function(data) { // loading data from server
         // even number of clicks
         if (clicks.name % 2 == 0) {
           // sort ascending: alphabetically
+	 this.className = 'aes';	
           rows.sort(function(a,b) { 
             if (a.Name.toUpperCase() < b.Name.toUpperCase()) { 
               return -1; 
@@ -188,6 +189,7 @@ d3.json("data.json", function(data) { // loading data from server
           });
         // odd number of clicks  
         } else if (clicks.name % 2 != 0) { 
+		this.className = 'des';
           // sort descending: alphabetically
           rows.sort(function(a,b) { 
             if (a.Name.toUpperCase() < b.Name.toUpperCase()) { 
