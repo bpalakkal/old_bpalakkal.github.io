@@ -57,7 +57,7 @@ h1{
 
 .fixed_header{
     width: 400px;
-    table-layout: block;
+    table-layout: fixed;
     border-collapse: collapse;
 }
 
@@ -67,7 +67,7 @@ h1{
   height: 100px;
 }
 
-thead, tbody tr, tfoot {
+.fixed_header thead, tbody tr, tfoot {
 display:table;
 width:100%;
 table-layout:fixed;
