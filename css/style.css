@@ -75,8 +75,7 @@ table a:hover, a:active { text-decoration: underline; }
 
 table, th, td { border: 1px solid black; }
 .fixed_header tbody{   
-  display:block !important;
-  width: 100% !important;
+  display:block !important;  
   overflow: auto !important;
   height: 100px !important;
 }
