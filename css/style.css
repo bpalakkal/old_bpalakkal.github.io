@@ -43,7 +43,7 @@ h1{
   top:10px !important;  
   position: absolute !important;
   font: 12px sans-serif !important;  
-  overflow:auto !important;
+  
 }
 .SearchBar { 
   display: inline; 
