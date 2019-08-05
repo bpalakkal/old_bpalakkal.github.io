@@ -42,8 +42,8 @@ h1{
   height: 400 !important;
   top:10px !important;  
   position: absolute !important;
-  font: 12px sans-serif !important;  
-  overflow:auto !important;
+  font: 12px sans-serif !important; 
+
 }
 .SearchBar { 
   display: inline; 
@@ -97,7 +97,7 @@ td, th {
   padding: 5px !important;
   text-align: center !important;
   height: 20px !important;  
-  min-width: 120px !important;
+  min-width: 105px !important;
   font: 12px sans-serif !important;
 }
 th {  
